@@ -4,8 +4,8 @@
 This career guidance chatbot, built using the Gemini API, utilizes Firebase as the database. It provides personalized career insights, aptitude tests to assess unique skills, and facilitates appointments for one-on-one sessions with a personal career guide.
 
 
-![Home Interface](![image](https://github.com/user-attachments/assets/17d7bf22-e0f3-46ff-91be-6024bf7ed2a7)
-)
+![Home Interface](https://github.com/user-attachments/assets/17d7bf22-e0f3-46ff-91be-6024bf7ed2a7)
+
 
 ![Login Page](![image](https://github.com/user-attachments/assets/93a34a39-759a-402d-9544-c20214c56f3b)
 )
