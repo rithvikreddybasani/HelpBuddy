@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test Entry Form</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='demo.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Test Entry Form</h2>
+      <form id="entryForm">
+        <div class="form-group">
+          <label for="education">Type of Education</label>
+          <select id="education" name="education" required>
+            <option value="10th">10th</option>
+            <option value="12th">12th</option>
+            <option value="Higher">Higher</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        get,
+        update,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+      // Your web app's Firebase configuration
+      // Add your Firebase configuration here
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+        authDomain: "careerchatbot-a0647.firebaseapp.com",
+        projectId: "careerchatbot-a0647",
+        storageBucket: "careerchatbot-a0647.appspot.com",
+        messagingSenderId: "783848410278",
+        appId: "1:783848410278:web:7b7c8481914ffce3357867",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const status = false;
+
+      //get ref to database services
+      const db = getDatabase(app);
+      const dbRef = ref(db);
+
+      document.getElementById("submit").addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const markValues = {
+          NA: 0,
+          AR: 0,
+          VR: 0,
+          SA: 0,
+          MR: 0,
+          PA: 0,
+          LA: 0,
+        };
+        const id = localStorage.getItem("user-id");
+
+        get(child(dbRef, "users/" + id)).then((snapshot) => {
+          if (snapshot.exists()) {
+            if (snapshot.val().Status == true) {
+              alert("You have completed your test");
+              window.location.href = "{{ url_for('result') }}";
+            } else {
+              update(ref(db, "users/" + id), {
+                Education: document.getElementById("education").value,
+                Status: status,
+                Marks: markValues,
+              })
+                .then(() => {
+                  if (document.getElementById("education").value === "10th") {
+                    console.log("Redirecting to tenth.html");
+                    window.location.href = "{{ url_for('ten') }}";
+                  } else if (
+                    document.getElementById("education").value === "12th"
+                  ) {
+                    console.log("Redirecting to Hss/twelth.html");
+                    window.location.href = "{{ url_for('twe') }}";
+                  } else if (
+                    document.getElementById("education").value === "Higher"
+                  ) {
+                    console.log("Redirecting to proff/proof.html");
+                    window.location.href = "{{ url_for('high') }}";
+                  } else {
+                    console.log("Invalid education type:", education);
+                    alert("Invalid education type.");
+                  }
+                })
+                .catch((error) => {
+                  alert("Unsuccessful");
+                  console.log(error);
+                });
+            }
+          }
+        });
+      });
+
+      // Function to be executed when the button is clicked
+    </script>
+  </body>
+</html>

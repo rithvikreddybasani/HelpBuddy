@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Family Doctor</title>
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesy.css')}}" />
+</head>
+
+<body>
+
+  <div class="header">
+    
+    <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+        <div class="container"><a class="navbar-brand" href="#">Voca Vision</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav">
+                    
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="#services" style="color: black;">Services</a>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="#reviews" style="color: black;">Testimonial</a>
+                    </li>
+                   
+
+                 
+                  
+                    <!-- <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+   
+    <div class="container hero">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                <h1>Exceptional Career Guidance for Every Stage of Your Journey.</h1>
+                <p> At our Career Center, we blend top-tier expertise with empathetic support, ensuring your professional success. </p>
+                    <a href="{{ url_for('appoint') }}" class="btn btn-light btn-lg action-button" type="button">Book an appointment</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <section id="services">
+  <div class="bg-primary text-center py-5 mb-4">
+      <div class="container">
+        <h1 class="fw-light text-white">Services</h1>
+        <p class="overview">We provide personalized and expert guidance to empower you on your professional journey. Your aspirations are our priority. Partner with us as you navigate your career path.</p>
+      </div>
+    </div> -->
+  <!-- <div class="container">
+    <div class="row"> -->
+      <!-- Team Member 1 -->
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="/img/service1.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Career Assessments</h5>
+            <div class="card-text text-black-50">Navigate with personalized guidance.</div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Team Member 2 -->
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="/img/service2.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Resume and Cover Letter Writing</h5>
+            <div class="card-text text-black-50">Tell your story with precision..</div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Team Member 3 -->
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="/img/service3.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Job Search Strategies</h5>
+            <div class="card-text text-black-50">Discover your dream career path.</div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Team Member 4 -->
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="/img/service4.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Interview Preparation</h5>
+            <div class="card-text text-black-50">Elevate your job search skills.</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- /.row -->
+  
+  </div>
+</section>
+<!-- 
+<section class="text-center conatiner" style="margin-block:200px;" id="reviews">
+    <h2>Satisfied Patients</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+         Carousel indicators -->
+        <!-- <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>    -->
+        <!-- Wrapper for carousel items -->
+        <!-- <div class="carousel-inner">		
+            <div class="carousel-item active">
+                <div class="img-box"><img src="/img/patient1.jpg" alt=""></div>
+                <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
+                <p class="overview">Michael Holz</p>
+            </div>
+            <div class="carousel-item">
+                <div class="img-box"><img src="/img/patient2.jpg" alt=""></div>
+                <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum idac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+                <p class="overview">Antonio Moreno</p>
+            </div>
+            <div class="carousel-item">
+                <div class="img-box"><img src="/img/patient3.jpg" alt=""></div>
+                <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit.</p>
+                <p class="overview">Paula Wilson</p>
+                
+            </div>		
+        </div>
+
+    </div>
+
+</section> --> 
+
+
+
+
+
+
+
+
+
+
+  <!--  JQuery  -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!--  Bootstrap tooltips  -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!--  Bootstrap core JavaScript  -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  
+ 
+</body>
+
+</html>

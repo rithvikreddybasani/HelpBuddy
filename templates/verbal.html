@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbal Reasoning Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div id="quiz-container">
+    <h1>Verbal Reasoning Test</h1>
+    <form id="quiz-form">
+        <!-- Questions and Options -->
+        <ol>
+            <li>
+                <p>Arrange the words given below in a meaningful sequence.</p>
+                <p> 1. Word &nbsp;&nbsp; 2. Paragraph&nbsp;&nbsp; 3. Sentence <br>
+                    4. Letters &nbsp;&nbsp;5. Phrase
+                </p>
+                <label><input type="radio" name="q1" value="a"> a) 5, 1, 2, 4, 3</label>
+                <label><input type="radio" name="q1" value="b"> b) 4, 2, 1, 5, 3</label>
+                <label><input type="radio" name="q1" value="c"> c) 1, 3, 2, 4, 5</label>
+                <label><input type="radio" name="q1" value="d"> d) 1, 2, 3, 5, 4</label>
+            </li>
+            <li>
+                <p>Arrange the words given below in a meaningful sequence.</p>
+                <p> 1. Never &nbsp;&nbsp; 2. Sometimes &nbsp;&nbsp; 3. Generally &nbsp;&nbsp; 4. Seldom &nbsp;&nbsp; 5.
+                    Always &nbsp;&nbsp;</p>
+                <label><input type="radio" name="q2" value="a"> a) 5, 2, 1, 3, 4</label>
+                <label><input type="radio" name="q2" value="b"> b) 5, 2, 4, 3, 1</label>
+                <label><input type="radio" name="q2" value="c"> c) 5, 3, 2, 1, 4</label>
+                <label><input type="radio" name="q2" value="d"> d) 5, 3, 2, 4, 1</label>
+            </li>
+            <li>
+                <p>Pointing to a photograph of a boy Suresh said, "He is the son of the only son of my mother." How is
+                    Suresh related to that boy?</p>
+                <label><input type="radio" name="q3" value="a"> a) Brother</label>
+                <label><input type="radio" name="q3" value="b"> b) Uncle</label>
+                <label><input type="radio" name="q3" value="c"> c) Cousin</label>
+                <label><input type="radio" name="q3" value="d"> d) Father </label>
+            </li>
+            <li>
+                <p> Introducing a boy, a girl said, "He is the son of the daughter of the father of my uncle." How is
+                    the boy related to the girl?</p>
+                <label><input type="radio" name="q4" value="a"> a) Brother </label>
+                <label><input type="radio" name="q4" value="b"> b) Nephew</label>
+                <label><input type="radio" name="q4" value="c"> c) Uncle</label>
+                <label><input type="radio" name="q4" value="d"> d) Son-in-law</label>
+            </li>
+            <li>
+                <p><b>Statements:</b> Some actors are singers. All the singers are dancers.
+
+                    <br><br> <b>Conclusions:</b><br><br>
+                <ol>
+                    <li> Some actors are dancers.</li>
+                    <li> No singer is actor.</li>
+                </ol>
+                </p>
+                <label><input type="radio" name="q5" value="a"> a) Only (1) conclusion follows</label>
+                <label><input type="radio" name="q5" value="b"> b) Only (2) conclusion follows </label>
+                <label><input type="radio" name="q5" value="c"> c) Either (1) or (2) follows </label>
+                <label><input type="radio" name="q5" value="d"> d) Both (1) and (2) follow </label>
+            </li>
+            <li>
+                <p><b>Statements:</b> All the locks are keys. All the keys are bats. Some watches are bats.
+
+                    <br><br> <b>Conclusions:</b><br><br>
+                <ol>
+                    <li> Some bats are locks.</li>
+                    <li> Some watches are keys.</li>
+                    <li>All the keys are locks.</li>
+                </ol>
+                </p>
+                <label><input type="radio" name="q6" value="a"> a) Only (1) and (2) </label>
+                <label><input type="radio" name="q6" value="b"> b) Only (1) </label>
+                <label><input type="radio" name="q6" value="c"> c) Only (2) </label>
+                <label><input type="radio" name="q6" value="d"> d) Only (1) and (3)</label>
+            </li>
+            <li>
+                <p>CUP : LIP :: BIRD : ?</p>
+                <label><input type="radio" name="q7" value="a"> a) BUSH </label>
+                <label><input type="radio" name="q7" value="b"> b) GRASS </label>
+                <label><input type="radio" name="q7" value="c"> c) FOREST </label>
+                <label><input type="radio" name="q7" value="d"> d) BEAK </label>
+            </li>
+            <li>
+                <p>Peacock : India :: Bear : ?</p>
+                <label><input type="radio" name="q8" value="a"> a) Australia </label>
+                <label><input type="radio" name="q8" value="b"> b) America </label>
+                <label><input type="radio" name="q8" value="c"> c) Russia </label>
+                <label><input type="radio" name="q8" value="d"> d) England </label>
+            </li>
+            <li>
+                <p> Amongst the alternatives, pick up the pair that best illustrate a similar relationship.
+                    <br><br>Glove : Hand
+                </p>
+                <label><input type="radio" name="q9" value="a"> a) Neck : Collar </label>
+                <label><input type="radio" name="q9" value="b"> b) Tie : Shirt </label>
+                <label><input type="radio" name="q9" value="c"> c) Socks : Feet </label>
+                <label><input type="radio" name="q9" value="d"> d) Coat : Pocket </label>
+            </li>
+            <li>
+                <p>Amongst the alternatives, pick up the pair that best illustrate a similar relationship.
+                    <br><br>Lawyer : Court
+                </p>
+                <label><input type="radio" name="q10" value="a"> a) Chemist : Laboratory</label>
+                <label><input type="radio" name="q10" value="b"> b) Businessman : Office </label>
+                <label><input type="radio" name="q10" value="c"> c) Labour : Factory </label>
+                <label><input type="radio" name="q10" value="d"> d) Athlete : Olympics </label>
+            </li>
+            <li>
+                <p>Choose the word which is different from the rest.</p>
+                <label><input type="radio" name="q11" value="a"> a) Chicken </label>
+                <label><input type="radio" name="q11" value="b"> b) Swan </label>
+                <label><input type="radio" name="q11" value="c"> c) Crocodile </label>
+                <label><input type="radio" name="q11" value="d"> d) Frog </label>
+            </li>
+            <li>
+                <p>Choose the word which is different from the rest.</p>
+                <label><input type="radio" name="q12" value="a"> a) Cap </label>
+                <label><input type="radio" name="q12" value="b"> b) Turban </label>
+                <label><input type="radio" name="q12" value="c"> c) Helmet </label>
+                <label><input type="radio" name="q12" value="d"> d) Veil</label>
+            </li>
+            <li>
+                <p>Choose the word which is different from the rest.</p>
+                <label><input type="radio" name="q13" value="a"> a) Kiwi </label>
+                <label><input type="radio" name="q13" value="b"> b) Eagle </label>
+                <label><input type="radio" name="q13" value="c"> c) Emu </label>
+                <label><input type="radio" name="q13" value="d"> d) Ostrich </label>
+            </li>
+            <li>
+                <p>
+                    Choose the word which is different from the rest.</p>
+                <label><input type="radio" name="q14" value="a"> a) Curd</label>
+                <label><input type="radio" name="q14" value="b"> b) Butter </label>
+                <label><input type="radio" name="q14" value="c"> c) Oil </label>
+                <label><input type="radio" name="q14" value="d"> d) Cheese </label>
+            </li>
+            <li>
+                <p>Choose the word which is different from the rest.</p>
+                <label><input type="radio" name="q15" value="a"> a) Sparrow </label>
+                <label><input type="radio" name="q15" value="b"> b) Swan </label>
+                <label><input type="radio" name="q15" value="c"> c) Parrot </label>
+                <label><input type="radio" name="q15" value="d"> d) Koel </label>
+            </li>
+            <li>
+                <p>Choose the word which is different from the rest.</p>
+                <label><input type="radio" name="q16" value="a"> a) Tall</label>
+                <label><input type="radio" name="q16" value="b"> b) Huge </label>
+                <label><input type="radio" name="q16" value="c"> c) Sharp </label>
+                <label><input type="radio" name="q16" value="d"> d) Small </label>
+            </li>
+            <li>
+                <p>A train always has</p>
+                <label><input type="radio" name="q17" value="a"> a) Rails </label>
+                <label><input type="radio" name="q17" value="b"> b) Driver </label>
+                <label><input type="radio" name="q17" value="c"> c) Guard </label>
+                <label><input type="radio" name="q17" value="d"> d) Engine </label>
+            </li>
+            <li>
+                <p>Which one of the following is always found in 'Bravery'?</p>
+                <label><input type="radio" name="q18" value="a"> a) Experience </label>
+                <label><input type="radio" name="q18" value="b"> b) Power </label>
+                <label><input type="radio" name="q18" value="c"> c) Courage </label>
+                <label><input type="radio" name="q18" value="d"> d) Knowledge </label>
+            </li>
+            <li>
+                <p>A song always has</p>
+                <label><input type="radio" name="q19" value="a"> a) Word </label>
+                <label><input type="radio" name="q19" value="b"> b) Chorus</label>
+                <label><input type="radio" name="q19" value="c"> c) Musician </label>
+                <label><input type="radio" name="q19" value="d"> d) Tymbal </label>
+            </li>
+
+
+            <li>
+                <p>Yesterday I saw an ice cube which had already melted due to heat of a nearby furnace.</p>
+                <label><input type="radio" name="q20" value="a"> a) Always</label>
+                <label><input type="radio" name="q20" value="b"> b) Never</label>
+                <label><input type="radio" name="q20" value="c"> c) Often</label>
+                <label><input type="radio" name="q20" value="d"> d) Sometimes</label>
+            </li>
+            <li>
+                <p>What is found necessarily in milk?</p>
+                <label><input type="radio" name="q21" value="a"> a) Cream</label>
+                <label><input type="radio" name="q21" value="b"> b) Curd</label>
+                <label><input type="radio" name="q21" value="c"> c) Water</label>
+                <label><input type="radio" name="q21" value="d"> d) Whiteness</label>
+            </li>
+            <li>
+                <p>Which one of the following is always with 'Bargain'?</p>
+                <label><input type="radio" name="q22" value="a"> a) Exchange</label>
+                <label><input type="radio" name="q22" value="b"> b) Sumptuousness</label>
+                <label><input type="radio" name="q22" value="c"> c) Triviality</label>
+                <label><input type="radio" name="q22" value="d"> d) Eloquence</label>
+            </li>
+            <li>
+                <p>Which one of the following a 'Drama' must have? </p>
+                <label><input type="radio" name="q23" value="a"> a) Actors</label>
+                <label><input type="radio" name="q23" value="b"> b) Story</label>
+                <label><input type="radio" name="q23" value="c"> c) Sets</label>
+                <label><input type="radio" name="q23" value="d"> d) Director </label>
+            </li>
+            <li>
+                <p>
+                    A boy is sitting at the back seat of a car. When the driver suddenly starts moving the car (in
+                    forward direction), the boy experiences a backward force?</p>
+                <label><input type="radio" name="q24" value="a"> a) Always </label>
+                <label><input type="radio" name="q24" value="b"> b) Never</label>
+                <label><input type="radio" name="q24" value="c"> c) Often</label>
+                <label><input type="radio" name="q24" value="d"> d) Often</label>
+            </li>
+            <li>
+                <p>A bulb always has
+                </p>
+                <label><input type="radio" name="q25" value="a"> a) Glass </label>
+                <label><input type="radio" name="q25" value="b"> b) Current </label>
+                <label><input type="radio" name="q25" value="c"> c) Filament </label>
+                <label><input type="radio" name="q25" value="d"> d) Light </label>
+            </li>
+            <li>
+                <p>A mirror always.</p>
+                <label><input type="radio" name="q26" value="a"> a) Retracts </label>
+                <label><input type="radio" name="q26" value="b"> b) Distorts </label>
+                <label><input type="radio" name="q26" value="c"> c) Refracts </label>
+                <label><input type="radio" name="q26" value="d"> d) Reflects</label>
+            </li>
+            <li>
+                <p>A lotus flower always has</p>
+                <label><input type="radio" name="q27" value="a"> a) Mud </label>
+                <label><input type="radio" name="q27" value="b"> b) Petals </label>
+                <label><input type="radio" name="q27" value="c"> c) Root </label>
+                <label><input type="radio" name="q27" value="d"> d) Water </label>
+            </li>
+            <li>
+                <p>A car always has</p>
+
+                <label><input type="radio" name="q28" value="a"> a) Driver</label>
+                <label><input type="radio" name="q28" value="b"> b) Wheels </label>
+                <label><input type="radio" name="q28" value="c"> c) Bonnet </label>
+                <label><input type="radio" name="q28" value="d"> d) Bumper </label>
+            </li>
+            <li>
+                <p>A disease always has</p>
+                <label><input type="radio" name="q29" value="a"> a) Cure </label>
+                <label><input type="radio" name="q29" value="b"> b) Germs </label>
+                <label><input type="radio" name="q29" value="c"> c) Cause </label>
+                <label><input type="radio" name="q29" value="d"> d) Patient </label>
+            </li>
+            <li>
+                <p>What is found necessarily in newspaper?</p>
+                <label><input type="radio" name="q30" value="a"> a) Date</label>
+                <label><input type="radio" name="q30" value="b"> b) Advertisement </label>
+                <label><input type="radio" name="q30" value="c"> c) News </label>
+                <label><input type="radio" name="q30" value="d"> d) Editor </label>
+            </li>
+        </ol>
+
+
+
+
+        <button type="button" id="submit"  >Show Result</button>
+        <button type="button" id="done" onclick="sendResults()">Submit</button> 
+        <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+        <div id="chart-container">
+            <h2> Results</h2>
+            <canvas id="quizChart" width="400" height="400"></canvas>
+        </div>
+        <div id="timer-container">
+            <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+
+            const answers = {
+                q1: "c",
+                q2: "d",
+                q3: "d",
+                q4: "a",
+                q5: "a",
+                q6: "b",
+                q7: "d",
+                q8: "c",
+                q9: "c",
+                q10: "a",
+                q11: "d",
+                q12: "a",
+                q13: "b",
+                q14: "c",
+                q15: "b",
+                q16: "c",
+                q17: "d",
+                q18: "c",
+                q19: "a",
+                q20: "b",
+                q21: "d",
+                q22: "a",
+                q23: "b",
+                q24: "a",
+                q25: "c",
+                q26: "d",
+                q27: "b",
+                q28: "b",
+                q29: "c",
+                q30: "c"
+
+            };
+
+            function getCorrectAnswer(questionNumber) {
+                return answers['q' + questionNumber];
+            }
+
+            document.getElementById("submit").addEventListener('click', function(e){
+                // Logic to calculate quiz results (count correct, incorrect, unattended)
+                var totalQuestions = 30;
+                var correctAnswers = 0;
+                var unattendedQuestions = 0;
+
+                for (var i = 1; i <= totalQuestions; i++) {
+                    var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                    if (selectedOption) {
+                        var userAnswer = selectedOption.value;
+                        var correctAnswer = getCorrectAnswer(i);
+
+                        // Compare user's answer with correct answer
+                        if (userAnswer === correctAnswer) {
+                            correctAnswers++;
+                        }
+                    } else {
+                        // If no option is selected, question is unattended
+                        unattendedQuestions++;
+                    }
+                }
+
+                var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+                var totalAttempts = correctAnswers + incorrectAnswers;
+
+                // Calculate percentages
+                var correctPercentage = (correctAnswers / totalQuestions) * 100;
+                var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+                var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+                // Display pie chart
+                displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+              
+            })
+
+            function displayPieChart(correct, incorrect, unattended) {
+                var ctx = document.getElementById('quizChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                        datasets: [{
+                            data: [correct, incorrect, unattended],
+                            backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                        }],
+                    },
+                });
+            }
+            const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+const remainingTime = localStorage.getItem(`timer3`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+let flag=0;
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timer3');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+            localStorage.setItem('timer3', timer);
+            flag=0;
+        }
+        
+    }
+}
+function home(){
+            window.location.href="{{ url_for('high') }}";
+
+        }
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('VR',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('link3',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+
+// Start the timer when the page loads
+startTimer();
+        </script>
+</body>
+
+</html>

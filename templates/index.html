@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>HelpBuddy</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="text/css"
+      href="{{ url_for('static', filename='img/buddylogo.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      type="text/css"
+      href="{{ url_for('static', filename='img/buddylogo.png') }}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/aos/aos.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <!--   <svg class="line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <path d="M 10 30 C 40 10, 65 10, 95 30 S 150 70, 95 90"/>
+    <path d="M 10 70 C 40 90, 65 90, 95 70 S 150 30, 95 10"/>
+</svg> -->
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light">
+            <a href="/"><span>HelpBuddy</span></a>
+          </h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!--  <a href="index.html"><img src="assets/img/favicon.png" alt="" class="img-fluid"></a> -->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="/">Home</a></li>
+            <li><a class="nav-link scrollto" href="/#about">About Us</a></li>
+            <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+
+            <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+            <li>
+              <a class="getstarted scrollto" href="/loginregpage"
+                >Get Started</a
+              >
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+      <div class="container">
+        <div class="row gy-4">
+          <div
+            class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
+          >
+            <h1>HelpBuddy</h1>
+            <h2>Your Personal Guide to Academic Success</h2>
+            <div>
+              <a href="/loginregpage" class="btn-get-started scrollto"
+                >Get Started</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <img
+              src="{{ url_for('static', filename='img/hero-img.svg') }}"
+              class="img-fluid animated"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div
+              class="col-lg-5 d-flex align-items-center justify-content-center about-img"
+            >
+              <img
+                src="{{ url_for('static', filename='img/about-img.svg') }}"
+                class="img-fluid"
+                alt=""
+                data-aos="zoom-in"
+              />
+            </div>
+            <div class="col-lg-6 pt-5 pt-lg-0">
+              <h3 data-aos="fade-up">Your Academic Success Companion</h3>
+              <p data-aos="fade-up" data-aos-delay="100">
+                Welcome to our Academic Advisor Chatbot! We are dedicated to
+                providing you with personalized support and guidance throughout
+                your academic journey.
+              </p>
+              <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Personalized Recommendations</h4>
+                  <p>
+                    Get tailored advice on course selections, program
+                    requirements, and academic planning.
+                  </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Expert Guidance</h4>
+                  <p>
+                    Our chatbot provides expert assistance to help you navigate
+                    through academic challenges.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Chatbot Services</h2>
+            <p>Explore the services offered by our Academic Advisor Chatbot</p>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-md-6 col-lg-3 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-chat"></i></div>
+                <h4 class="title"><a href="">Personalized Guidance</a></h4>
+                <p class="description">
+                  Receive personalized guidance from our chatbot to help you
+                  navigate academic challenges and make informed decisions about
+                  your education.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-md-6 col-lg-3 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-search"></i></div>
+                <h4 class="title"><a href="">Course Recommendations</a></h4>
+                <p class="description">
+                  Discover the best courses for your program and interests. Our
+                  chatbot provides tailored recommendations to help you build a
+                  well-rounded academic schedule.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-md-6 col-lg-3 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-calendar"></i></div>
+                <h4 class="title"><a href="">One-On-One</a></h4>
+                <p class="description">
+                  If you want One - on -One interaction with our guide? We
+                  provide One-On-One Personal guidance from our qualified
+                  faculty by taking appointment.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-md-6 col-lg-3 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-help-circle"></i></div>
+                <h4 class="title"><a href="">Academic Support</a></h4>
+                <p class="description">
+                  Need help with a challenging assignment or academic concept?
+                  Our chatbot is here to provide additional resources,
+                  explanations, and support to enhance your learning experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+      <!--  --><!-- End Team Section -->
+
+      <!-- ======= Contact Us Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Contact us the get started</p>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-lg-5 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>Location</p>
+                </div>
+
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>email</p>
+                </div>
+
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>number</p>
+                </div>
+
+                <!-- You can add your embedded code of google maps here -->
+              </div>
+            </div>
+            <!-- if you want Uncomment this -->
+            <!-- <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <form action="/feedback" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div> -->
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Us Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer"></footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/aos/aos.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"
+    ></script>
+
+    <!-- Template Main JS File -->
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+  </body>
+</html>

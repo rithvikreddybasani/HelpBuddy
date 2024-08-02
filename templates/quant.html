@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Aptitude Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        ol {
+            list-style-type: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #DDD;
+        }
+
+        tr:hover {
+            background-color: #D6EEEE;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    img{
+        width: 60%;
+        height: 60%;
+    }
+   
+    </style>
+</head>
+
+<body>
+
+    <div id="quiz-container">
+        <h1>Numerical Aptitude Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <li>
+                    <p>1. What is the result of 5×(8−3)?</p>
+                    <label><input type="radio" name="q1" value="a"> a) 30</label>
+                    <label><input type="radio" name="q1" value="b"> b) 25</label>
+                    <label><input type="radio" name="q1" value="c"> c) 40</label>
+                    <label><input type="radio" name="q1" value="d"> d) 15</label>
+                </li>
+                <li>
+                    <p>2.If 2x+5=13, what is the value of x?</p>
+                    <label><input type="radio" name="q2" value="a"> a) 4</label>
+                    <label><input type="radio" name="q2" value="b"> b) 5</label>
+                    <label><input type="radio" name="q2" value="c"> c) 6</label>
+                    <label><input type="radio" name="q2" value="d"> d) 7</label>
+                </li>
+                <li>
+                    <p>3. If a shirt is originally $40 and is now on sale for 25% off, what is the sale price?</p>
+                    <label><input type="radio" name="q3" value="a"> a) $30</label>
+                    <label><input type="radio" name="q3" value="b"> b) $32</label>
+                    <label><input type="radio" name="q3" value="c"> c) $35</label>
+                    <label><input type="radio" name="q3" value="d"> d) $38 </label>
+                </li>
+                <li>
+                    <p>4. What is the area of a rectangle with length 6 units and width 4 units?</p>
+                    <label><input type="radio" name="q4" value="a"> a) 24 square units </label>
+                    <label><input type="radio" name="q4" value="b"> b) 18 square units</label>
+                    <label><input type="radio" name="q4" value="c"> c) 12 square units</label>
+                    <label><input type="radio" name="q4" value="d"> d) 10 square units</label>
+                </li>
+                <li>
+                    <p>5. If a car travels at a speed of 60 miles per hour, how far will it travel in 3 hours?</p>
+                    <label><input type="radio" name="q5" value="a"> a) 120 miles </label>
+                    <label><input type="radio" name="q5" value="b"> b) 160 miles </label>
+                    <label><input type="radio" name="q5" value="c"> c) 180 miles </label>
+                    <label><input type="radio" name="q5" value="d"> d) 200 miles </label>
+                </li>
+                <li>
+                    <p>6. A pizza is divided into 8 equal slices. If 3/4 of the pizza is eaten, how many slices are
+                        left?</p>
+                    <label><input type="radio" name="q6" value="a"> a) 1 </label>
+                    <label><input type="radio" name="q6" value="b"> b) 3 </label>
+                    <label><input type="radio" name="q6" value="c"> c) 2 </label>
+                    <label><input type="radio" name="q6" value="d"> d) 5</label>
+                </li>
+                <li>
+                    <p>7. If you roll a fair six-sided die, what is the probability of rolling an even number?</p>
+                    <label><input type="radio" name="q7" value="a"> a) 1/3 </label>
+                    <label><input type="radio" name="q7" value="b"> b) 1/2 </label>
+                    <label><input type="radio" name="q7" value="c"> c) 2/3 </label>
+                    <label><input type="radio" name="q7" value="d"> d) 1/6 </label>
+                </li>
+                <li>
+                    <p>8.Solve for y in equation 3y-7=11</p>
+                    <label><input type="radio" name="q8" value="a"> a) 6 </label>
+                    <label><input type="radio" name="q8" value="b"> b) 5 </label>
+                    <label><input type="radio" name="q8" value="c"> c) 6.33 </label>
+                    <label><input type="radio" name="q8" value="d"> d) 7 </label>
+                </li>
+                <li>
+                    <p>9.If the ratio of boys to girls in a class is 3:2 and there are 15 boys, how many girls are
+                        there?</p>
+                    <label><input type="radio" name="q9" value="a"> a) 10 </label>
+                    <label><input type="radio" name="q9" value="b"> b) 20 </label>
+                    <label><input type="radio" name="q9" value="c"> c) 18 </label>
+                    <label><input type="radio" name="q9" value="d"> d) 16 </label>
+                </li>
+                <li>
+                    <p>10. Evaluate the expression 2+3×4.</p>
+                    <label><input type="radio" name="q10" value="a"> a) 20</label>
+                    <label><input type="radio" name="q10" value="b"> b) 14 </label>
+                    <label><input type="radio" name="q10" value="c"> c) 18 </label>
+                    <label><input type="radio" name="q10" value="d"> d) 10 </label>
+                </li>
+                <li>
+                    <p>11. What is 2<sup>4?</sup>.</p>
+                    <label><input type="radio" name="q11" value="a"> a) 8 </label>
+                    <label><input type="radio" name="q11" value="b"> b) 32 </label>
+                    <label><input type="radio" name="q11" value="c"> c) 16 </label>
+                    <label><input type="radio" name="q11" value="d"> d) 64 </label>
+                </li>
+                <li>
+                    <p>12.The average of three numbers is 15. If two of the numbers are 12 and 18, what is the third
+                        number?</p>
+                    <label><input type="radio" name="q12" value="a"> a) 8 </label>
+                    <label><input type="radio" name="q12" value="b"> b) 21 </label>
+                    <label><input type="radio" name="q12" value="c"> c) 15 </label>
+                    <label><input type="radio" name="q12" value="d"> d) 24</label>
+                </li>
+                <li>
+                    <p>13. If the perimeter of a square is 20 units, what is the area of the square?</p>
+                    <label><input type="radio" name="q13" value="a"> a) 16 square units </label>
+                    <label><input type="radio" name="q13" value="b"> b) 20 square units </label>
+                    <label><input type="radio" name="q13" value="c"> c) 25 square units </label>
+                    <label><input type="radio" name="q13" value="d"> d) 36 square units </label>
+                </li>
+                <li>
+                    <p>14. If you invest $1,000 at an annual interest rate of 5%, how much interest will you earn after
+                        one year?</p>
+                    <label><input type="radio" name="q14" value="a"> a) $50 </label>
+                    <label><input type="radio" name="q14" value="b"> b) $75 </label>
+                    <label><input type="radio" name="q14" value="c"> c) $100 </label>
+                    <label><input type="radio" name="q14" value="d"> d) $125 </label>
+                </li>
+                <li>
+                    <p>15. In a survey, 40% of respondents preferred option A, 30% preferred option B, and the rest had
+                        no preference. If there were 200 respondents, how many preferred option B?</p>
+                    <label><input type="radio" name="q15" value="a"> a) 40 </label>
+                    <label><input type="radio" name="q15" value="b"> b) 60 </label>
+                    <label><input type="radio" name="q15" value="c"> c) 80 </label>
+                    <label><input type="radio" name="q15" value="d"> d) 100 </label>
+                </li>
+                <li>
+                    <p>16. What is the volume of a cylinder with a radius of 4 units and height of 3 units?</p>
+                    <label><input type="radio" name="q16" value="a"> a) 48.12 cubic units </label>
+                    <label><input type="radio" name="q16" value="b"> b) 64.23 cubic units </label>
+                    <label><input type="radio" name="q16" value="c"> c) 96.71 cubic units </label>
+                    <label><input type="radio" name="q16" value="d"> d) 150.8 cubic units </label>
+                </li>
+                <li>
+                    <p>17. If the principal is $500, the interest rate is 8%, and the time is 2 years, what is the
+                        simple interest?</p>
+                    <label><input type="radio" name="q17" value="a"> a) $80 </label>
+                    <label><input type="radio" name="q17" value="b"> b) $90 </label>
+                    <label><input type="radio" name="q17" value="c"> c) $100 </label>
+                    <label><input type="radio" name="q17" value="d"> d) $120 </label>
+                </li>
+                <li>
+                    <p>18. What is the next number in the sequence: 2, 6, 12, 20, ...?</p>
+                    <label><input type="radio" name="q18" value="a"> a) 24 </label>
+                    <label><input type="radio" name="q18" value="b"> b) 28 </label>
+                    <label><input type="radio" name="q18" value="c"> c) 30 </label>
+                    <label><input type="radio" name="q18" value="d"> d) 36 </label>
+                </li>
+                <li>
+                    <p>19.The sum of three consecutive odd integers is 57. What is the largest of these integers?</p>
+                    <label><input type="radio" name="q19" value="a"> a) 17 </label>
+                    <label><input type="radio" name="q19" value="b"> b) 19</label>
+                    <label><input type="radio" name="q19" value="c"> c) 21 </label>
+                    <label><input type="radio" name="q19" value="d"> d) 23 </label>
+                </li>
+
+
+                <li>
+                    <p>20. If a shirt is discounted by 20% and the original price is $40, what is the discounted price?
+                    </p>
+                    <label><input type="radio" name="q20" value="a"> a) $28</label>
+                    <label><input type="radio" name="q20" value="b"> b) $32</label>
+                    <label><input type="radio" name="q20" value="c"> c) $36</label>
+                    <label><input type="radio" name="q20" value="d"> d) $40</label>
+                </li>
+                <li>
+                    <p>21. A seller bought 120 sweets at 20 paise each. 18 were used in his home and he sold the rest at
+                        30 paise each. Find his profit or loss percentage.</p>
+                    <label><input type="radio" name="q21" value="a"> a) 20% profit</label>
+                    <label><input type="radio" name="q21" value="b"> b) 16.66% loss</label>
+                    <label><input type="radio" name="q21" value="c"> c) 20% loss</label>
+                    <label><input type="radio" name="q21" value="d"> d) 27.5% profit</label>
+                </li>
+                <li>
+                    <p>22. The children in a class eats 2/5 of the chocolates they have on the first day. The next day
+                        they eats 3/4 chocolate from the remaining chocolates. If there are 75 chocolates left, then how
+                        many chocolates were there initially?</p>
+                    <label><input type="radio" name="q22" value="a"> a) 250</label>
+                    <label><input type="radio" name="q22" value="b"> b) 750</label>
+                    <label><input type="radio" name="q22" value="c"> c) 500</label>
+                    <label><input type="radio" name="q22" value="d"> d) 1000</label>
+                </li>
+                <li>
+                    <p>23. The depth of a water tank of cube size of equal sides is 200 c.m. If 1000 ltr of water is
+                        drawn-out of the tank daily, in how many days all the water of the tank be finished? </p>
+                    <label><input type="radio" name="q23" value="a"> a) 4</label>
+                    <label><input type="radio" name="q23" value="b"> b) 6</label>
+                    <label><input type="radio" name="q23" value="c"> c) 7</label>
+                    <label><input type="radio" name="q23" value="d"> d) 8 </label>
+                </li>
+                <li>
+                    <p>24. A bus travels from station P to station Q at a speed of 70 km/h, and from station Q to
+                        station P at a speed of 90 km/h. What is the average speed of the bus during the entire journey?
+                    </p>
+                    <label><input type="radio" name="q24" value="a"> a) 75.78 km/h </label>
+                    <label><input type="radio" name="q24" value="b"> b) 78.75 km/h</label>
+                    <label><input type="radio" name="q24" value="c"> c) 80.25 km/h</label>
+                    <label><input type="radio" name="q24" value="d"> d) 82.35 km/h</label>
+                </li>
+                <li>
+                    <p>25. The pie chart given below shows the production of 6 different factories. The total production
+                        of all these 6 factories is 1400. The production of a particular factory is shown as a percent
+                        of total production of all these 6 factories.</p>
+                    <img src="{{ url_for('static', filename='img/n5.PNG')}}">
+                    <p>Which of the following statement correct?
+                        <br>I. The central angle formed by sectors A and C together is 156.6°.<br>
+                        II. The central angle formed by sector B, D and together F is 180°.
+                    </p>
+                    <label><input type="radio" name="q25" value="a"> a) Only I </label>
+                    <label><input type="radio" name="q25" value="b"> b) Only II </label>
+                    <label><input type="radio" name="q25" value="c"> c) Both I and II </label>
+                    <label><input type="radio" name="q25" value="d"> d) Neither I nor II </label>
+                </li>
+                <li>
+                    <p>26. The table given below shows the marked price and discount percentage of five different
+                        articles.</p>
+                    <table>
+                        <tr>
+                            <th> Article </th>
+                            <th> Marked Price </th>
+                            <th> Discounted Price </th>
+                        </tr>
+                        <tr>
+                            <td><b>P</b></td>
+                            <td> 300</td>
+                            <td>20 percent</td>
+                        </tr>
+                        <tr>
+                            <td><b>Q</b></td>
+                            <td>600</td>
+                            <td>25 percent</td>
+                        </tr>
+                        <tr>
+                            <td><b>R</b></td>
+                            <td>400</td>
+                            <td>16 percent</td>
+                        </tr>
+                        <tr>
+                            <td><b>S</b></td>
+                            <td>700</td>
+                            <td>22 percent</td>
+                        </tr>
+                        <tr>
+                            <td><b>T</b></td>
+                            <td>800</td>
+                            <td>30 percent</td>
+                        </tr>
+                    </table>
+                    <p>Selling Price = Marked Price - (( Market Price x Discount)/100)</p>
+                    <p>J1 = Total selling price of article P and R.</p>
+                    <p>J2 = Total selling price of Q and T. </p>
+                    <p>What is the value of (J2 - J1)?</p>
+                    <label><input type="radio" name="q26" value="a"> a) 530 </label>
+                    <label><input type="radio" name="q26" value="b"> b) 448 </label>
+                    <label><input type="radio" name="q26" value="c"> c) 434 </label>
+                    <label><input type="radio" name="q26" value="d"> d) 532</label>
+                </li>
+                <li>
+                    <p>27.Study the given graph and answer the question that follows.</p>
+                    <img src="{{ url_for('static', filename='img/n7.PNG')}}">
+                    <p>The expenditure on Interest on Loans is by what percentage more than the expenditure on Taxes ?
+                    </p>
+                    <label><input type="radio" name="q27" value="a"> a) 30% </label>
+                    <label><input type="radio" name="q27" value="b"> b) 40% </label>
+                    <label><input type="radio" name="q27" value="c"> c) 25% </label>
+                    <label><input type="radio" name="q27" value="d"> d) 50% </label>
+                </li>
+                <li>
+                    <p>28.The line graph shows the production (in tonnes) and the sales (in tonnes) of a
+                        company.<br><br>What percentage (approximately) of the total production of the company is the
+                        total sales of the company in all the years together? (correct to 2 decimal places)</p>
+                    <img src="{{ url_for('static', filename='img/n8.PNG')}}">
+                    <label><input type="radio" name="q28" value="a"> a) 78.44</label>
+                    <label><input type="radio" name="q28" value="b"> b) 72.55 </label>
+                    <label><input type="radio" name="q28" value="c"> c) 68.12 </label>
+                    <label><input type="radio" name="q28" value="d"> d) 75 </label>
+                </li>
+                <li>
+                    <p>29.A batsman makes a score of 97 runs in 15th inning and thus increases his average by 5. Find
+                        his average after 15th inning.</p>
+                    <label><input type="radio" name="q29" value="a"> a) 15 </label>
+                    <label><input type="radio" name="q29" value="b"> b) 82 </label>
+                    <label><input type="radio" name="q29" value="c"> c) 27 </label>
+                    <label><input type="radio" name="q29" value="d"> d) 92 </label>
+                </li>
+                <li>
+                    <p>30. In a flight of 600 km, an aircraft was slowed down due to bad weather. Its average speed for
+                        the trip was reduced by 200 km/hr and the time of flight increased by 30 minutes. The duration
+                        of the flight is:.</p>
+                    <label><input type="radio" name="q30" value="a"> a) 1 hour</label>
+                    <label><input type="radio" name="q30" value="b"> b) 2 hours </label>
+                    <label><input type="radio" name="q30" value="c"> c) 3 hours </label>
+                    <label><input type="radio" name="q30" value="d"> d) 4 hours </label>
+                </li>
+            </ol>
+
+            <button type="button" id="submit"  >Show Result</button>
+            <button type="button" id="done" onclick="sendResults()">Submit</button> 
+            <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+
+    <div id="chart-container">
+        <h2> Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+        const answers = {
+            q1: "b",
+            q2: "a",
+            q3: "a",
+            q4: "a",
+            q5: "c",
+            q6: "c",
+            q7: "b",
+            q8: "a",
+            q9: "a",
+            q10: "b",
+            q11: "b",
+            q12: "c",
+            q13: "c",
+            q14: "a",
+            q15: "b",
+            q16: "d",
+            q17: "a",
+            q18: "c",
+            q19: "c",
+            q20: "b",
+            q21: "d",
+            q22: "c",
+            q23: "d",
+            q24: "b",
+            q25: "b",
+            q26: "c",
+            q27: "d",
+            q28: "a",
+            q29: "c",
+            q30: "a"
+        };
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+        function home(){
+            window.location.href="{{ url_for('high') }}";
+
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+          
+        })
+
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timer1`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timer1');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timer1', timer);
+    flag=0;
+}
+    }
+}
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('NA',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('link1',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

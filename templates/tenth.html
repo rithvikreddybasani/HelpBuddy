@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tenth Aptitude Test</title>
+    <style>
+            body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #042237;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #042237;
+}
+
+section {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+ul, ol {
+    margin-bottom: 20px;
+}
+
+.sub {
+            background-color: #042237;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 20px auto;
+        }
+
+        .sub:hover {
+            background-color: #024268;
+            transform: translateY(-2px);
+        }
+/* Additional styling for links */
+a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #042237;
+}
+       
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome <span id='Name'></span>  To Tenth Aptitude Test</h1>
+    </header>
+
+    <section>
+        <p>
+            Thank you for participating in the Tenth Grade Aptitude Test. To make the most out of the test, please follow the instructions below:
+        </p>
+        <ol>
+            <li>Read each question carefully.</li>
+            <li>Allocate your time wisely.</li>
+            <li>Double-check your answers before submitting.</li>
+        </ol>
+        <p>
+            Good luck with your test!
+        </p>
+
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="{{ url_for('numten') }}" id="linkt1">Quanitative Test</a><span id="timert1"></span</li>
+            <li><a href="{{ url_for('arten') }}"id="linkt2">Abstract Test</a><span id="timert2"></span></li>
+            <li><a href="{{ url_for('verbten') }}" id="linkt3">Verbal Test</a><span id="timert3"></span></li>
+            <li><a href="{{ url_for('spten') }}" id="linkt4">Spatial Test</a><span id="timert4"></span></li>
+            <li><a href="{{ url_for('mechten') }}" id="linkt5">Mechanical Test</a><span id="timert5"></span></li>
+            <li><a href="{{ url_for('perten') }}" id="linkt6">Perceptual Test</a><span id="timert6"></span></li>
+            <li><a href="{{ url_for('langten') }}" id="linkt7">Language Test</a> <span id="timert7"></span></li>
+        </ul>
+       
+        <h2>Marks</h2>
+        <div>Quanitative <span id='Qua'></span></div>
+        <div>Abstract <span id='Abs'></span></div>
+        <div>Verbal <span id='Ver'></span></div>
+        <div>Spatial <span id='Spa'></span></div>
+        <div>Mechanical <span id='Mec'></span></div>
+        <div>Perceptual <span id='Per'></span></div>
+        <div>Language <span id='Lan'></span></div>
+        <input type="submit" value="submit" class="sub" id="submit">
+    </section>
+    <script type="module">
+         let l1 = false;
+        let l2 = false;
+        let l3 = false;
+       let l4 = false;
+let l5 = false;
+let l6 = false;
+let l7 = false;
+let status=false;
+        
+       const name=localStorage.getItem('Uname');
+       document.getElementById('Name').textContent=name;
+       const NA=localStorage.getItem('NA');
+       document.getElementById('Qua').textContent=NA;
+       const AR=localStorage.getItem('AR');
+       document.getElementById('Abs').textContent=AR;
+       const VR=localStorage.getItem('VR');
+       document.getElementById('Ver').textContent=VR;
+       const SA=localStorage.getItem('SA');
+       document.getElementById('Spa').textContent=SA;
+       const MR=localStorage.getItem('MR');
+       document.getElementById('Mec').textContent=MR;
+       const PA=localStorage.getItem('PA');
+       document.getElementById('Per').textContent=PA;
+       const LA=localStorage.getItem('LA');
+       document.getElementById('Lan').textContent=LA;
+    
+   
+        // Import the functions you need from the SDKs you need
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+     import { getDatabase, ref,remove, set, get,update, child } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+// Your web app's Firebase configuration
+   // Add your Firebase configuration here
+   const firebaseConfig = {
+    apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+    authDomain: "careerchatbot-a0647.firebaseapp.com",
+    projectId: "careerchatbot-a0647",
+    storageBucket: "careerchatbot-a0647.appspot.com",
+    messagingSenderId: "783848410278",
+    appId: "1:783848410278:web:7b7c8481914ffce3357867",
+  };
+  
+
+// Initialize Firebase
+     const app = initializeApp(firebaseConfig);
+
+//get ref to database services
+      const db = getDatabase(app);
+      const dbRef = ref(db);
+      
+    let NU=0;
+    let Ai=0;
+    let Vi=0;
+    let Si=0;
+    let Mi=0;
+    let Pi=0;
+    let Li=0;
+                
+       const num= localStorage.getItem('NA');
+      if(num!=null){
+       NU = parseInt(num, 10);}
+      const mar= localStorage.getItem('AR');
+      if(mar!=null){
+       Ai = parseInt(mar, 10);}
+      const Vur=localStorage.getItem('VR');
+      if(Vur!=null){
+       Vi=parseInt(Vur, 10);}
+      const sp=localStorage.getItem('SA');
+      if(sp!=null){
+       Si=parseInt(sp, 10);}
+      const mec=localStorage.getItem('MR');
+      if(mec!=null){
+       Mi=parseInt(mec, 10);}
+
+      const per=localStorage.getItem('PA');
+      if(per!=null){
+       Pi=parseInt(per, 10);}
+      const lan=localStorage.getItem('LA');
+      if(lan!=null){
+       Li=parseInt(lan,10);}
+      let Nl=0;
+      let Vl=0;
+      let Al=0;
+      let Pl=0;
+      let Ll=0;
+      let Sl=0;
+      let Ml=0;
+      let markValues = {
+        NA: NU,
+         AR: Ai,
+         VR: Vi,
+         SA: Si,
+         MR: Mi,
+         PA: Pi,
+         LA: Li
+                };
+                
+
+                
+                if (NU || Vi || Si || Mi || Pi || Li || Ai !=0) {
+                    set(ref(db, 'temp/' +  localStorage.getItem('user-id')),
+       {
+
+         Name:name,
+         NA: NU,
+         AR: Ai,
+         VR: Vi,
+         SA: Si,
+         MR: Mi,
+         PA: Pi,
+         LA: Li
+         
+         
+        
+
+       });
+}
+      
+
+     
+       get(child(dbRef,'temp/' +  localStorage.getItem('user-id'))).then((snapshot) => {
+       
+        if(snapshot.exists()){
+            Al = snapshot.val().AR,
+                    Ll = snapshot.val().LA,
+                    Ml = snapshot.val().MR,
+                    Nl= snapshot.val().NA,
+                    Pl= snapshot.val().PA,
+                    Sl = snapshot.val().SA,
+                    Vl = snapshot.val().VR
+          
+
+            
+
+
+
+        }
+
+       }) .then ( ()=>{
+        alert("Your previous progress is added");
+        if(Nl!=0){
+            localStorage.setItem('NA',Nl);
+            localStorage.setItem('linkt1',true);
+            document.getElementById('Qua').textContent=Nl;
+            var clickedLink = document.getElementById('linkt1');
+          clickedLink.style.pointerEvents = 'none';  
+          clickedLink.style.textDecoration = 'none'; 
+          clickedLink.style.color = 'gray';  
+           l1='true'; 
+            
+
+        }
+        if(Al!=0){
+            localStorage.setItem('AR',Al);
+            localStorage.setItem('linkt2',true);
+            document.getElementById('Abs').textContent=Al;
+            var clickedLink1 = document.getElementById('linkt2');
+          clickedLink1.style.pointerEvents = 'none';  
+          clickedLink1.style.textDecoration = 'none'; 
+          clickedLink1.style.color = 'gray';  
+           l2='true';
+
+        }
+        if(Ll!=0){
+            localStorage.setItem('LA',Ll);
+            localStorage.setItem('linkt7',true);
+            document.getElementById('Lan').textContent=Ll;
+            var clickedLink6 = document.getElementById('linkt7');
+          clickedLink6.style.pointerEvents = 'none';  
+          clickedLink6.style.textDecoration = 'none'; 
+          clickedLink6.style.color = 'gray';     
+           l7='true';
+
+
+        }
+        if(Ml!=0){
+            localStorage.setItem('MR',Ml);
+            localStorage.setItem('linkt5',true);
+            document.getElementById('Mec').textContent=Ml;
+            var clickedLink4 = document.getElementById('linkt5');
+          clickedLink4.style.pointerEvents = 'none';  
+          clickedLink4.style.textDecoration = 'none';
+          clickedLink4.style.color = 'gray';     
+           l5='true';
+
+
+        }
+        if(Pl!=0){
+            localStorage.setItem('PA',Pl);
+            localStorage.setItem('linkt6',true);
+            document.getElementById('Per').textContent=Pl;
+            var clickedLink5 = document.getElementById('linkt6');
+          clickedLink5.style.pointerEvents = 'none';  
+          clickedLink5.style.textDecoration = 'none'; 
+          clickedLink5.style.color = 'gray';    
+           l6='true';
+
+
+        }
+        if(Sl!=0){
+            localStorage.setItem('SA',Sl);
+            localStorage.setItem('linkt4',true);
+            document.getElementById('Spa').textContent=Sl;
+            var clickedLink3 = document.getElementById('linkt4');
+          clickedLink3.style.pointerEvents = 'none';  
+          clickedLink3.style.textDecoration = 'none'; 
+          clickedLink3.style.color = 'gray';   
+           l4='true';
+
+
+        }
+        if(Vl!=0){
+            localStorage.setItem('VR',Vl);
+            localStorage.setItem('linkt3',true);
+            document.getElementById('Ver').textContent=Vl;
+            var clickedLink2 = document.getElementById('linkt3');
+          clickedLink2.style.pointerEvents = 'none';  
+          clickedLink2.style.textDecoration = 'none'; 
+          clickedLink2.style.color = 'gray';     
+           l3='true';
+
+
+        }
+
+
+
+              })
+      
+       
+      
+
+      document.getElementById("submit").addEventListener('click', function(e){
+       e.preventDefault();
+       const name=localStorage.getItem('Uname');
+       const num= localStorage.getItem('NA');
+      
+      const NU = parseInt(num, 10);
+      const mar= localStorage.getItem('AR');
+      
+      const AR = parseInt(mar, 10);
+      const Vur=localStorage.getItem('VR');
+      const VR=parseInt(Vur, 10);
+      const sp=localStorage.getItem('SA');
+      const SA=parseInt(sp, 10);
+      const mec=localStorage.getItem('MR');
+      const MR=parseInt(mec, 10);
+      const per=localStorage.getItem('PA');
+      const PA=parseInt(per, 10);
+      const lan=localStorage.getItem('LA');
+      const LA=parseInt(lan,10);
+      const markValues = {
+        NA: NU,
+         AR: AR,
+         VR: VR,
+         SA: SA,
+         MR: MR,
+         PA: PA,
+         LA: LA
+                };
+      
+
+      update(ref(db, 'users/' + localStorage.getItem('user-id')),
+       {
+
+         Status: status,
+         Marks: markValues
+        
+
+
+    //    }).then ( ()=>{
+      
+
+    //    set(ref(db, 'Marks/' + localStorage.getItem('Roll')),
+    //    {
+
+    //      Name: localStorage.getItem('Name'),
+    //      NA: NU,
+    //      AR: AR,
+    //      VR: VR,
+    //      SA: SA,
+    //      MR: MR,
+    //      PA: PA,
+    //      LA: LA
+
+
+       })
+
+       .then ( ()=>{
+
+alert ("Data Added Successfully");
+remove(child(dbRef,'temp/' +  localStorage.getItem('user-id')))
+
+
+
+window.location.href = "{{ url_for('result') }}";
+
+            //   })
+// .catch ((error) =>{
+// alert("Unsuccessful");
+// console. log(error);
+
+// })
+     
+
+       }).catch ((error) =>{
+alert("Unsuccessful");
+console.log(error);
+
+})
+
+      });
+      const value=0;
+    function disableLinks(id) {
+    const verbalLink = document.getElementById(`linkt${id}`);
+   
+    if(id==1){
+        localStorage.setItem('NA',value);
+        localStorage.setItem('linkt1',true);
+    }
+    if(id==2){
+        localStorage.setItem('AR',value);
+        localStorage.setItem('linkt2',true);
+    }
+    if(id==3){
+        localStorage.setItem('VR',value);
+        localStorage.setItem('linkt3',true);
+    }
+    if(id==4){
+        localStorage.setItem('SA',value);
+        localStorage.setItem('linkt4',true);
+    }
+    if(id==5){
+        localStorage.setItem('MR',value);
+        localStorage.setItem('linkt5',true);
+    }
+    if(id==6){
+        localStorage.setItem('PA',value);
+        localStorage.setItem('linkt6',true);
+    }
+    if(id==7){
+        localStorage.setItem('LA',value);
+        localStorage.setItem('linkt7',true);
+    }
+
+    timelink.style.display = 'none';
+    timelink.parentElement.disabled = true;
+    verbalLink.style.pointerEvents = "none";
+    verbalLink.style.color = "gray";
+}
+
+function createTimer(id, timeLeft) {
+    const timer = document.getElementById(`timert${id}`);
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    timer.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    localStorage.setItem(`timert${id}`, timeLeft);
+    if (timeLeft > 0) {
+        setTimeout(() => createTimer(id, timeLeft - 1), 1000);
+        // localStorage.setItem(`timer${id}`, timer);
+    } else {
+        disableLinks(id);
+        localStorage.removeItem(`timert${id}`);
+        
+    }
+}
+
+function initialize() {
+    for (let i = 1; i <= 7; i++) {
+        const remainingTime = localStorage.getItem(`timert${i}`);
+        if (remainingTime) {
+            createTimer(i, parseInt(remainingTime, 10));
+        }
+    }
+}
+
+initialize();
+      if(localStorage.getItem('linkt1')=="true"){
+          
+          var clickedLink = document.getElementById('linkt1');
+          clickedLink.style.pointerEvents = 'none';  
+          clickedLink.style.textDecoration = 'none'; 
+          clickedLink.style.color = 'gray';  
+           l1='true';       
+   }
+   if(localStorage.getItem('linkt2')=="true"){
+          
+          var clickedLink1 = document.getElementById('linkt2');
+          clickedLink1.style.pointerEvents = 'none';  
+          clickedLink1.style.textDecoration = 'none'; 
+          clickedLink1.style.color = 'gray';
+           l2='true';       
+   }
+   if(localStorage.getItem('linkt3')=="true"){
+          
+          var clickedLink2 = document.getElementById('linkt3');
+          clickedLink2.style.pointerEvents = 'none';  
+          clickedLink2.style.textDecoration = 'none'; 
+          clickedLink2.style.color = 'gray';     
+           l3='true';     
+   }
+   if(localStorage.getItem('linkt4')=="true"){
+          
+          var clickedLink3 = document.getElementById('linkt4');
+          clickedLink3.style.pointerEvents = 'none';  
+          clickedLink3.style.textDecoration = 'none'; 
+          clickedLink3.style.color = 'gray';   
+           l4='true';     
+   }
+   if(localStorage.getItem('linkt5')=="true"){
+          
+          var clickedLink4 = document.getElementById('linkt5');
+          clickedLink4.style.pointerEvents = 'none';  
+          clickedLink4.style.textDecoration = 'none';
+          clickedLink4.style.color = 'gray';     
+           l5='true';     
+   }
+   if(localStorage.getItem('linkt6')=="true"){
+          
+          var clickedLink5 = document.getElementById('linkt6');
+          clickedLink5.style.pointerEvents = 'none';  
+          clickedLink5.style.textDecoration = 'none'; 
+          clickedLink5.style.color = 'gray';    
+           l6='true';    
+   }
+   if(localStorage.getItem('linkt7')=="true"){
+         
+          var clickedLink6 = document.getElementById('linkt7');
+          clickedLink6.style.pointerEvents = 'none';  
+          clickedLink6.style.textDecoration = 'none'; 
+          clickedLink6.style.color = 'gray';     
+           l7='true';     
+   }
+   if (l1 && l2 && l3 && l4 && l5 && l6 && l7 === 'true') {
+  var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = false;
+  clickedLink7.style.display = 'block';
+  status=true;
+}
+else{
+  var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+
+}
+
+      
+      
+</script>
+</body>
+
+</html>

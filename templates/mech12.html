@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Reasoning Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        ol {
+            list-style-type: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    img{
+        height: 90%;
+        width: 90%;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="quiz-container">
+        <h1>Mechanical Reasoning Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <li>
+                    <p>1.A wooden block is pushed upwards by applying force as shown in figures A, B and C. In which figure, the force needed to be applied would be
+                        maximum?</p>
+                    <img src="{{ url_for('static', filename='img/tm1.png')}}">
+                    <label><input type="radio" name="q1" value="a"> a) Figure A</label>
+                    <label><input type="radio" name="q1" value="b"> b) Figure B</label>
+                    <label><input type="radio" name="q1" value="c"> c) Figure C</label>
+                    <label><input type="radio" name="q1" value="d"> d) Equal force in all situations</label>
+                </li>
+                <li>
+                    <p>2.In the given figure which one of the buckets will
+                        get filled first?</p>
+                    <img src="{{ url_for('static', filename='img/tm2.png')}}">
+                    <label><input type="radio" name="q2" value="a"> a) Bucket A</label>
+                    <label><input type="radio" name="q2" value="b"> b) Bucket B</label>
+                    <label><input type="radio" name="q2" value="c"> c) Bucket C</label>
+                    <label><input type="radio" name="q2" value="d"> d) Bucket D</label>
+                </li>
+
+                <li>
+                    <p>3. A motorcycle, a car and a truck are moving with equal momentum. Which one has the greatest kinetic energy?
+                        </p>
+                    <img src="{{ url_for('static', filename='img/tm3.png')}}">
+                    <label><input type="radio" name="q3" value="a"> a) Motorcycle</label>
+                    <label><input type="radio" name="q3" value="b"> b) Car</label>
+                    <label><input type="radio" name="q3" value="c"> c) Truck</label>
+                    <label><input type="radio" name="q3" value="d"> d) All have same kinetic energy</label>
+                </li>
+                <li>
+                    <p>4. The handles on doors A, B and C are placed in different positions as shown. Using the handle, which door would be closed by applying minimum force? </p>
+                    <img src="{{ url_for('static', filename='img/tm4.png')}}">
+                    <label><input type="radio" name="q4" value="a"> a) Door A </label>
+                    <label><input type="radio" name="q4" value="b"> b) Door B</label>
+                    <label><input type="radio" name="q4" value="c"> c) Door C </label>
+                    <label><input type="radio" name="q4" value="d"> d) Equal force in all situations  </label>
+                </li>
+                <li>
+                    <p>5. 
+                        Three balls A, B and C of same mass are dropped together in vacuum from a height of 6 meters. Which ball would reach first on the floor?
+                        </p>
+                    <img src="{{ url_for('static', filename='img/tm5.png')}}">
+                    <label><input type="radio" name="q5" value="a"> a) Ball A</label>
+                    <label><input type="radio" name="q5" value="b"> b) Ball B</label>
+                    <label><input type="radio" name="q5" value="c"> c) Ball C</label>
+                    <label><input type="radio" name="q5" value="d"> d) All the balls at the same time</label>
+                </li>
+                <li>
+                    <p>6.In which one of the given figures, the force required to cut the wire will be minimum if force is applied at X?</p>
+                    <img src="{{ url_for('static', filename='img/tm6.png')}}">
+                    <label><input type="radio" name="q6" value="a"> a) Figure A </label>
+                    <label><input type="radio" name="q6" value="b"> b) Figure B</label>
+                    <label><input type="radio" name="q6" value="c"> c) Figure C</label>
+                    <label><input type="radio" name="q6" value="d"> d) Equal force in All cases</label>
+                    
+                </li>
+                <li>
+                    <p>7. Which of the given containers shows the heaviest object?</p>
+                    <img src="{{ url_for('static', filename='img/tm7.png')}}">
+                    <label><input type="radio" name="q7" value="a"> a) Container A</label>
+                    <label><input type="radio" name="q7" value="b"> b) Container B</label>
+                    <label><input type="radio" name="q7" value="c"> c) Container C</label>
+                    <label><input type="radio" name="q7" value="d"> d) All objects have same weight</label>
+                   
+                </li>
+                <li>
+                    <p>8.Three cells of 1.5V each are connected in four different ways as shown. Which arrangement will give 4.5V between points X and Y?. </p>
+                    <img src="{{ url_for('static', filename='img/tm8.png')}}">
+                    <label><input type="radio" name="q8" value="a"> a) Figure A</label>
+                    <label><input type="radio" name="q8" value="b"> b) Figure B</label>
+                    <label><input type="radio" name="q8" value="c"> c) Figure C</label>
+                    <label><input type="radio" name="q8" value="d"> d) Figure D</label>
+                  
+                </li>
+                <li>
+                    <p>9.Which direction should the screw shown in the figure be turned in order to tighten it into place? </p>
+                    <img src="{{ url_for('static', filename='img/tm9.png')}}">
+                    <label><input type="radio" name="q9" value="a"> a) Clockwise</label>
+                    <label><input type="radio" name="q9" value="b"> b) Anti-clockwise</label>
+                    <label><input type="radio" name="q9" value="c"> c) Either clockwise or anti-clockwise</label>
+                    <label><input type="radio" name="q9" value="d"> d) Screw cannot be tightened</label>
+                    
+                 
+                </li>
+                <li>
+                    <p>10.Three persons in the figures are turning around a solid ball tied to a rope and making same number of rotations per second. If suddenly the rope is released, which one ball fall at the maximum distance? </p>
+                    <img src="{{ url_for('static', filename='img/tm25.png')}}">
+                    <label><input type="radio" name="q10" value="a"> a) Ball of Person A</label>
+                    <label><input type="radio" name="q10" value="b"> b) Ball of Person B</label>
+                    <label><input type="radio" name="q10" value="c"> c) Ball of Person C</label>
+                    <label><input type="radio" name="q10" value="d"> d) Ball of all will fall at the same distance</label>
+                    
+                </li>
+                <li>
+                    <p>11. Two balls A and B, with different sizes but same density are rolling with the same speed and are moving towards each other to collide. What would happen to ball A after the collision? </p>
+                    <img src="{{ url_for('static', filename='img/tm10.png')}}">
+                    
+                    <label><input type="radio" name="q11" value="a"> a) Ball A will stop</label>
+                    <label><input type="radio" name="q11" value="b"> b) Ball A will jump over the smaller ball B </label>
+                    <label><input type="radio" name="q11" value="c"> c) Ball A will start moving backward</label>
+                    <label><input type="radio" name="q11" value="d"> d) Ball A will keep moving forward</label>
+                 
+                </li>
+                <li>
+                    <p>12. A man is lifting a mass of 5 kg. In which of the given figures, does he apply the minimum force?</p>
+                    <img src="{{ url_for('static', filename='img/tm11.png')}}">
+
+                    <label><input type="radio" name="q12" value="a"> a) Figure A</label>
+                    <label><input type="radio" name="q12" value="b"> b) Figure B</label>
+                    <label><input type="radio" name="q12" value="c"> c) Figure C</label>
+                    <label><input type="radio" name="q12" value="d"> d) Equal force in all</label>
+                    
+                </li>
+                <li>
+                    <p>13. In which of the given pictures, will the ladder be least stable or most likely to slip? </p>
+                    <img src="{{ url_for('static', filename='img/tm26.png')}}">
+
+                    <label><input type="radio" name="q13" value="a"> a) Picture A</label>
+                    <label><input type="radio" name="q13" value="b"> b) Picture B</label>
+                    <label><input type="radio" name="q13" value="c"> c) Picture C</label>
+                    <label><input type="radio" name="q13" value="d"> d) Equal chance in all cases</label>
+                   
+                </li>
+                <li>
+                    <p>14. Three wheels A, B and C cover the same distance in same time. Which wheel rotates the fastest?</p>
+                    <img src="{{ url_for('static', filename='img/tm12.png')}}">
+
+                    <label><input type="radio" name="q14" value="a"> a) Wheel A</label>
+                    <label><input type="radio" name="q14" value="b"> b) Wheel B</label>
+                    <label><input type="radio" name="q14" value="c"> c) Wheel C</label>
+                    <label><input type="radio" name="q14" value="d"> d) All wheels will rotate at the same rate</label>
+    
+                </li>
+                <li>
+                    <p>15. In which of the given situations, the force F needed to lift a bucket of water is the least? </p>
+                    <img src="{{ url_for('static', filename='img/tm13.png')}}">
+
+                    <label><input type="radio" name="q15" value="a"> a) Situation A</label>
+                    <label><input type="radio" name="q15" value="b"> b) Situation B</label>
+                    <label><input type="radio" name="q15" value="c"> c) Situation C</label>
+                    <label><input type="radio" name="q15" value="d"> d) Equal force in all situations</label>
+                    
+                </li>
+                <li>
+                    <p>16. When the left-hand gear turns in the direction shown, which way does the right-hand one turn? (If either, mark C.) </p>
+                    <img src="{{ url_for('static', filename='img/m16.png')}}">
+
+                    <label><input type="radio" name="q16" value="a"> a) A</label>
+                    <label><input type="radio" name="q16" value="b"> b) B</label>
+                    <label><input type="radio" name="q16" value="c"> c) C</label>
+             
+                </li>
+                <li>
+                    <p>17. Which measure is marked properly? </p>
+                    <img src="{{ url_for('static', filename='img/m17.png')}}">
+
+                    <label><input type="radio" name="q17" value="a"> a) A</label>
+                    <label><input type="radio" name="q17" value="b"> b) B</label>
+                    <label><input type="radio" name="q17" value="c"> c) C</label>
+                    <label><input type="radio" name="q17" value="d"> d) None</label>
+                    
+                </li>
+                <li>
+                    <p>18. Which shaft will turn most quickly?</p>
+                    <img src="{{ url_for('static', filename='img/m18.png')}}">
+
+                    <label><input type="radio" name="q18" value="a"> a) A</label>
+                    <label><input type="radio" name="q18" value="b"> b) B</label>
+                    <label><input type="radio" name="q18" value="c"> c) C</label>
+                    <label><input type="radio" name="q18" value="d"> d) D</label>
+                    
+
+                </li>
+                <li>
+                    <p>19. In which picture will the scales read lower (less weight)?    (If equal mark C.) </p>
+                    <img src="{{ url_for('static', filename='img/m19.png')}}">
+
+                    <label><input type="radio" name="q19" value="a"> a) A</label>
+                    <label><input type="radio" name="q19" value="b"> b) B</label>
+                    <label><input type="radio" name="q19" value="c"> c) C</label>
+                    
+
+                </li>
+                <li>
+                    <p>20. Where should a chain be attached to hold up the sign?   (If either, mark C.) </p>
+                    <img src="{{ url_for('static', filename='img/m20.png')}}">
+
+                    <label><input type="radio" name="q20" value="a"> a) A</label>
+                    <label><input type="radio" name="q20" value="b"> b) B</label>
+                    <label><input type="radio" name="q20" value="c"> c) C</label>
+                  
+
+                </li>
+                <li>
+                    <p>21. Which system will let the most water run out? </p>
+                    <img src="{{ url_for('static', filename='img/m21.png')}}">
+
+                    <label><input type="radio" name="q21" value="a"> a) A</label>
+                    <label><input type="radio" name="q21" value="b"> b) B</label>
+                    <label><input type="radio" name="q21" value="c"> c) C</label>
+                    <label><input type="radio" name="q21" value="d"> d) D</label>
+                    
+                </li>
+                <li>
+                    <p>22. A front engine car gently rolls down this slope. In what position will the car end up in?? </p>
+                    <img src="{{ url_for('static', filename='img/m22.png')}}">
+
+                    <label><input type="radio" name="q22" value="a"> a) A</label>
+                    <label><input type="radio" name="q22" value="b"> b) B</label>
+                    <label><input type="radio" name="q22" value="c"> c) C</label>
+                    <label><input type="radio" name="q22" value="d"> d) D</label>
+                    
+                </li>
+                <li>
+                    <p>23. Four weights are dropped from a height of 10 meters at the same time, which one
+                        will hit the ground last?</p>
+                    <img src="{{ url_for('static', filename='img/m23.png')}}">
+
+                    <label><input type="radio" name="q23" value="a"> a) 5kg</label>
+                    <label><input type="radio" name="q23" value="b"> b) 10kg</label>
+                    <label><input type="radio" name="q23" value="c"> c) 50kg</label>
+                    <label><input type="radio" name="q23" value="d"> d) 1000kg</label>
+                    <label><input type="radio" name="q23" value="e"> e) They will hit the ground at the same time</label>
+                </li>
+                <p><br><br><b>Cogs A, B and C are linked together by 2 separate belts.
+                    Cog B is half the size of cog A and cog C </b></p>
+                    <img src="{{ url_for('static', filename='img/m2425.png')}}">
+                <li>
+                    <p>24. If we turn cog A one complete revolution cog B will</p>
+             
+
+                    <label><input type="radio" name="q24" value="a"> a) Turn one complete revolution</label>
+                    <label><input type="radio" name="q24" value="b"> b) Turn 1/2 a revolution</label>
+                    <label><input type="radio" name="q24" value="c"> c) Turn two complete revolutions.</label>
+                    
+
+                </li>
+                <li>
+                    <p>25. Looking at the same diagram, if cog A turns clockwise what direction will cog C turn. </p>
+                   
+
+                    <label><input type="radio" name="q25" value="a"> a) Clockwise</label>
+                    <label><input type="radio" name="q25" value="b"> b) Anticlockwise</label>
+                    <label><input type="radio" name="q25" value="c"> c) It will not turn at all</label>
+                    
+
+                </li>
+                <li>26. If these 4 objects are fired horizontally from a cannon, which will fly furthest? </p>
+                    <img src="{{ url_for('static', filename='img/m26.png')}}">
+
+                    <label><input type="radio" name="q26" value="a"> a) A</label>
+                    <label><input type="radio" name="q26" value="b"> b) B</label>
+                    <label><input type="radio" name="q26" value="c"> c) C</label>
+                    <label><input type="radio" name="q26" value="d"> d) D</label>
+
+                </li>
+                <li>
+                    <p>27. Assuming the two balls are falling from the same height, which will hit the ground first? </p>
+                    <img src="{{ url_for('static', filename='img/m27.png')}}">
+                    
+
+                    <label><input type="radio" name="q27" value="a"> a) Ball 1</label>
+                    <label><input type="radio" name="q27" value="b"> b) Ball 2</label>
+                    <label><input type="radio" name="q27" value="c"> c) They will hit the ground at the same time</label>
+                    <label><input type="radio" name="q27" value="d"> d) Impossible to tell</label>
+
+                </li>
+                <li>
+                    <p>28. Which wheels are turning counter-clockwise? </p>
+                    <img src="{{ url_for('static', filename='img/m28.png')}}">
+                   
+                    <label><input type="radio" name="q28" value="a"> a) C & E</label>
+                    <label><input type="radio" name="q28" value="b"> b) F & D</label>
+                    <label><input type="radio" name="q28" value="c"> c) A,B,D,F</label>
+                    <label><input type="radio" name="q28" value="d"> d) All</label>
+                    
+                </li>
+                <li>
+                    <p>29. Which ball is the heaviest? </p>
+                    <img src="{{ url_for('static', filename='img/m29.png')}}">
+                  
+
+
+                    <label><input type="radio" name="q29" value="a"> a) A</label>
+                    <label><input type="radio" name="q29" value="b"> b) B</label>
+                    <label><input type="radio" name="q29" value="c"> c) C</label>
+                    <label><input type="radio" name="q29" value="d"> d) Cannot Say</label>
+
+                </li>
+                <li>
+                    <p>30. Which of these objects will not float on water? </p>
+                   
+
+                    <label><input type="radio" name="q30" value="a"> a) Scissors</label>
+                    <label><input type="radio" name="q30" value="b"> b) Banana</label>
+                    <label><input type="radio" name="q30" value="c"> c) Empty Soda Bottle (Plastic)</label>
+                    <label><input type="radio" name="q30" value="d"> d) Wooden Pencil</label>
+
+                </li>
+
+
+
+
+            </ol>
+
+
+            <button type="button" id="submit"  >Show Result</button>
+            <button type="button" id="done" onclick="sendResults()">Submit</button> 
+            <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+
+    <div id="chart-container">
+        <h2>Quiz Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+        const answers = {
+            q1: "c",
+            q2: "c",
+            q3: "a",
+            q4: "c",
+            q5: "d",
+            q6: "c",
+            q7: "b",
+            q8: "c",
+            q9: "b",
+            q10: "a",
+            q11: "d",
+            q12: "b",
+            q13: "c",
+            q14: "a",
+            q15: "a",
+            q16: "a",
+            q17: "a",
+            q18: "a",
+            q19: "a",
+            q20: "b",
+            q21: "b",
+            q22: "d",
+            q23: "e",
+            q24: "c",
+            q25: "a",
+            q26: "c",
+            q27: "d",
+            q28: "c",
+            q29: "d",
+            q30: "a"
+
+        };
+        function home(){
+            window.location.href="{{ url_for('twe') }}";
+
+        }
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+            
+        })
+
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timerw5`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timerw5');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timerw5', timer);
+    flag=0;
+}
+    }
+}
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('MR',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('linkw5',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

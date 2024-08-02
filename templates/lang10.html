@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Aptitude Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="quiz-container">
+        <h1>Language Aptitude Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <h2>PART I</h2>
+                <h3>Instruction</h3>
+                <p><b>Part I </b> has 10 items (Questions 1-10). First look at the word in capital letters. There are
+                    four options - A, B, C and D. Find the word which means the same as the word in capitals from the
+                    given
+                    options.</p>
+                <li>
+                    <p>MEMORABLE:</p>
+                    <label><input type="radio" name="q1" value="a"> a) Unforgettable</label>
+                    <label><input type="radio" name="q1" value="b"> b) Interesting</label>
+                    <label><input type="radio" name="q1" value="c"> c) Attractive</label>
+                    <label><input type="radio" name="q1" value="d"> d) Eventful</label>
+                </li>
+                <li>
+                    <p>AMAZING:</p>
+
+                    <label><input type="radio" name="q2" value="a"> a) Dutiful </label>
+                    <label><input type="radio" name="q2" value="b"> b) Wonderful</label>
+                    <label><input type="radio" name="q2" value="c"> c) Joyful</label>
+                    <label><input type="radio" name="q2" value="d"> d) Beautiful</label>
+                </li>
+                <li>
+                    <p> REMEDY:</p>
+                    <label><input type="radio" name="q3" value="a"> a) Treatment</label>
+                    <label><input type="radio" name="q3" value="b"> b) Rejection</label>
+                    <label><input type="radio" name="q3" value="c"> c) Prevention</label>
+                    <label><input type="radio" name="q3" value="d"> d) Protection </label>
+                </li>
+                <li>
+                    <p> STAMINA:</p>
+                    <label><input type="radio" name="q4" value="a"> a) Warmth </label>
+                    <label><input type="radio" name="q4" value="b"> b) Depth</label>
+                    <label><input type="radio" name="q4" value="c"> c) Strength</label>
+                    <label><input type="radio" name="q4" value="d"> d) Boldness</label>
+                </li>
+                <li>
+                    <p> CAUTIOUS: </p>
+                    <label><input type="radio" name="q5" value="a"> a) Helpful</label>
+                    <label><input type="radio" name="q5" value="b"> b) Kind </label>
+                    <label><input type="radio" name="q5" value="c"> c) Diligent </label>
+                    <label><input type="radio" name="q5" value="d"> d) Careful </label>
+                </li>
+                <li>
+                    <p> CLUMSY:</p>
+                    <label><input type="radio" name="q6" value="a"> a) Awkward</label>
+                    <label><input type="radio" name="q6" value="b"> b) Different </label>
+                    <label><input type="radio" name="q6" value="c"> c) Varied </label>
+                    <label><input type="radio" name="q6" value="d"> d) Arrogant</label>
+                </li>
+                <li>
+                    <p> ANCESTOR:</p>
+                    <label><input type="radio" name="q7" value="a"> a) Grandfather </label>
+                    <label><input type="radio" name="q7" value="b"> b) Forefather </label>
+                    <label><input type="radio" name="q7" value="c"> c) Elderly </label>
+                    <label><input type="radio" name="q7" value="d"> d) Antique </label>
+                </li>
+                <li>
+                    <p> FATAL:</p>
+                    <label><input type="radio" name="q8" value="a"> a) Dangerous </label>
+                    <label><input type="radio" name="q8" value="b"> b) Simple </label>
+                    <label><input type="radio" name="q8" value="c"> c) Severe </label>
+                    <label><input type="radio" name="q8" value="d"> d) Deadly </label>
+                </li>
+                <li>
+                    <p> PERSUADE:</p>
+                    <label><input type="radio" name="q9" value="a"> a) Discuss </label>
+                    <label><input type="radio" name="q9" value="b"> b) Convince </label>
+                    <label><input type="radio" name="q9" value="c"> c) Debate </label>
+                    <label><input type="radio" name="q9" value="d"> d) Converse</label>
+                </li>
+                <li>
+                    <p>PROSPERITY:</p>
+                    <label><input type="radio" name="q10" value="a"> a) Wealth</label>
+                    <label><input type="radio" name="q10" value="b"> b) Health </label>
+                    <label><input type="radio" name="q10" value="c"> c) Wisdom </label>
+                    <label><input type="radio" name="q10" value="d"> d) Comfort </label>
+                </li>
+                <h2>PART II</h2>
+                <h3>Instruction</h3>
+                <p><b>PART II </b> has 10 items (Questions 11-20). Each item has a series of words. Out of the four
+                    options-A, B, Cand D, find the word that has been spelt correctly.</p>
+                <li>
+
+                    <label><input type="radio" name="q11" value="a"> a) Goverment </label>
+                    <label><input type="radio" name="q11" value="b"> b) Government </label>
+                    <label><input type="radio" name="q11" value="c"> c) Gorment </label>
+                    <label><input type="radio" name="q11" value="d"> d) Govenmant </label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q12" value="a"> a) Precotion </label>
+                    <label><input type="radio" name="q12" value="b"> b) Pricaution </label>
+                    <label><input type="radio" name="q12" value="c"> c) Precausion </label>
+                    <label><input type="radio" name="q12" value="d"> d) Precaution</label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q13" value="a"> a) Illeterate </label>
+                    <label><input type="radio" name="q13" value="b"> b) Illiterate </label>
+                    <label><input type="radio" name="q13" value="c"> c) Iliterate </label>
+                    <label><input type="radio" name="q13" value="d"> d) Illitrate </label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q14" value="a"> a) Procede</label>
+                    <label><input type="radio" name="q14" value="b"> b) Proceede </label>
+                    <label><input type="radio" name="q14" value="c"> c) Procead </label>
+                    <label><input type="radio" name="q14" value="d"> d) Proceed</label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q15" value="a"> a) Sanitasion </label>
+                    <label><input type="radio" name="q15" value="b"> b) Sanitation </label>
+                    <label><input type="radio" name="q15" value="c"> c) Sanitetion </label>
+                    <label><input type="radio" name="q15" value="d"> d) Sanetation </label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q16" value="a"> a) Skillful</label>
+                    <label><input type="radio" name="q16" value="b"> b) Skillfull </label>
+                    <label><input type="radio" name="q16" value="c"> c) Skiilful </label>
+                    <label><input type="radio" name="q16" value="d"> d) Skilfull </label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q17" value="a"> a) Occasin </label>
+                    <label><input type="radio" name="q17" value="b"> b) Ocassin </label>
+                    <label><input type="radio" name="q17" value="c"> c) Occasion </label>
+                    <label><input type="radio" name="q17" value="d"> d) Ocassion </label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q18" value="a"> a) Argument </label>
+                    <label><input type="radio" name="q18" value="b"> b) Arguement </label>
+                    <label><input type="radio" name="q18" value="c"> c) Arguemint </label>
+                    <label><input type="radio" name="q18" value="d"> d) Arguiment </label>
+                </li>
+                <br>
+                <li>
+
+                    <label><input type="radio" name="q19" value="a"> a) Existance </label>
+                    <label><input type="radio" name="q19" value="b"> b) Existense</label>
+                    <label><input type="radio" name="q19" value="c"> c) Existanse </label>
+                    <label><input type="radio" name="q19" value="d"> d) Existence </label>
+                </li>
+                <br>
+
+                <li>
+
+                    <label><input type="radio" name="q20" value="a"> a) Transsnision</label>
+                    <label><input type="radio" name="q20" value="b"> b) Transmisson</label>
+                    <label><input type="radio" name="q20" value="c"> c) Transmission</label>
+                    <label><input type="radio" name="q20" value="d"> d) Transmision</label>
+                </li>
+                <h2>PART III</h2>
+                <h3>Instruction</h3>
+                <p><b>PART III </b> has 10 items (Questions 21-30). Read the proverb / idiom given in bold letters.
+                    Then, choose the correct/or nearest meaning of the proverb/idiom from the given options - A, B, C
+                    and D.</p>
+
+                <li>
+                    <p>Cry over spilt milk.</p>
+                    <label><input type="radio" name="q21" value="a"> a) Getting out of difficulty.</label>
+                    <label><input type="radio" name="q21" value="b"> b) Holding hatred against someone.</label>
+                    <label><input type="radio" name="q21" value="c"> c) Complaining about a loss from the past.</label>
+                    <label><input type="radio" name="q21" value="d"> d) Anticipating about the future and
+                        crying.</label>
+                </li>
+                <li>
+                    <p>The grass is always greener on the other side.</p>
+                    <label><input type="radio" name="q22" value="a"> a) People are looking at the other side</label>
+                    <label><input type="radio" name="q22" value="b"> b) People want green grass.</label>
+                    <label><input type="radio" name="q22" value="c"> c) People always want what they don't have.</label>
+                    <label><input type="radio" name="q22" value="d"> d) People think that grass grows better on other
+                        side.</label>
+                </li>
+                <li>
+                    <p>Kill two birds with one stone. </p>
+                    <label><input type="radio" name="q23" value="a"> a) To achieve two different things with a single
+                        action.</label>
+                    <label><input type="radio" name="q23" value="b"> b) To trap two birds with one stone.</label>
+                    <label><input type="radio" name="q23" value="c"> c) To throw the stone onto others.</label>
+                    <label><input type="radio" name="q23" value="d"> d) To have two opportunities. </label>
+                </li>
+                <li>
+                    <p>Burn the midnight oil.</p>
+                    <label><input type="radio" name="q24" value="a"> a) Work late into the night. </label>
+                    <label><input type="radio" name="q24" value="b"> b) Would never like to do something.</label>
+                    <label><input type="radio" name="q24" value="c"> c) Work hard to achieve targets.</label>
+                    <label><input type="radio" name="q24" value="d"> d) Finish two different things on time.</label>
+                </li>
+                <li>
+                    <p>Beat around the bush.</p>
+                    <label><input type="radio" name="q25" value="a"> a) To hide from someone. </label>
+                    <label><input type="radio" name="q25" value="b"> b) To try and remain distant. </label>
+                    <label><input type="radio" name="q25" value="c"> c) To avoid making an eye contact. </label>
+                    <label><input type="radio" name="q25" value="d"> d) To avoid speaking on the main topic of
+                        discussion. </label>
+                </li>
+                <li>
+                    <p>Hit the nail on the head.</p>
+                    <label><input type="radio" name="q26" value="a"> a) To make something new. </label>
+                    <label><input type="radio" name="q26" value="b"> b) To do carpenters work. </label>
+                    <label><input type="radio" name="q26" value="c"> c) To do exactly the right thing. </label>
+                    <label><input type="radio" name="q26" value="d"> d) To announce one's fixed views.</label>
+                </li>
+                <li>
+                    <p> To keep one's temper.</p>
+                    <label><input type="radio" name="q27" value="a"> a) To stop talking. </label>
+                    <label><input type="radio" name="q27" value="b"> b) To hold one's anger. </label>
+                    <label><input type="radio" name="q27" value="c"> c) To be aloof. </label>
+                    <label><input type="radio" name="q27" value="d"> d) To become angry. </label>
+                </li>
+                <li>
+                    <p>Not a spark of decency.</p>
+
+                    <label><input type="radio" name="q28" value="a"> a) A person who has no rights.</label>
+                    <label><input type="radio" name="q28" value="b"> b) A person who has no duties. </label>
+                    <label><input type="radio" name="q28" value="c"> c) A person who has no manners. </label>
+                    <label><input type="radio" name="q28" value="d"> d) A person who has no energy. </label>
+                </li>
+                <li>
+                    <p>Don't judge a book by its cover.</p>
+                    <label><input type="radio" name="q29" value="a"> a) Don't judge something by its colour. </label>
+                    <label><input type="radio" name="q29" value="b"> b) Don't judge a book by its price. </label>
+                    <label><input type="radio" name="q29" value="c"> c) Don't judge something by its appearance </label>
+                    <label><input type="radio" name="q29" value="d"> d) Don't judge something from outside. </label>
+                </li>
+                <li>
+                    <p> Add insult to injury.</p>
+                    <label><input type="radio" name="q30" value="a"> a) To worsen a negative situation.</label>
+                    <label><input type="radio" name="q30" value="b"> b) To insult a physically injured person. </label>
+                    <label><input type="radio" name="q30" value="c"> c) To laugh at someone. </label>
+                    <label><input type="radio" name="q30" value="d"> d) To taunt someone. </label>
+                </li>
+            </ol>
+
+
+
+
+            <button type="button" id="submit"  >Show Result</button>
+            <button type="button" id="done" onclick="sendResults()">Submit</button> 
+            <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+    <div id="chart-container">
+        <h2> Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+
+        const answers = {
+            q1: "a",
+            q2: "b",
+            q3: "a",
+            q4: "c",
+            q5: "d",
+            q6: "a",
+            q7: "b",
+            q8: "d",
+            q9: "b",
+            q10: "a",
+            q11: "a",
+            q12: "d",
+            q13: "b",
+            q14: "d",
+            q15: "b",
+            q16: "a",
+            q17: "c",
+            q18: "a",
+            q19: "d",
+            q20: "c",
+            q21: "c",
+            q22: "c",
+            q23: "a",
+            q24: "a",
+            q25: "d",
+            q26: "c",
+            q27: "b",
+            q28: "c",
+            q29: "c",
+            q30: "a"
+
+        };
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+           
+        })
+
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timert7`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timert7');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timert7', timer);
+    flag=0;
+}
+    }
+}
+function home(){
+            window.location.href="{{ url_for('ten') }}";
+
+        }
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('LA',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('linkt7',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

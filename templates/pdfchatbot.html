@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Academic Advisor Chatbot</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="text/css"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      type="text/css"
+      href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <!-- Vendor CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/aos/aos.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+
+  <body data-theme="light">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <!--  <h1 class="text-light"><a href="/chatbotpage"><span>Academic Advisor</span></a></h1> -->
+        <div class="userdisplay">
+          <h1>Hello,<span id="Name"></span>!</h1>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="{{ url_for('book') }}"
+                >Appointment</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="{{ url_for('edu') }}"
+                >Aptitude</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="{{ url_for('homework') }}"
+                >HomeWork</a
+              >
+            </li>
+            <li><a class="getstarted scrollto" href="/#home">Logout</a></li>
+            <!--   <li><button id="toggle-theme-btn" onclick="toggleTheme()">Toggle Theme</button></li> -->
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="userdisplay text-center">
+        <h1>PDF Analyzer Chatbot<span id="Name"></span>!</h1>
+      </div>
+
+      <section id="chat" class="chat">
+        <div id="chat-container">
+          <div id="chat-box"></div>
+          <img
+            src="{{ url_for('static', filename='img/loader.gif') }}"
+            id="loader"
+            width="150px"
+            alt="Loading..."
+          />
+        </div>
+        <div id="chat-input">
+          <div class="avatar-container" id="user-avatar-container"></div>
+
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Type your message..."
+            onkeypress="handleKeyPress(event)"
+          />
+
+          <button id="submit-btn" onclick="sendMessagetoGeneral()">
+            &#10148;
+          </button>
+
+          <div class="avatar-container" id="advisor-avatar-container"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container py-4"></div>
+    </footer>
+    <script>
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent the default behavior (e.g., line break in the input field)
+          sendMessage(); // Call the sendMessage function
+        }
+      }
+      function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+
+        body.setAttribute("data-theme", newTheme);
+      }
+
+      // Function to set the initial theme based on localStorage (optional)
+      function setInitialTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        const body = document.body;
+
+        if (savedTheme) {
+          body.setAttribute("data-theme", savedTheme);
+        } else {
+          // Set a default theme if no theme is saved in localStorage
+          body.setAttribute("data-theme", "light");
+        }
+      }
+
+      // Call setInitialTheme on page load
+      window.addEventListener("load", setInitialTheme);
+      document.addEventListener("DOMContentLoaded", function () {
+        loader.style.display = "none";
+        const name = localStorage.getItem("Uname");
+        document.getElementById("Name").textContent = name;
+
+        // Function to toggle between dark and light themes
+
+        var storedData = localStorage.getItem("resultData");
+        if (storedData) {
+          try {
+            var resultDataObj = JSON.parse(storedData);
+
+            // var marks = {};
+            for (var key in resultDataObj) {
+              resultDataObj[key] = parseInt(resultDataObj[key]);
+            }
+            console.log("Converted resultData:", resultDataObj);
+            const AR = resultDataObj.AR;
+            const LA = resultDataObj.LA;
+            const MR = resultDataObj.MR;
+            const NA = resultDataObj.NA;
+            const PA = resultDataObj.PA;
+            const SA = resultDataObj.SA;
+            const VR = resultDataObj.VR;
+
+            // Log the constants
+            console.log("AR:", AR);
+            console.log("LA:", LA);
+            console.log("MR:", MR);
+            console.log("NA:", NA);
+            console.log("PA:", PA);
+            console.log("SA:", SA);
+            console.log("VR:", VR);
+            var chatInput = document.getElementById("user-input");
+            chatInput.value =
+              "My sten scores in Abstract Reasoning is " +
+              AR +
+              " ,  in Language Aptitude is " +
+              LA +
+              " ,  in Mechanical Reasoning is " +
+              MR +
+              " ,  in Numerical Aptitude is " +
+              NA +
+              " ,  in Perceptual Aptitude is " +
+              PA +
+              " ,  in Spatial Aptitude is " +
+              SA +
+              " ,  in Verbal Reasoning is " +
+              VR +
+              " Provide  career guidance based on this";
+            sendMessage();
+
+            // Ensure that the button exists before trying to dispatch the event
+          } catch (error) {
+            console.error("Error parsing resultData:", error);
+          }
+        }
+      });
+    </script>
+
+    <!-- Vendor JS Files -->
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/aos/aos.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"
+    ></script>
+
+    <!-- Template Main JS File -->
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/static.js') }}"
+    ></script>
+  </body>
+</html>

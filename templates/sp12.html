@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Reasoning Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        ol {
+            list-style-type: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    img{
+        height: 90%;
+        width: 90%;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="quiz-container">
+        <h1>Spatial Reasoning Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <h2>Part I</h2>
+                
+                <p>Part I has 20 items (Questions 1-20). Read instructions given at the top of each page carefully. Each item consists of a Problem Figure followed by Answer Figures. Each Answer Figure has four options-A, B, C and D. Only one among them is right answer. Select the right answer.
+                </p>
+                <br><br><br>
+                <h3>Instruction</h3>
+                <p>Find out which parts given in Answer Figure A, B, C and D when combined will look like/make up the Problem Figure.</p>
+                <li>
+                    <p>1. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts1.png')}}"></p>
+                    <label><input type="radio" name="q1" value="a"> a) A</label>
+                    <label><input type="radio" name="q1" value="b"> b) B</label>
+                    <label><input type="radio" name="q1" value="c"> c) C</label>
+                    <label><input type="radio" name="q1" value="d"> d) D</label>
+                </li>
+                <li>
+                    <p>2. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts2.png')}}"></p>
+                    <label><input type="radio" name="q2" value="a"> a) A</label>
+                    <label><input type="radio" name="q2" value="b"> b) B</label>
+                    <label><input type="radio" name="q2" value="c"> c) C</label>
+                    <label><input type="radio" name="q2" value="d"> d) D</label>
+                </li>
+
+                <li>
+                    <p>3. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts3.png')}}"></p>
+                    <label><input type="radio" name="q3" value="a"> a) A</label>
+                    <label><input type="radio" name="q3" value="b"> b) B</label>
+                    <label><input type="radio" name="q3" value="c"> c) C</label>
+                    <label><input type="radio" name="q3" value="d"> d) D</label>
+                
+                </li>
+                <li>
+                    <p>4. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts4.png')}}"></p>
+                    <label><input type="radio" name="q4" value="a"> a) A</label>
+                    <label><input type="radio" name="q4" value="b"> b) B</label>
+                    <label><input type="radio" name="q4" value="c"> c) C</label>
+                    <label><input type="radio" name="q4" value="d"> d) D</label>
+                   
+                </li>
+                <li>
+                    <p>5. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts5.png')}}"></p>
+                    <label><input type="radio" name="q5" value="a"> a) A</label>
+                    <label><input type="radio" name="q5" value="b"> b) B</label>
+                    <label><input type="radio" name="q5" value="c"> c) C</label>
+                    <label><input type="radio" name="q5" value="d"> d) D</label>
+                    
+                </li>
+                <h3>Instruction</h3>
+                <p> Find out which of the Answer Figure A, B, C and D will be formed from the parts given in Problem Figure.</p>
+                <li>
+                    <p>6. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts6.png')}}"></p>
+                    <label><input type="radio" name="q6" value="a"> a) A</label>
+                    <label><input type="radio" name="q6" value="b"> b) B</label>
+                    <label><input type="radio" name="q6" value="c"> c) C</label>
+                    <label><input type="radio" name="q6" value="d"> d) D</label>
+                    
+                </li>
+                <li>
+                    <p>7. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts7.png')}}"></p>
+                    <label><input type="radio" name="q7" value="a"> a) A</label>
+                    <label><input type="radio" name="q7" value="b"> b) B</label>
+                    <label><input type="radio" name="q7" value="c"> c) C</label>
+                    <label><input type="radio" name="q7" value="d"> d) D</label>
+                  
+                </li>
+                <li>
+                    <p>8. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts8.png')}}"></p>
+                    <label><input type="radio" name="q8" value="a"> a) A</label>
+                    <label><input type="radio" name="q8" value="b"> b) B</label>
+                    <label><input type="radio" name="q8" value="c"> c) C</label>
+                    <label><input type="radio" name="q8" value="d"> d) D</label>
+                </li>
+                <li>
+                    <p>9. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts9.png')}}"></p>
+                    <label><input type="radio" name="q9" value="a"> a) A</label>
+                    <label><input type="radio" name="q9" value="b"> b) B</label>
+                    <label><input type="radio" name="q9" value="c"> c) C</label>
+                    <label><input type="radio" name="q9" value="d"> d) D</label>
+                  
+                </li>
+                <li>
+                    <p>10. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts10.png')}}"></p>
+                    <label><input type="radio" name="q10" value="a"> a) A</label>
+                    <label><input type="radio" name="q10" value="b"> b) B</label>
+                    <label><input type="radio" name="q10" value="c"> c) C</label>
+                    <label><input type="radio" name="q10" value="d"> d) D</label>
+         
+                </li>
+                
+                <h3>Instruction</h3>
+                <p>  If the Problem Figure is rotated anti-clockwise at 90*, which of the Answer
+                    Fioures amone options- A. B. Cand D will it look like.</p>
+                <li>
+                    <p>11. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts11.png')}}"></p>
+                    <label><input type="radio" name="q11" value="a"> a) A</label>
+                    <label><input type="radio" name="q11" value="b"> b) B</label>
+                    <label><input type="radio" name="q11" value="c"> c) C</label>
+                    <label><input type="radio" name="q11" value="d"> d) D</label>
+                   
+                </li>
+                <li>
+                    <p>12. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts12.png')}}"></p>
+
+                    <label><input type="radio" name="q12" value="a"> a) A</label>
+                    <label><input type="radio" name="q12" value="b"> b) B</label>
+                    <label><input type="radio" name="q12" value="c"> c) C</label>
+                    <label><input type="radio" name="q12" value="d"> d) D</label>
+                   
+                </li>
+                <li>
+                    <p>13. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts13.png')}}"></p>
+
+                    <label><input type="radio" name="q13" value="a"> a) A</label>
+                    <label><input type="radio" name="q13" value="b"> b) B</label>
+                    <label><input type="radio" name="q13" value="c"> c) C</label>
+                    <label><input type="radio" name="q13" value="d"> d) D</label>
+                    
+                </li>
+                <li>
+                    <p>14.&nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts14.png')}}"></p>
+                    <label><input type="radio" name="q14" value="a"> a) A</label>
+                    <label><input type="radio" name="q14" value="b"> b) B</label>
+                    <label><input type="radio" name="q14" value="c"> c) C</label>
+                    <label><input type="radio" name="q14" value="d"> d) D</label>
+                 
+                </li>
+                <li>
+                    <p>15. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts15.png')}}"></p>
+
+                    <label><input type="radio" name="q15" value="a"> a) A</label>
+                    <label><input type="radio" name="q15" value="b"> b) B</label>
+                    <label><input type="radio" name="q15" value="c"> c) C</label>
+                    <label><input type="radio" name="q15" value="d"> d) D</label>
+                   
+                </li>
+                <h3>Instruction</h3>
+                <p>  In the Answer Figures given below, three options are Flipped Over and turned around. One of them is Same as the Problem Figure but is only turned around. Find the figure which is Same as the Problem Figure and is only turned around.</p>
+                <li>
+                    <p>16. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts16.png')}}"></p>
+
+                    <label><input type="radio" name="q16" value="a"> a) A</label>
+                    <label><input type="radio" name="q16" value="b"> b) B</label>
+                    <label><input type="radio" name="q16" value="c"> c) C</label>
+                    <label><input type="radio" name="q16" value="d"> d) D</label>
+                   
+                </li>
+                
+                <li>
+                    <p>17. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts17.png')}}"></p>
+                    <label><input type="radio" name="q17" value="a"> a) A</label>
+                    <label><input type="radio" name="q17" value="b"> b) B</label>
+                    <label><input type="radio" name="q17" value="c"> c) C</label>
+                    <label><input type="radio" name="q17" value="d"> d) D</label>
+                    
+                </li>
+                <li>
+                    <p>18. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts18.png')}}"></p>
+                    <label><input type="radio" name="q18" value="a"> a) A</label>
+                    <label><input type="radio" name="q18" value="b"> b) B</label>
+                    <label><input type="radio" name="q18" value="c"> c) C</label>
+                    <label><input type="radio" name="q18" value="d"> d) D</label>
+
+                </li>
+                <li>
+                    <p>19. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts19.png')}}"></p>
+
+                    <label><input type="radio" name="q19" value="a"> a) A</label>
+                    <label><input type="radio" name="q19" value="b"> b) B</label>
+                    <label><input type="radio" name="q19" value="c"> c) C</label>
+                    <label><input type="radio" name="q19" value="d"> d) D</label>
+
+                </li>
+                <li>
+                    <p>20. &nbsp;&nbsp;Problem Figure    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     Answer Figure<br><br><img src="{{ url_for('static', filename='img/ts20.png')}}"></p>
+                    <label><input type="radio" name="q20" value="a"> a) A</label>
+                    <label><input type="radio" name="q20" value="b"> b) B</label>
+                    <label><input type="radio" name="q20" value="c"> c) C</label>
+                    <label><input type="radio" name="q20" value="d"> d) D</label>
+
+                </li>
+                <h2>Part II</h2>
+                <h3>Instruction</h3>
+                <p>  Part II has 10 items (Questions 21-30). Read Questions Carefully and Answer accordingly. Only one among the suggested options is correct.</p>
+                    <li>
+                        <p>21. Three views of the same cube are shown above. Which symbol is opposite the X? </p>
+                        <img src="{{ url_for('static', filename='img/a21.png')}}">
+    
+                        <label><input type="radio" name="q21" value="a"> a) A</label>
+                        <label><input type="radio" name="q21" value="b"> b) B</label>
+                        <label><input type="radio" name="q21" value="c"> c) C</label>
+                        <label><input type="radio" name="q21" value="d"> d) D</label>
+                        <label><input type="radio" name="q21" value="e"> d) E</label>
+                    </li>
+                    <li>
+                        <p>22. Which answer shows a mirror image of the image above? </p>
+                        <img src="{{ url_for('static', filename='img/a22.png')}}">
+    
+                        <label><input type="radio" name="q22" value="a"> a) 1</label>
+                        <label><input type="radio" name="q22" value="b"> b) 2</label>
+                        <label><input type="radio" name="q22" value="c"> c) 3</label>
+                        <label><input type="radio" name="q22" value="d"> d) 4</label>
+    
+                    </li>
+                    <li>
+                        <p>23. Which of the cubes shown could be made from the pattern? </p>
+                        <img src="{{ url_for('static', filename='img/a23.png')}}">
+    
+                        <label><input type="radio" name="q23" value="a"> a) A</label>
+                        <label><input type="radio" name="q23" value="b"> b) B</label>
+                        <label><input type="radio" name="q23" value="c"> c) C</label>
+                        <label><input type="radio" name="q23" value="d"> d) D</label>
+    
+                    </li>
+                    <li>
+                        <p>24. How many blocks make up the shape above?</p>
+                        <img src="{{ url_for('static', filename='img/a24.png')}}">
+    
+                        <label><input type="radio" name="q24" value="a"> a) 28</label>
+                        <label><input type="radio" name="q24" value="b"> b) 26</label>
+                        <label><input type="radio" name="q24" value="c"> c) 32</label>
+                        <label><input type="radio" name="q24" value="d"> d) 35</label>
+    
+                    </li>
+                    <li>
+                        <p>25.Which of the answer options is the correct net to make the cube? </p>
+                        <img src="{{ url_for('static', filename='img/a25.png')}}">
+    
+                        <label><input type="radio" name="q25" value="a"> a) A</label>
+                        <label><input type="radio" name="q25" value="b"> b) B</label>
+                        <label><input type="radio" name="q25" value="c"> c) C</label>
+                        <label><input type="radio" name="q25" value="d"> d) D</label>
+    
+                    </li>
+                    <li>26. Each block in the pile is the same size and shape. Some blocks are hidden from view but must be
+                        there to hold the visible blocks up. Choose the answer that shows the total number of blocks in the
+                        pile. </p>
+                        <img src="{{ url_for('static', filename='img/a26.png')}}">
+    
+                        <label><input type="radio" name="q26" value="a"> a) 13</label>
+                        <label><input type="radio" name="q26" value="b"> b) 10</label>
+                        <label><input type="radio" name="q26" value="c"> c) 12</label>
+                        <label><input type="radio" name="q26" value="d"> d) 11</label>
+                        <label><input type="radio" name="q26" value="e"> e) 14</label>
+    
+                    </li>
+                    <li>
+                        <p>27. Each block in the pile is the same size and shape. Some blocks are hidden from view but must
+                            be there to hold the visible blocks up. Choose the answer that shows the total number of blocks
+                            in the pile </p>
+                        <img src="{{ url_for('static', filename='img/a27.png')}}">
+    
+    
+                        <label><input type="radio" name="q27" value="a"> a) 16</label>
+                        <label><input type="radio" name="q27" value="b"> b) 18</label>
+                        <label><input type="radio" name="q27" value="c"> c) 19</label>
+                        <label><input type="radio" name="q27" value="d"> d) 17</label>
+                        <label><input type="radio" name="q27" value="e"> e) 15</label>
+    
+                    </li>
+                    <li>
+                        <p>28. One of the five shapes on the right matches the shape on the left i.e. it is the same as the
+                            shape on the left, but it has been spun round. The other four shapes on the right do not match
+                            the shape on the left because they have been picked up and turned over, as well as possibly spun
+                            round. Choose the answer that shows the matching shape </p>
+                        <img src="{{ url_for('static', filename='img/a28.png')}}">
+    
+    
+                        <label><input type="radio" name="q28" value="a"> a) A</label>
+                        <label><input type="radio" name="q28" value="b"> b) B</label>
+                        <label><input type="radio" name="q28" value="c"> c) C</label>
+                        <label><input type="radio" name="q28" value="d"> d) D</label>
+                        <label><input type="radio" name="q28" value="e"> d) E</label>
+                    </li>
+                    <li>
+                        <p>29. One of the five shapes on the right matches the shape on the left i.e. it is the same as the
+                            shape on the left, but it has been spun round. The other four shapes on the right do not match
+                            the shape on the left because they have been picked up and turned over, as well as possibly spun
+                            round. Choose the answer that shows the matching shape </p>
+                        <img src="{{ url_for('static', filename='img/a29.png')}}">
+    
+    
+    
+                        <label><input type="radio" name="q29" value="a"> a) A</label>
+                        <label><input type="radio" name="q29" value="b"> b) B</label>
+                        <label><input type="radio" name="q29" value="c"> c) C</label>
+                        <label><input type="radio" name="q29" value="d"> d) D</label>
+                        <label><input type="radio" name="q29" value="e"> d) E</label>
+    
+                    </li>
+                    <li>
+                        <p>30. One of the five shapes on the right matches the shape on the left i.e. it is the same as the
+                            shape on the left, but it has been spun round. The other four shapes on the right do not match
+                            the shape on the left because they have been picked up and turned over, as well as possibly spun
+                            round. Choose the answer that shows the matching shape </p>
+                        <img src="{{ url_for('static', filename='img/a30.png')}}">
+    
+    
+                        <label><input type="radio" name="q30" value="a"> a) A</label>
+                        <label><input type="radio" name="q30" value="b"> b) B</label>
+                        <label><input type="radio" name="q30" value="c"> c) C</label>
+                        <label><input type="radio" name="q30" value="d"> d) D</label>
+                        <label><input type="radio" name="q30" value="e"> d) E</label>
+    
+                    </li>
+                </ol>
+    
+
+                <button type="button" id="submit"  >Show Result</button>
+                <button type="button" id="done" onclick="sendResults()">Submit</button> 
+                <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+
+    <div id="chart-container">
+        <h2>Quiz Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+        const answers = {
+            q1: "a",
+            q2: "d",
+            q3: "a",
+            q4: "d",
+            q5: "c",
+            q6: "d",
+            q7: "c",
+            q8: "b",
+            q9: "a",
+            q10: "c",
+            q11: "d",
+            q12: "b",
+            q13: "c",
+            q14: "a",
+            q15: "d",
+            q16: "b",
+            q17: "b",
+            q18: "a",
+            q19: "d",
+            q20: "c",
+            q21: "d",
+            q22: "c",
+            q23: "d",
+            q24: "a",
+            q25: "a",
+            q26: "c",
+            q27: "a",
+            q28: "c",
+            q29: "c",
+            q30: "a"
+
+        };
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+        function home(){
+            window.location.href="{{ url_for('twe') }}";
+
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+        
+          
+    }
+        )
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timerw4`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timerw4');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timerw4', timer);
+    flag=0;
+}
+    }
+}
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('SA',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('linkw4',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+        // window.location.href='twelth.html';
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

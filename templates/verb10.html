@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Aptitude Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="quiz-container">
+        <h1>Verbal Aptitude Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <h2>PART I</h2>
+                <h3>Instruction</h3>
+                <p><b>Part I </b> has 15 sentences (Questions 1-15). Each sentence has two pairs of words. One word from the second pair is missing. You need to complete the pair by selecting the correct word from the given options - A, B, C and D to make the statement correct and logical.</p>
+                <li>
+                    <p>Water is to Tank as Money is to________________</p>
+                    <label><input type="radio" name="q1" value="a"> a) Spend</label>
+                    <label><input type="radio" name="q1" value="b"> b) Bank</label>
+                    <label><input type="radio" name="q1" value="c"> c) Gold</label>
+                    <label><input type="radio" name="q1" value="d"> d) Manager</label>
+                </li>
+                <li>
+                    <p>Ear is to Hear as Eye is to _______________</p>
+
+                    <label><input type="radio" name="q2" value="a"> a) Light </label>
+                    <label><input type="radio" name="q2" value="b"> b) Capture</label>
+                    <label><input type="radio" name="q2" value="c"> c) See</label>
+                    <label><input type="radio" name="q2" value="d"> d) Picture</label>
+                </li>
+                <li>
+                    <p> Word is to Dictionary as Map is to _____________</p>
+                    <label><input type="radio" name="q3" value="a"> a) Globe</label>
+                    <label><input type="radio" name="q3" value="b"> b) Atlas</label>
+                    <label><input type="radio" name="q3" value="c"> c) Geography</label>
+                    <label><input type="radio" name="q3" value="d"> d) Location </label>
+                </li>
+                <li>
+                    <p> Thread is to Needle as Book is to ____________</p>
+                    <label><input type="radio" name="q4" value="a"> a) Wood </label>
+                    <label><input type="radio" name="q4" value="b"> b) Rack</label>
+                    <label><input type="radio" name="q4" value="c"> c) Shelf</label>
+                    <label><input type="radio" name="q4" value="d"> d) Sack</label>
+                </li>
+                <li>
+                    <p> Wood is to Carpenter as Clay is to_____________ </p>
+                    <label><input type="radio" name="q5" value="a"> a) Potter</label>
+                    <label><input type="radio" name="q5" value="b"> b) Sculptor </label>
+                    <label><input type="radio" name="q5" value="c"> c) Architect </label>
+                    <label><input type="radio" name="q5" value="d"> d) Mason </label>
+                </li>
+                <li>
+                    <p> Skeleton is to Body as Grammar is to ______________</p>
+                    <label><input type="radio" name="q6" value="a"> a) Sentence</label>
+                    <label><input type="radio" name="q6" value="b"> b) Language </label>
+                    <label><input type="radio" name="q6" value="c"> c) Education </label>
+                    <label><input type="radio" name="q6" value="d"> d) Meaning</label>
+                </li>
+                <li>
+                    <p> Flexible is to Rigid as Confident is to ________________</p>
+                    <label><input type="radio" name="q7" value="a"> a) Coward </label>
+                    <label><input type="radio" name="q7" value="b"> b) Indifferent </label>
+                    <label><input type="radio" name="q7" value="c"> c) Hesitant </label>
+                    <label><input type="radio" name="q7" value="d"> d) Pessimistic </label>
+                </li>
+                <li>
+                    <p> Forecast is to Future as Regret is to __________</p>
+                    <label><input type="radio" name="q8" value="a"> a) Present </label>
+                    <label><input type="radio" name="q8" value="b"> b) Past </label>
+                    <label><input type="radio" name="q8" value="c"> c) Mistake </label>
+                    <label><input type="radio" name="q8" value="d"> d) Apology </label>
+                </li>
+                <li>
+                    <p> Contestant is to Competition as Witness is to _________</p>
+                    <label><input type="radio" name="q9" value="a"> a) Journey </label>
+                    <label><input type="radio" name="q9" value="b"> b) Trial </label>
+                    <label><input type="radio" name="q9" value="c"> c) Election </label>
+                    <label><input type="radio" name="q9" value="d"> d) Royalty</label>
+                </li>
+                <li>
+                    <p>Innumerable is to Quantity as Invaluable is to __________</p>
+                    <label><input type="radio" name="q10" value="a"> a) Size</label>
+                    <label><input type="radio" name="q10" value="b"> b) Surface </label>
+                    <label><input type="radio" name="q10" value="c"> c) Worth </label>
+                    <label><input type="radio" name="q10" value="d"> d) Volume </label>
+                </li>
+                
+                <li>
+                    <p>Train is to Station as Ship is to ___________</p>
+
+                    <label><input type="radio" name="q11" value="a"> a) Harbour </label>
+                    <label><input type="radio" name="q11" value="b"> b) Sail </label>
+                    <label><input type="radio" name="q11" value="c"> c) Mast </label>
+                    <label><input type="radio" name="q11" value="d"> d) Anchor </label>
+                </li>
+                <br>
+                <li>
+                    <p>Comb is to Teeth as Book is to ________</p>
+
+                    <label><input type="radio" name="q12" value="a"> a) Page </label>
+                    <label><input type="radio" name="q12" value="b"> b) Word </label>
+                    <label><input type="radio" name="q12" value="c"> c) Knowledge </label>
+                    <label><input type="radio" name="q12" value="d"> d) Letter</label>
+                </li>
+                <br>
+                <li>
+                    <p>Insulator is to Wood as Conductor is to _________</p>
+
+                    <label><input type="radio" name="q13" value="a"> a) Iron </label>
+                    <label><input type="radio" name="q13" value="b"> b) Cotton </label>
+                    <label><input type="radio" name="q13" value="c"> c) Plastic </label>
+                    <label><input type="radio" name="q13" value="d"> d) Pearl </label>
+                </li>
+                <br>
+                <li>
+                    <p>Breeze is to Cyclone as Rain is to _____________ </p>
+
+                    <label><input type="radio" name="q14" value="a"> a) Earthquake</label>
+                    <label><input type="radio" name="q14" value="b"> b) Storm </label>
+                    <label><input type="radio" name="q14" value="c"> c) Drizzle </label>
+                    <label><input type="radio" name="q14" value="d"> d) Flood</label>
+                </li>
+                <br>
+                <li>
+                    <p>Bridge is to River as Tunnel is to _____________</p>
+
+                    <label><input type="radio" name="q15" value="a"> a) Road </label>
+                    <label><input type="radio" name="q15" value="b"> b) Passage </label>
+                    <label><input type="radio" name="q15" value="c"> c) Mountain </label>
+                    <label><input type="radio" name="q15" value="d"> d) Travel </label>
+                </li>
+                <br>
+                <h2>PART II</h2>
+                <h3>Instruction</h3>
+                <p><b>PART II </b>has 15 sentences (Questions 16-30). Each sentence has two pairs of words. The first word from the first pair and the last word from the second pair are missing. You need to select the word pair from the given options - A, B, C and D so that the sentence will be correct and logical.
+                    The first word of the pair you choose goes to the first blank space in the sentence while the second word of the pair goes to the second blank space in the sentence.</p>
+
+                <li>
+                    <p>_____________is to Red as Earth is to __________</p>
+
+                    <label><input type="radio" name="q16" value="a"> a) Mars --------- Blue</label>
+                    <label><input type="radio" name="q16" value="b"> b) Jupiter --------- Orange </label>
+                    <label><input type="radio" name="q16" value="c"> c) Mercury --------- Brown </label>
+                    <label><input type="radio" name="q16" value="d"> d) Saturn --------- Yellow </label>
+                </li>
+                <br>
+                <li>
+                    <p>____________ is to Bird as Monkey is to ____________</p>
+
+                    <label><input type="radio" name="q17" value="a"> a) Wings --------- Branch </label>
+                    <label><input type="radio" name="q17" value="b"> b) Crow --------- Mammal </label>
+                    <label><input type="radio" name="q17" value="c"> c) Crow --------- Branch </label>
+                    <label><input type="radio" name="q17" value="d"> d) Wings --------- Mammal </label>
+                </li>
+                <br>
+                <li>
+                    <p>______________is to Car as Water is to ______________</p>
+
+                    <label><input type="radio" name="q18" value="a"> a) Road ---------- Drink </label>
+                    <label><input type="radio" name="q18" value="b"> b) Road --------- Boat </label>
+                    <label><input type="radio" name="q18" value="c"> c) Tyre --------- Boat </label>
+                    <label><input type="radio" name="q18" value="d"> d) Driver --------- Sailor </label>
+                </li>
+                <br>
+                <li>
+                    <p>______________is to Justice as School is to _______________ </p>
+
+                    <label><input type="radio" name="q19" value="a"> a) Court--------- Teacher </label>
+                    <label><input type="radio" name="q19" value="b"> b) Law --------- Education</label>
+                    <label><input type="radio" name="q19" value="c"> c) Law--------- Class </label>
+                    <label><input type="radio" name="q19" value="d"> d) Court --------- Education </label>
+                </li>
+                <br>
+
+                <li>
+                    <P>____________is to Country as Governor is to ____________</P>
+
+                    <label><input type="radio" name="q20" value="a"> a) President --------- State</label>
+                    <label><input type="radio" name="q20" value="b"> b) Flag --------- Nation</label>
+                    <label><input type="radio" name="q20" value="c"> c) President --------- District</label>
+                    <label><input type="radio" name="q20" value="d"> d) Minister --------- State</label>
+                </li>
+                
+                <li>
+                    <p>______________is to Storm as Smoke is to_____________.</p>
+                    <label><input type="radio" name="q21" value="a"> a) Weather --------- Fire</label>
+                    <label><input type="radio" name="q21" value="b"> b) Thunder --------- Fire</label>
+                    <label><input type="radio" name="q21" value="c"> c) Danger --------- Cooking</label>
+                    <label><input type="radio" name="q21" value="d"> d) Thunder --------- Cooking</label>
+                </li>
+                <li>
+                    <p>______________is to Hand as Sock is to_________________</p>
+                    <label><input type="radio" name="q22" value="a"> a) Glove --------- Feet</label>
+                    <label><input type="radio" name="q22" value="b"> b) Pencil --------- Feet</label>
+                    <label><input type="radio" name="q22" value="c"> c) Glove --------- Shoe</label>
+                    <label><input type="radio" name="q22" value="d"> d) Ring --------- Toes</label>
+                </li>
+                <li>
+                    <p>______________is to Chirp as Duck is to_______________ </p>
+                    <label><input type="radio" name="q23" value="a"> a) Snake --------- Quack</label>
+                    <label><input type="radio" name="q23" value="b"> b) Sparrow --------- Chatter</label>
+                    <label><input type="radio" name="q23" value="c"> c) Frog --------- Quack</label>
+                    <label><input type="radio" name="q23" value="d"> d) Sparrow --------- Quack </label>
+                </li>
+                <li>
+                    <p>______________is to Lion as Lamb is to _______________</p>
+                    <label><input type="radio" name="q24" value="a"> a) Cub --------- Deer</label>
+                    <label><input type="radio" name="q24" value="b"> b) Kid --------- Deer</label>
+                    <label><input type="radio" name="q24" value="c"> c) Cub --------- Sheep</label>
+                    <label><input type="radio" name="q24" value="d"> d) Kid --------- Sheep</label>
+                </li>
+                <li>
+                    <p>________________is to Ocean as Elephant is to______________</p>
+                    <label><input type="radio" name="q25" value="a"> a) Fish --------- Earth </label>
+                    <label><input type="radio" name="q25" value="b"> b) Whale --------- Desert </label>
+                    <label><input type="radio" name="q25" value="c"> c) Fish --------- Land</label>
+                    <label><input type="radio" name="q25" value="d"> d) Whale --------- Land </label>
+                </li>
+                <li>
+                    <p>_______________is to Country as Frame is to______________</p>
+                    <label><input type="radio" name="q26" value="a"> a) Border --------- Colour </label>
+                    <label><input type="radio" name="q26" value="b"> b) Border --------- Picture </label>
+                    <label><input type="radio" name="q26" value="c"> c) Capital --------- Picture </label>
+                    <label><input type="radio" name="q26" value="d"> d) Capital --------- Colour</label>
+                </li>
+                <li>
+                    <p> _______________is to Wood as Tailor is to______________</p>
+                    <label><input type="radio" name="q27" value="a"> a) Carpenter --------- Cloth </label>
+                    <label><input type="radio" name="q27" value="b"> b) Plumber --------- Sewing </label>
+                    <label><input type="radio" name="q27" value="c"> c) Table --------- Cloth </label>
+                    <label><input type="radio" name="q27" value="d"> d) Carpenter --------- Sewing </label>
+                </li>
+                <li>
+                    <p>_______________is to Stable as Dog is to ________________.</p>
+
+                    <label><input type="radio" name="q28" value="a"> a) Horse --------- Shed</label>
+                    <label><input type="radio" name="q28" value="b"> b) Cow --------- House </label>
+                    <label><input type="radio" name="q28" value="c"> c) Cow --------- Kennel </label>
+                    <label><input type="radio" name="q28" value="d"> d) Horse --------- Kennel</label>
+                </li>
+                <li>
+                    <p>_______________is to Thick as Silence is to________________</p>
+                    <label><input type="radio" name="q29" value="a"> a) Bold --------- Loud </label>
+                    <label><input type="radio" name="q29" value="b"> b) Bold --------- Noise </label>
+                    <label><input type="radio" name="q29" value="c"> c) Thin --------- Noise </label>
+                    <label><input type="radio" name="q29" value="d"> d) Thin --------- Loud </label>
+                </li>
+                <li>
+                    <p> _____________is to Porous as Rubber is to________________</p>
+                    <label><input type="radio" name="q30" value="a"> a) Glass --------- Elastic</label>
+                    <label><input type="radio" name="q30" value="b"> b) Sponge --------- Elastic </label>
+                    <label><input type="radio" name="q30" value="c"> c) Sponge --------- Solid </label>
+                    <label><input type="radio" name="q30" value="d"> d) Glass --------- Solid </label>
+                </li>
+            </ol>
+
+
+
+
+            <button type="button" id="submit"  >Show Result</button>
+            <button type="button" id="done" onclick="sendResults()">Submit</button> 
+            <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+    <div id="chart-container">
+        <h2> Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">30:00</span></h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+
+        const answers = {
+            q1: "b",
+            q2: "c",
+            q3: "a",
+            q4: "c",
+            q5: "a",
+            q6: "b",
+            q7: "c",
+            q8: "b",
+            q9: "b",
+            q10: "c",
+            q11: "a",
+            q12: "a",
+            q13: "a",
+            q14: "d",
+            q15: "a",
+            q16: "a",
+            q17: "b",
+            q18: "b",
+            q19: "d",
+            q20: "a",
+            q21: "b",
+            q22: "a",
+            q23: "d",
+            q24: "c",
+            q25: "d",
+            q26: "c",
+            q27: "a",
+            q28: "d",
+            q29: "c",
+            q30: "b"
+
+        };
+        function home(){
+            window.location.href="{{ url_for('ten') }}";
+
+        }
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+           
+        })
+
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+const remainingTime = localStorage.getItem(`timert3`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+let flag=0;
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timert3');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timert3', timer);
+    flag=0;
+    }
+    }
+}
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('VR',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('linkt3',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

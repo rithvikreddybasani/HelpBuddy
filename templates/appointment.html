@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Family Doctor: Get Appointment</title>
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesy.css')}}" />
+  
+</head>
+
+<style>
+    .card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+        border: none !important;
+        box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+    }
+
+    .blue-text {
+        color: #00BCD4
+    }
+
+    .form-control-label {
+        margin-bottom: 0
+    }
+
+    input,
+    textarea,
+    button {
+        padding: 8px 15px;
+        border-radius: 5px !important;
+        margin: 5px 0px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        font-size: 18px !important;
+        font-weight: 300
+    }
+
+    input:focus,
+    textarea:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #00BCD4;
+        outline-width: 0;
+        font-weight: 400
+    }
+
+    .btn-block {
+        text-transform: uppercase;
+        font-size: 15px !important;
+        font-weight: 400;
+        height: 43px;
+        cursor: pointer
+    }
+
+    .btn-block:hover {
+        color: #fff !important
+    }
+
+    button:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        outline-width: 0
+    }
+
+</style>
+
+<body>
+
+    <!-- <div class="card notification-card notification-invitation">
+        <div class="card-body">
+                <div class="card-title">Jane invited you to join </div>
+        </div>
+      </div> -->
+
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h3>
+                    Book an appointment
+                </h3>
+              
+                <div class="card">
+                    
+                    <form class="form-card" id="form-card">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> 
+                            <label class="form-control-label px-3">First name<span class="text-danger"> *</span>
+                            </label> 
+                            <input required type="text" id="fname" name="fname" placeholder="Enter your first name" > 
+                        </div>
+
+                        <div class="form-group col-sm-6 flex-column d-flex"> 
+                            <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> 
+                            <input required type="text" id="lname" name="lname" placeholder="Enter your last name" > 
+                        </div>
+
+                        </div>
+
+                        <div class="row justify-content-between text-left">
+
+                            <div class="form-group col-sm-6 flex-column d-flex"> 
+                                <label class="form-control-label px-3">Email<span class="text-danger"> *</span>
+                                </label> 
+                                <input type="text" id="email" name="email" placeholder="" > 
+                            </div>
+
+                            <div class="form-group col-sm-6 flex-column d-flex"> 
+                             <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label> 
+                              <input type="text" id="mob" name="mob" placeholder="" > 
+                            </div>
+
+                        </div>
+
+                           <div class="row justify-content-between text-left">
+                            <div class="form-group col-12 flex-column d-flex"> 
+                                <label class="form-control-label px-3">Upload your Aptitude Test Result<span class="text-danger"> *</span></label> 
+                                <input type="file" id="fileInput"  accept=".pdf" >
+                            </div>
+                            
+                        </div>
+                            
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="form-group col-sm-6">
+                                <button type="submit" id="form-card" class="btn-block btn-primary" >Send</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+        import { getFirestore,collection, setDoc ,addDoc,doc} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js"; 
+        import { getStorage, ref, uploadBytes,getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-storage.js";
+
+          // Add your Firebase configuration here
+          const firebaseConfig = {
+            apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+            authDomain: "careerchatbot-a0647.firebaseapp.com",
+            projectId: "careerchatbot-a0647",
+            storageBucket: "careerchatbot-a0647.appspot.com",
+            messagingSenderId: "783848410278",
+            appId: "1:783848410278:web:7b7c8481914ffce3357867",
+          };
+          
+       
+        // Initialize Firebase
+        
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+        let pdfUrl;
+        document.getElementById('form-card').addEventListener('submit', async(e) => {
+      e.preventDefault();
+            const fname=document.getElementById("fname").value;
+const lname=document.getElementById("lname").value;
+const email=document.getElementById("email").value;
+const mob=document.getElementById("mob").value;
+const pdfFile = document.getElementById("fileInput").files[0];
+pdfUrl = await uploadPdf(pdfFile);
+// const storageRef = ref(storage, "aptitude/" + pdfFile.name); // Creating a reference to the file's location
+// const uploadTask = uploadBytes(storageRef, pdfFile); // Uploading the file
+// uploadTask.then((snapshot) => {
+//         console.log('File uploaded successfully');
+//         // Get the download URL of the uploaded file
+//         getDownloadURL(snapshot.ref)
+//             .then((downloadURL) => {
+//                 console.log('Download URL:', downloadURL);
+//               const pdfUrl=downloadURL;
+//             })
+//             .catch((error) => {
+//                 console.error('Error getting download URL:', error);
+//             });
+//     }).catch((error) => {
+//         console.error('Error uploading file:', error);
+//     });
+
+storedData({
+        fname: fname,
+        lname: lname,
+        email: email,
+        mob: mob,
+        pdfUrl: pdfUrl
+      });
+       
+       
+    });  
+      async function storedData(data){
+
+const name=data.fname;
+const lname=data.lname;
+const email=data.email;
+const mob=data.mob;
+const pdfUrl=data.pdfUrl;
+        // Initialize Cloud Firestore and get a reference to the service
+        const db = getFirestore(app);
+        const docRef = await addDoc(collection(db, "appointments"), {
+  Firstname: name,
+  Lastname: lname,
+  email:email,
+  mob:mob,
+  pdfUrl:pdfUrl
+});
+console.log("Document written with ID: ", docRef.id);
+alert("Appointment sended")
+window.location.href = "{{ url_for('manage') }}";
+}
+async function uploadPdf(pdfFile) {
+      try {
+        const storageRef = ref(storage, "aptitude/" + pdfFile.name);
+        const uploadTask = await uploadBytes(storageRef, pdfFile);
+        const url = await getDownloadURL(uploadTask.ref);
+        return url;
+      } catch (error) {
+        console.error("Error uploading PDF: ", error);
+      }
+    }
+
+    </script>
+</body>
+</html>

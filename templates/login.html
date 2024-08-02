@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>HelpBuddy</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="text/css"
+      href="{{ url_for('static', filename='img/buddylogo.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      type="text/css"
+      href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/aos/aos.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light">
+            <a href="/loginregpage"><span>HelpBuddy </span></a>
+          </h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!--  <a href="index.html"><img src="assets/img/favicon.png" alt="" class="img-fluid"></a> -->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto active" href="/loginregpage"
+                >Login/Register
+              </a>
+            </li>
+            <li><a class="nav-link scrollto" href=" /#about">About Us</a></li>
+            <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+
+            <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+            <li><a class="getstarted scrollto" href="/#home">Home</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Registration Section -->
+      <section id="registration" class="registration">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-lg-6 pt-5 pt-lg-0">
+              <h3 data-aos="fade-up">Create an Account</h3>
+              <form action="/#login">
+                <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+                  <label for="username">Username</label>
+                  <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    placeholder="User Name"
+                  />
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="150">
+                  <label for="email">Email</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                  <label for="new-password">Password</label>
+                  <input
+                    type="password"
+                    id="new-password"
+                    name="new-password"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                  <label for="Age">Enter Age</label>
+                  <input type="number" id="age" name="Age" placeholder="Age" />
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                  <label for="gender">Gender</label>
+                  <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  id="signUp"
+                  class="btn btn-primary"
+                  data-aos="fade-up"
+                  data-aos-delay="250"
+                >
+                  Register
+                </button>
+              </form>
+              <a href="#login" class="switch-section-link"
+                >Already have an account? Login here</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Login Section -->
+      <section id="login" class="login">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-lg-6 pt-5 pt-lg-0">
+              <h3 data-aos="fade-up">Log In</h3>
+              <form action="#">
+                <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+                  <label for="email1">Email</label>
+                  <input
+                    type="text"
+                    id="emaile"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="pass"
+                    placeholder="Enter your password"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  id="btn btn-primary"
+                  class="btn btn-primary"
+                  data-aos="fade-up"
+                  data-aos-delay="250"
+                >
+                  Log In
+                </button>
+              </form>
+              <a href="#registration" class="switch-section-link"
+                >Create account</a
+              >
+              <!--    <a href="/chatbotpage">Chatbot</a> -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container py-4">
+        <!-- <div class="credits">
+
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div> -->
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/aos/aos.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"
+    ></script>
+
+    <!-- Template Main JS File -->
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+        child,
+        set,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+      // Add your Firebase configuration here
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+        authDomain: "careerchatbot-a0647.firebaseapp.com",
+        projectId: "careerchatbot-a0647",
+        storageBucket: "careerchatbot-a0647.appspot.com",
+        messagingSenderId: "783848410278",
+        appId: "1:783848410278:web:7b7c8481914ffce3357867",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth();
+      const dbref = ref(database);
+
+      document.getElementById("signUp").addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("new-password").value;
+        const username = document.getElementById("userName").value;
+        get(child(dbref, "users/" + username)).then((snapshot) => {
+          if (snapshot.exists()) {
+            alert("Invalid username");
+          } else {
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                const user = userCredential.user;
+
+                // Store additional user data in the Realtime Database
+                const userRef = ref(database, "users/" + user.uid);
+
+                const education = "";
+                const status = false;
+                const markValues = {
+                  NA: 0,
+                  AR: 0,
+                  VR: 0,
+                  SA: 0,
+                  MR: 0,
+                  PA: 0,
+                  LA: 0,
+                };
+                set(userRef, {
+                  username: username,
+                  email: email,
+                  Age: document.getElementById("age").value,
+                  Gender: document.getElementById("gender").value,
+                  Education: education,
+                  Status: status,
+                  Marks: markValues,
+                });
+
+                alert("Account created successfully");
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+              });
+          }
+        });
+      });
+
+      document
+        .getElementById("btn btn-primary")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const email = document.getElementById("emaile").value;
+          const password = document.getElementById("pass").value;
+          var name = "";
+
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              get(child(dbref, "users/" + user.uid)).then((snapshot) => {
+                if (snapshot.exists) {
+                  name = snapshot.val().username;
+                  localStorage.clear();
+                  localStorage.setItem("Uname", name);
+                  localStorage.setItem("user-id", user.uid);
+                  window.location.href = "{{ url_for('homework') }}";
+                }
+              });
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              alert(errorMessage);
+            });
+        });
+    </script>
+  </body>
+</html>

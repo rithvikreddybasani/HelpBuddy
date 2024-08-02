@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Family Doctor: Manage Appointment</title>
+    <!-- Bootstrap core CSS -->
+    <link
+      href="{{ url_for('static', filename='css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/stylesy.css')}}"
+    />
+  </head>
+
+  <style>
+    /* styles.css */
+
+    /* Body styles */
+    body {
+      background-color: #fff; /* Background color */
+      font-family: Arial, sans-serif;
+      color: #333; /* Text color */
+    }
+
+    .container {
+      max-width: 800px; /* Adjust container width as needed */
+      margin: 0 auto; /* Center the container */
+    }
+
+    /* Heading styles */
+    .text-center {
+      text-align: center;
+    }
+
+    /* Card styles */
+    .card {
+      border: 1px solid #dee2e6; /* Add a subtle border */
+      border-radius: 0.5rem; /* Add border radius */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px; /* Add margin to space out cards */
+    }
+
+    .card-header {
+      background-color: #fff; /* Change header background color */
+      color: #333;
+      padding: 15px;
+      border-top-left-radius: 0.5rem; /* Match card border radius */
+      border-top-right-radius: 0.5rem; /* Match card border radius */
+      text-align: center; /* Center header text */
+      position: relative; /* Position relative for absolute positioning of placeholder */
+    }
+
+    .card-header img {
+      border-radius: 50%; /* Make image circular */
+      width: 80px;
+      height: 80px;
+      display: block; /* Ensure block display for proper margin auto */
+      margin: 0 auto; /* Center image horizontally */
+    }
+
+    .card-header .placeholder {
+      position: absolute; /* Position placeholder absolutely */
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Center the placeholder */
+      font-size: 24px; /* Adjust font size */
+      color: #fff; /* Change placeholder color to white */
+      width: 80px; /* Match width of circular image */
+      height: 80px; /* Match height of circular image */
+      border-radius: 50%; /* Make placeholder circular */
+      background-color: #fedd7c; /* Placeholder background color */
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body span {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .card-body button {
+      width: 100%;
+      background-color: #fedd7c; /* Change button background color */
+      border: none;
+      color: #333; /* Change button text color */
+      cursor: pointer;
+      border-radius: 0.25rem;
+      padding: 8px 16px;
+      transition: background-color 0.3s;
+    }
+
+    .card-body button:hover {
+      background-color: #fdc25e; /* Darker shade on hover */
+    }
+
+    /* Notification styles */
+    .dropdown-notification {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #fedd7c; /* Light border color */
+      border-radius: 0.5rem;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 350px; /* Set max width */
+      width: 100%; /* Ensure notification takes full width */
+      text-align: center; /* Center content */
+      z-index: 9999; /* Ensure notification is on top */
+    }
+
+    .notification-content {
+      text-align: center; /* Center content */
+    }
+
+    .notification-icon {
+      margin-bottom: 20px; /* Add margin below icon */
+    }
+
+    .notification-icon i {
+      font-size: 48px; /* Icon size */
+      color: #fedd7c; /* Icon color */
+    }
+
+    .notification-content p {
+      margin-bottom: 20px; /* Add margin below paragraph */
+      font-size: 18px; /* Increase font size */
+    }
+
+    .notification-content button {
+      padding: 12px 24px; /* Increase button padding */
+      font-size: 16px; /* Font size */
+      background-color: #fedd7c; /* Button background color */
+      border: 2px solid #fedd7c; /* Button border */
+      color: #333; /* Button text color */
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+    }
+
+    .notification-content button:hover {
+      background-color: #fdc25e; /* Darker shade on hover */
+      border-color: #fdc25e; /* Darker border color on hover */
+    }
+  </style>
+  <body>
+    <div class="container mt-5">
+      <div class="col-11 text-center mt-4 mb-4">
+        <h3 class="text-center">Manage appointments</h3>
+      </div>
+      <div class="row">
+        <!-- Cards will be dynamically inserted here -->
+      </div>
+      <div id="notification" class="dropdown-notification">
+        <div class="notification-content">
+          <div class="notification-icon">
+            <i class="fas fa-bell"></i>
+            <!-- Add your desired icon class here -->
+          </div>
+          <p>We will call you.</p>
+          <button onclick="window.location.href='/chatbotpage'">
+            Go to Homepage
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your script imports -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+
+      // Add your Firebase configuration here
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+        authDomain: "careerchatbot-a0647.firebaseapp.com",
+        projectId: "careerchatbot-a0647",
+        storageBucket: "careerchatbot-a0647.appspot.com",
+        messagingSenderId: "783848410278",
+        appId: "1:783848410278:web:7b7c8481914ffce3357867",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Assuming you have already fetched counsellor data and stored it in 'querySnapshot'
+      const querySnapshot = await getDocs(collection(db, "counsellors"));
+      const container = document.querySelector(".row"); // Selecting the container where cards will be appended
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        console.log(data);
+
+        const card = document.createElement("div");
+        card.classList.add("col-lg-4"); // Apply the column size class
+
+        const cardInner = document.createElement("div");
+        cardInner.classList.add("card", "card-margin");
+
+        const cardHeader = document.createElement("div");
+        cardHeader.classList.add("card-header", "no-border");
+
+        // Create the image element
+        const image = document.createElement("img");
+        image.src = data.imageurl; // Assuming 'imageurl' contains the URL of the image
+        image.alt = data.Firstname; // Alt text can be counsellor's name
+        image.classList.add("rounded-circle"); // Apply rounded class
+        image.style.width = "100px"; // Set width as desired
+        image.style.height = "100px"; // Set height as desired
+
+        // Append the image to the card header
+        cardHeader.appendChild(image);
+
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body", "pt-0");
+
+        // Add the rest of your card body content
+        // Email
+        const emailSpan = document.createElement("span");
+        emailSpan.textContent = data.email; // Assuming 'email' is the field in Firestore
+        emailSpan.classList.add("widget-49-pro-title"); // Apply class for styling
+        cardBody.appendChild(emailSpan);
+
+        // About
+        const aboutSpan = document.createElement("span");
+        aboutSpan.textContent = data.About; // Assuming 'about' is the field in Firestore
+        aboutSpan.classList.add("widget-49-meeting-time"); // Apply class for styling
+        cardBody.appendChild(aboutSpan);
+
+        // Education
+        const educationSpan = document.createElement("span");
+        educationSpan.textContent = data.Education; // Assuming 'education' is the field in Firestore
+        educationSpan.classList.add("widget-49-meeting-points"); // Apply class for styling
+        cardBody.appendChild(educationSpan);
+
+        // Experience
+        const experienceSpan = document.createElement("span");
+        experienceSpan.textContent = data.Experience; // Assuming 'experience' is the field in Firestore
+        experienceSpan.classList.add("widget-49-meeting-points"); // Apply class for styling
+        cardBody.appendChild(experienceSpan);
+
+        // Add button
+        const button = document.createElement("button");
+        button.textContent = "Accept"; // Text of the button
+        button.classList.add("btn", "btn-primary", "form-control"); // Apply Bootstrap button classes
+        button.addEventListener("click", showNotification); // Add event listener
+        cardBody.appendChild(button);
+
+        cardInner.appendChild(cardHeader);
+        cardInner.appendChild(cardBody);
+
+        card.appendChild(cardInner);
+
+        // Append the card to the container
+        container.appendChild(card);
+      });
+
+      function showNotification() {
+        // Show the notification
+        const notification = document.getElementById("notification");
+        notification.style.display = "block";
+      }
+      // Apply Bootstrap button classes
+
+      function goToIndex() {
+        // Redirect to the homepage
+        url = "{{url_for('chatbotpage')}}";
+        window.location.href = url;
+      }
+    </script>
+
+    <!-- Your additional script imports -->
+    <!--  JQuery  -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!--  Bootstrap tooltips  -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!--  Bootstrap core JavaScript  -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </body>
+</html>

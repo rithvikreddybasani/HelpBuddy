@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Reasoning Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        ol {
+            list-style-type: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    img{
+        height: 90%;
+        width: 90%;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="quiz-container">
+        <h1>Mechanical Reasoning Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <li>
+                    <p>1.<b>A system of cogwheels is shown in the diagram below:</b> </p>
+                       <p> An external force turns the cogwheel on the extreme left in the given direction (counter clockwise). Which cogwheel will turn faster, the first one (I) or the second one (II)?</p>
+                    <img src="{{ url_for('static', filename='/img/m1.png')}}">
+                    <label><input type="radio" name="q1" value="a"> a) Cogwheel 1</label>
+                    <label><input type="radio" name="q1" value="b"> b) Cogwheel 2</label>
+                    <label><input type="radio" name="q1" value="c"> c) Both cogwheels will turn at the same speed</label>
+                    <label><input type="radio" name="q1" value="d"> d) Impossible to answer</label>
+                </li>
+                <li>
+                    <p>2.Two identical triangles are placed inside a water tank as shown in the diagram below. The triangles are fixed in position. On which triangle will a greater force be exerted?</p>
+                    <img src="{{ url_for('static', filename='/img/m2.png')}}">
+                    <label><input type="radio" name="q2" value="a"> a) 1</label>
+                    <label><input type="radio" name="q2" value="b"> b) 2</label>
+                    <label><input type="radio" name="q2" value="c"> c) Equal on both</label>
+                    <label><input type="radio" name="q2" value="d"> d) Cannot say</label>
+                </li>
+
+                <li>
+                    <p>3. The diagram shows two fixed cogwheels which can only rotate around their own axis. A rack is inserted between the two cogwheels and is moved in the direction shown by the arrow.
+                        What are the directions of movement and velocities of the cogwheels?
+                        </p>
+                    <img src="{{ url_for('static', filename='/img/m3.png')}}">
+                    <label><input type="radio" name="q3" value="a"> a) Same direction, same velocities</label>
+                    <label><input type="radio" name="q3" value="b"> b) Same direction, different velocities</label>
+                    <label><input type="radio" name="q3" value="c"> c) Different directions, same velocities</label>
+                    <label><input type="radio" name="q3" value="d"> d) Different directions, different velocities</label>
+                </li>
+                <li>
+                    <p>4. Cogwheel number 1 rotates counter clockwise as shown.Choose option </p>
+                    <img src="{{ url_for('static', filename='/img/m4.png')}}">
+                    <label><input type="radio" name="q4" value="a"> a) If the red cogwheel rotates in the direction of the arrow </label>
+                    <label><input type="radio" name="q4" value="b"> b) if it rotates in the opposite direction</label>
+                    <label><input type="radio" name="q4" value="c"> c) if the red cogwheel does not move at all </label>
+                </li>
+                <li>
+                    <p>5. What colour car should you avoid if you don't want it to overheat quickly on a sunny day?</p>
+                    <img src="{{ url_for('static', filename='/img/m5.png')}}">
+                    <label><input type="radio" name="q5" value="a"> a) A</label>
+                    <label><input type="radio" name="q5" value="b"> b) B</label>
+                    <label><input type="radio" name="q5" value="c"> c) C</label>
+                    <label><input type="radio" name="q5" value="d"> d) D</label>
+                </li>
+                <li>
+                    <p>6.Which way is the wagon accelerating? (If either, mark C.)</p>
+                    <img src="{{ url_for('static', filename='/img/m6.png')}}">
+                    <label><input type="radio" name="q6" value="a"> a) A</label>
+                    <label><input type="radio" name="q6" value="b"> b) B</label>
+                    <label><input type="radio" name="q6" value="c"> c) C</label>
+                    
+                </li>
+                <li>
+                    <p>7.Which pendulum will swing faster? (If equal, mark C.)</p>
+                    <img src="{{ url_for('static', filename='/img/m7.png')}}">
+                    <label><input type="radio" name="q7" value="a"> a) A</label>
+                    <label><input type="radio" name="q7" value="b"> b) B</label>
+                    <label><input type="radio" name="q7" value="c"> c) C</label>
+                   
+                </li>
+                <li>
+                    <p>8.Which granary can hold more wheat? (If equal, mark C.). </p>
+                    <img src="{{ url_for('static', filename='/img/m8.png')}}">
+                    <label><input type="radio" name="q8" value="a"> a) A</label>
+                    <label><input type="radio" name="q8" value="b"> b) B</label>
+                    <label><input type="radio" name="q8" value="c"> b) C</label>
+                  
+                </li>
+                <li>
+                    <p>9.In which direction does the grey wheel turn? (If neither, mark C.). </p>
+                    <img src="{{ url_for('static', filename='/img/m9.png')}}">
+                    <label><input type="radio" name="q9" value="a"> a) A</label>
+                    <label><input type="radio" name="q9" value="b"> b) B</label>
+                    <label><input type="radio" name="q9" value="c"> c) C</label>
+                 
+                </li>
+                <li>
+                    <p>10.In which direction should the acrobat move his body to balance the seesaw? (If neither, Mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m10.png')}}">
+                    <label><input type="radio" name="q10" value="a"> a) A</label>
+                    <label><input type="radio" name="q10" value="b"> b) B</label>
+                    <label><input type="radio" name="q10" value="c"> c) C</label>
+                    
+                </li>
+                <li>
+                    <p>11. Which bird will find it easier to fly? (If equal, mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m11.png')}}">
+                    
+                    <label><input type="radio" name="q11" value="a"> a) A</label>
+                    <label><input type="radio" name="q11" value="b"> b) B</label>
+                    <label><input type="radio" name="q11" value="c"> c) C</label>
+                 
+                </li>
+                <li>
+                    <p>12. Who will need to apply more force to lift the weight? (If equal, Mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m12.png')}}">
+
+                    <label><input type="radio" name="q12" value="a"> a) A</label>
+                    <label><input type="radio" name="q12" value="b"> b) B</label>
+                    <label><input type="radio" name="q12" value="c"> c) C</label>
+                    
+                </li>
+                <li>
+                    <p>13. Which ball will reach the floor first? (If equal, Mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m13.png')}}">
+
+                    <label><input type="radio" name="q13" value="a"> a) A</label>
+                    <label><input type="radio" name="q13" value="b"> b) B</label>
+                    <label><input type="radio" name="q13" value="c"> c) C</label>
+                   
+                </li>
+                <li>
+                    <p>14. If gear 1 and gear 5 turn clockwise, as shown by the arrows, gear 3 will:</p>
+                    <img src="{{ url_for('static', filename='/img/m14.png')}}">
+
+                    <label><input type="radio" name="q14" value="a"> a) Turn anticlockwise</label>
+                    <label><input type="radio" name="q14" value="b"> b) Turn either to and fro</label>
+                    <label><input type="radio" name="q14" value="c"> c) Jam the mechanism.</label>
+                    <label><input type="radio" name="q14" value="d"> d) Turn clockwise</label>
+    
+                </li>
+                <li>
+                    <p>15. Which person must pull harder to lift the weight? (If no difference, mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m15.png')}}">
+
+                    <label><input type="radio" name="q15" value="a"> a) A</label>
+                    <label><input type="radio" name="q15" value="b"> b) B</label>
+                    <label><input type="radio" name="q15" value="c"> c) C</label>
+                    
+                </li>
+                <li>
+                    <p>16. When the left-hand gear turns in the direction shown, which way does the right-hand one turn? (If either, mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m16.png')}}">
+
+                    <label><input type="radio" name="q16" value="a"> a) A</label>
+                    <label><input type="radio" name="q16" value="b"> b) B</label>
+                    <label><input type="radio" name="q16" value="c"> c) C</label>
+             
+                </li>
+                <li>
+                    <p>17. Which measure is marked properly? </p>
+                    <img src="{{ url_for('static', filename='/img/m17.png')}}">
+
+                    <label><input type="radio" name="q17" value="a"> a) A</label>
+                    <label><input type="radio" name="q17" value="b"> b) B</label>
+                    <label><input type="radio" name="q17" value="c"> c) C</label>
+                    <label><input type="radio" name="q17" value="d"> d) None</label>
+                    
+                </li>
+                <li>
+                    <p>18. Which shaft will turn most quickly?</p>
+                    <img src="{{ url_for('static', filename='/img/m18.png')}}">
+
+                    <label><input type="radio" name="q18" value="a"> a) A</label>
+                    <label><input type="radio" name="q18" value="b"> b) B</label>
+                    <label><input type="radio" name="q18" value="c"> c) C</label>
+                    
+
+                </li>
+                <li>
+                    <p>19. In which picture will the scales read lower (less weight)?    (If equal mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m19.png')}}">
+
+                    <label><input type="radio" name="q19" value="a"> a) A</label>
+                    <label><input type="radio" name="q19" value="b"> b) B</label>
+                    <label><input type="radio" name="q19" value="c"> c) C</label>
+                    
+
+                </li>
+                <li>
+                    <p>20. Where should a chain be attached to hold up the sign?   (If either, mark C.) </p>
+                    <img src="{{ url_for('static', filename='/img/m20.png')}}">
+
+                    <label><input type="radio" name="q20" value="a"> a) A</label>
+                    <label><input type="radio" name="q20" value="b"> b) B</label>
+                    <label><input type="radio" name="q20" value="c"> c) C</label>
+                  
+
+                </li>
+                <li>
+                    <p>21. Which system will let the most water run out? </p>
+                    <img src="{{ url_for('static', filename='/img/m21.png')}}">
+
+                    <label><input type="radio" name="q21" value="a"> a) A</label>
+                    <label><input type="radio" name="q21" value="b"> b) B</label>
+                    <label><input type="radio" name="q21" value="c"> c) C</label>
+                    
+                </li>
+                <li>
+                    <p>22. A front engine car gently rolls down this slope. In what position will the car end up in?? </p>
+                    <img src="{{ url_for('static', filename='/img/m22.png')}}">
+
+                    <label><input type="radio" name="q22" value="a"> a) A</label>
+                    <label><input type="radio" name="q22" value="b"> b) B</label>
+                    <label><input type="radio" name="q22" value="c"> c) C</label>
+                    <label><input type="radio" name="q22" value="d"> d) D</label>
+                    
+                </li>
+                <li>
+                    <p>23. Four weights are dropped from a height of 10 meters at the same time, which one
+                        will hit the ground last?</p>
+                    <img src="{{ url_for('static', filename='/img/m23.png')}}">
+
+                    <label><input type="radio" name="q23" value="a"> a) 5kg</label>
+                    <label><input type="radio" name="q23" value="b"> b) 10kg</label>
+                    <label><input type="radio" name="q23" value="c"> c) 50kg</label>
+                    <label><input type="radio" name="q23" value="d"> d) 1000kg</label>
+                    <label><input type="radio" name="q23" value="e"> e) They will hit the ground at the same time</label>
+                </li>
+                <p><br><br><b>Cogs A, B and C are linked together by 2 separate belts.
+                    Cog B is half the size of cog A and cog C </b></p>
+                    <img src="{{ url_for('static', filename='/img/m2425.png')}}">
+                <li>
+                    <p>24. If we turn cog A one complete revolution cog B will</p>
+             
+
+                    <label><input type="radio" name="q24" value="a"> a) Turn one complete revolution</label>
+                    <label><input type="radio" name="q24" value="b"> b) Turn 1/2 a revolution</label>
+                    <label><input type="radio" name="q24" value="c"> c) Turn two complete revolutions.</label>
+                    
+
+                </li>
+                <li>
+                    <p>25. Looking at the same diagram, if cog A turns clockwise what direction will cog C turn. </p>
+                   
+
+                    <label><input type="radio" name="q25" value="a"> a) Clockwise</label>
+                    <label><input type="radio" name="q25" value="b"> b) Anticlockwise</label>
+                    <label><input type="radio" name="q25" value="c"> c) It will not turn at all</label>
+                    
+
+                </li>
+                <li>26. If these 4 objects are fired horizontally from a cannon, which will fly furthest? </p>
+                    <img src="{{ url_for('static', filename='/img/m26.png')}}">
+
+                    <label><input type="radio" name="q26" value="a"> a) A</label>
+                    <label><input type="radio" name="q26" value="b"> b) B</label>
+                    <label><input type="radio" name="q26" value="c"> c) C</label>
+                    <label><input type="radio" name="q26" value="d"> d) D</label>
+
+                </li>
+                <li>
+                    <p>27. Assuming the two balls are falling from the same height, which will hit the ground first? </p>
+                    <img src="{{ url_for('static', filename='/img/m27.png')}}">
+                    
+
+                    <label><input type="radio" name="q27" value="a"> a) Ball 1</label>
+                    <label><input type="radio" name="q27" value="b"> b) Ball 2</label>
+                    <label><input type="radio" name="q27" value="c"> c) They will hit the ground at the same time</label>
+                    <label><input type="radio" name="q27" value="d"> d) Impossible to tell</label>
+
+                </li>
+                <li>
+                    <p>28. Which wheels are turning counter-clockwise? </p>
+                    <img src="{{ url_for('static', filename='/img/m28.png')}}">
+                   
+                    <label><input type="radio" name="q28" value="a"> a) C & E</label>
+                    <label><input type="radio" name="q28" value="b"> b) F & D</label>
+                    <label><input type="radio" name="q28" value="c"> c) A,B,D,F</label>
+                    <label><input type="radio" name="q28" value="d"> d) All</label>
+                    
+                </li>
+                <li>
+                    <p>29. Which ball is the heaviest? </p>
+                    <img src="{{ url_for('static', filename='/img/m29.png')}}">
+                  
+
+
+                    <label><input type="radio" name="q29" value="a"> a) A</label>
+                    <label><input type="radio" name="q29" value="b"> b) B</label>
+                    <label><input type="radio" name="q29" value="c"> c) C</label>
+                    <label><input type="radio" name="q29" value="d"> d) Cannot Say</label>
+
+                </li>
+                <li>
+                    <p>30. Which of these objects will not float on water? </p>
+                   
+
+                    <label><input type="radio" name="q30" value="a"> a) Scissors</label>
+                    <label><input type="radio" name="q30" value="b"> b) Banana</label>
+                    <label><input type="radio" name="q30" value="c"> c) Empty Soda Bottle (Plastic)</label>
+                    <label><input type="radio" name="q30" value="d"> d) Wooden Pencil</label>
+
+                </li>
+
+
+
+
+            </ol>
+            <button type="button" id="submit"  >Show Result</button>
+            <button type="button" id="done" onclick="sendResults()">Submit</button> 
+            <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+
+    <div id="chart-container">
+        <h2>Quiz Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+        const answers = {
+            q1: "b",
+            q2: "b",
+            q3: "d",
+            q4: "c",
+            q5: "d",
+            q6: "a",
+            q7: "a",
+            q8: "c",
+            q9: "a",
+            q10: "b",
+            q11: "a",
+            q12: "b",
+            q13: "c",
+            q14: "d",
+            q15: "b",
+            q16: "a",
+            q17: "a",
+            q18: "a",
+            q19: "a",
+            q20: "b",
+            q21: "b",
+            q22: "d",
+            q23: "e",
+            q24: "c",
+            q25: "a",
+            q26: "c",
+            q27: "d",
+            q28: "c",
+            q29: "d",
+            q30: "a"
+
+        };
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+           
+        })
+
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timer5`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timer5');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timer5', timer);
+    flag=0;
+}
+    }
+}
+function home(){
+            window.location.href="{{ url_for('high') }}";
+
+        }
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('MR',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('link5',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

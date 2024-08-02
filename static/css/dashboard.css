@@ -1,0 +1,245 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: left;
+    width: 250px;
+    min-height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+.sidebar a.active,
+.sidebar a.dashboard-active {
+    font-weight: bold;
+    background-color: #66bb6a;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+td {
+    font-size: 1.1em;
+}
+
+.actions button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.accept {
+    background-color: #66bb6a;
+    color: #fff;
+}
+
+.reject {
+    background-color: #ef5350;
+    color: #fff;
+}
+
+.accept:hover,
+.reject:hover {
+    filter: brightness(110%);
+}
+
+/* Add styles for the form */
+form#counselor-form {
+    width: 80%;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 50px auto; /* Center the form and add spacing */
+    background-color: #fff; /* Add background color */
+    padding: 30px; /* Add padding for better spacing */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+form#counselor-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2em; /* Increase label font size for better readability */
+}
+
+form#counselor-form input[type="text"],
+form#counselor-form input[type="email"],
+form#counselor-form input[type="tel"],
+form#counselor-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 30px; /* Increase bottom margin for better spacing */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Adjust border radius for consistency */
+    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s; /* Add transition for smoother interaction */
+}
+
+form#counselor-form input[type="file"] {
+    display: block; /* Hide the default file input */
+}
+
+form#counselor-form .file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form#counselor-form .file-upload-wrapper input[type="file"] {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+form#counselor-form .file-upload-wrapper::before {
+    content: 'Upload Photo';
+    display: block;
+    padding: 15px;
+    text-align: center;
+    background-color: #66bb6a;
+    color: #fff;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Add cursor pointer for better indication of interactivity */
+}
+
+form#counselor-form .file-upload-wrapper:hover::before {
+    background-color: #5ca958;
+    transform: translateY(-3px); /* Add slight upward movement on hover */
+}
+
+form#counselor-form .file-upload-wrapper img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #66bb6a;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s, transform 0.3s; /* Add transition for smoother interaction */
+}
+
+form#counselor-form .file-upload-wrapper:hover img {
+    border-color: #5ca958;
+    transform: scale(1.1); /* Add slight scale effect on hover */
+}
+
+form#counselor-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px 30px; /* Increase padding for better button size */
+    background-color: #66bb6a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+form#counselor-form button[type="submit"]:hover {
+    background-color: #5ca958;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    height: 40px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

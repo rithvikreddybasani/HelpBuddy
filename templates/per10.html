@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perceptual Speed And Accuracy Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="quiz-container">
+        <h1>Perceptual Speed And Accuracy Test</h1>
+        <form id="quiz-form">
+            <!-- Questions and Options -->
+            <ol>
+                <h3>This test consists of 60 items, which are designed to see how quickly and accurately you can compare
+                    letter and/or number combinations.
+                    First, you will be shown a test item consisting of numbers, letters or letter- number combination. Then, it is followed by four options, viz. A, B, C and D which have the same test numbers/ letters/ letter-number combination, but in a different order. Only one of these options is exactly the same as the test item. Select the correct option which is same as the test item and mark on the answer sheet.</h3>
+                <li>
+                    <p> 39461084</p>
+                    <label><input type="radio" name="q1" value="a"> a) 39416084</label>
+                    <label><input type="radio" name="q1" value="b"> b) 39461840</label>
+                    <label><input type="radio" name="q1" value="c"> c) 39461084</label>
+                    <label><input type="radio" name="q1" value="d"> d) 39461480</label>
+                </li>
+                <li>
+                    <p>L7LL77L2</p>
+                    <label><input type="radio" name="q2" value="a"> a) L7LLL772</label>
+                    <label><input type="radio" name="q2" value="b"> b) L7LL7L72</label>
+                    <label><input type="radio" name="q2" value="c"> c) L7L7LL72</label>
+                    <label><input type="radio" name="q2" value="d"> d) L7LL77L2</label>
+                </li>
+                <li>
+                    <p>48219357</p>
+                    <label><input type="radio" name="q3" value="a"> a) 48219357</label>
+                    <label><input type="radio" name="q3" value="b"> b) 48129357</label>
+                    <label><input type="radio" name="q3" value="c"> c) 48219537</label>
+                    <label><input type="radio" name="q3" value="d"> d) 48291357 </label>
+                </li>
+                <li>
+                    <p>PYDXZLQI</p>
+                    <label><input type="radio" name="q4" value="a"> a) PYDZXLQI </label>
+                    <label><input type="radio" name="q4" value="b"> b) PYDXZQLI</label>
+                    <label><input type="radio" name="q4" value="c"> c) PYDXZLQI</label>
+                    <label><input type="radio" name="q4" value="d"> d) PYDXZIQL</label>
+                </li>
+                <li>
+                    <p>ZZZzZeEz</p>
+                    <label><input type="radio" name="q5" value="a"> a) ZzZzZeEz </label>
+                    <label><input type="radio" name="q5" value="b"> b) ZZZZZeEz </label>
+                    <label><input type="radio" name="q5" value="c"> c) ZzZzZeEz </label>
+                    <label><input type="radio" name="q5" value="d"> d) ZZZzZeEz </label>
+                </li>
+                <li>
+                    <p>vWtfMnIL</p>
+                    <label><input type="radio" name="q6" value="a"> a) VWtfMnIL </label>
+                    <label><input type="radio" name="q6" value="b"> b) vWtfMnIL </label>
+                    <label><input type="radio" name="q6" value="c"> c) vWTfMnIL </label>
+                    <label><input type="radio" name="q6" value="d"> d) vWtfMNIL</label>
+                </li>
+                <li>
+                    <p>7F7EFEE7</p>
+                    <label><input type="radio" name="q7" value="a"> a) 7F7EFEE7 </label>
+                    <label><input type="radio" name="q7" value="b"> b) 7f7EFEE7 </label>
+                    <label><input type="radio" name="q7" value="c"> c) 7F7fFEE7 </label>
+                    <label><input type="radio" name="q7" value="d"> d) 7F7EFeE7 </label>
+                </li>
+                <li>
+                    <p>29483148</p>
+                    <label><input type="radio" name="q8" value="a"> a) 29483184</label>
+                    <label><input type="radio" name="q8" value="b"> b) 29481348 </label>
+                    <label><input type="radio" name="q8" value="c"> c) 29438148 </label>
+                    <label><input type="radio" name="q8" value="d"> d) 29483148 </label>
+                </li>
+                <li>
+                    <p>46249051</p>
+                    <label><input type="radio" name="q9" value="a"> a) 46240951 </label>
+                    <label><input type="radio" name="q9" value="b"> b) 46249051 </label>
+                    <label><input type="radio" name="q9" value="c"> c) 46429051 </label>
+                    <label><input type="radio" name="q9" value="d"> d) 42649051 </label>
+                </li>
+                <li>
+                    <p>14114411</p>
+                    <label><input type="radio" name="q10" value="a"> a) 14414111</label>
+                    <label><input type="radio" name="q10" value="b"> b) 14411411 </label>
+                    <label><input type="radio" name="q10" value="c"> c) 14114411 </label>
+                    <label><input type="radio" name="q10" value="d"> d) 14114441 </label>
+                </li>
+                <li>
+                    <p> 25798461</p>
+                    <label><input type="radio" name="q11" value="a"> a) 25798461 </label>
+                    <label><input type="radio" name="q11" value="b"> b) 25978461 </label>
+                    <label><input type="radio" name="q11" value="c"> c) 25798641</label>
+                    <label><input type="radio" name="q11" value="d"> d) 25789461</label>
+                </li>
+                <li>
+                    <p>j9a99j9a</p>
+                    <label><input type="radio" name="q12" value="a"> a) j9a9j99a </label>
+                    <label><input type="radio" name="q12" value="b"> b) j99a9j9a</label>
+                    <label><input type="radio" name="q12" value="c"> c) j9a99j9a</label>
+                    <label><input type="radio" name="q12" value="d"> d) ja999j9a</label>
+                </li>
+                <li>
+                    <p>2a22k2ak</p>
+                    <label><input type="radio" name="q13" value="a"> a) 2a22k2ak </label>
+                    <label><input type="radio" name="q13" value="b"> b) 2a22ak2k </label>
+                    <label><input type="radio" name="q13" value="c"> c) 2a22ka2k</label>
+                    <label><input type="radio" name="q13" value="d"> d) 22ka22ak </label>
+                </li>
+                <li>
+                    <p>44372274</p>
+                    <label><input type="radio" name="q14" value="a"> a) 43472274 </label>
+                    <label><input type="radio" name="q14" value="b"> b) 44372274 </label>
+                    <label><input type="radio" name="q14" value="c"> c) 44372724 </label>
+                    <label><input type="radio" name="q14" value="d"> d) 44327724 </label>
+                </li>
+                <li>
+                    <p>32983403</p>
+                    <label><input type="radio" name="q15" value="a"> a) 39283403 </label>
+                    <label><input type="radio" name="q15" value="b"> b) 39238403 </label>
+                    <label><input type="radio" name="q15" value="c"> c) 32938043 </label>
+                    <label><input type="radio" name="q15" value="d"> d)  32983403</label>
+                </li>
+                <li>
+                    <p>66292422</p>
+                    <label><input type="radio" name="q16" value="a"> a) 66292422 </label>
+                    <label><input type="radio" name="q16" value="b"> b) 64292622</label>
+                    <label><input type="radio" name="q16" value="c"> c) 66429622 </label>
+                    <label><input type="radio" name="q16" value="d"> d) 66229242</label>
+                </li>
+                <li>
+                    <p>66348648</p>
+                    <label><input type="radio" name="q17" value="a"> a) 66384648 </label>
+                    <label><input type="radio" name="q17" value="b"> b) 63648468 </label>
+                    <label><input type="radio" name="q17" value="c"> c) 66348648 </label>
+                    <label><input type="radio" name="q17" value="d"> d) 63684648</label>
+                </li>
+                <li>
+                    <p>aMhoFOFU</p>
+                    <label><input type="radio" name="q18" value="a"> a) amhoFOFU </label>
+                    <label><input type="radio" name="q18" value="b"> b) aMhoFOFU </label>
+                    <label><input type="radio" name="q18" value="c"> c) aMhoFFOU </label>
+                    <label><input type="radio" name="q18" value="d"> d) aMhOoFFU</label>
+                </li>
+                <li>
+                    <p>hBseUvWH</p>
+                    <label><input type="radio" name="q19" value="a"> a) HBseUvWH </label>
+                    <label><input type="radio" name="q19" value="b"> b) hBSeUvWH</label>
+                    <label><input type="radio" name="q19" value="c"> c) hBseUvWH </label>
+                    <label><input type="radio" name="q19" value="d"> d) hBsEUvWH </label>
+                </li>
+
+
+                <li>
+                    <p>edYieSVc</p>
+                    <label><input type="radio" name="q20" value="a"> a) edyieSVc</label>
+                    <label><input type="radio" name="q20" value="b"> b) eDYiEsVc</label>
+                    <label><input type="radio" name="q20" value="c"> c) EdYiSeVc</label>
+                    <label><input type="radio" name="q20" value="d"> d) edYieSVc</label>
+                </li>
+              
+                <li>
+                    <p>51617141</p>
+                    <label><input type="radio" name="q21" value="a"> a) 51617114</label>
+                    <label><input type="radio" name="q21" value="b"> b) 51617141</label>
+                    <label><input type="radio" name="q21" value="c"> c) 51611417</label>
+                    <label><input type="radio" name="q21" value="d"> d) 51614711</label>
+                </li>
+                <li>
+                    <p>UaMPPfKL</p>
+                    <label><input type="radio" name="q22" value="a"> a) UaMPPfKL</label>
+                    <label><input type="radio" name="q22" value="b"> b) UAmPfPKL</label>
+                    <label><input type="radio" name="q22" value="c"> c) UampPfKL</label>
+                    <label><input type="radio" name="q22" value="d"> d) UAMppfKL</label>
+                </li>
+                <li>
+                    <p>eWuVSpOF</p>
+                    <label><input type="radio" name="q23" value="a"> a) ewuVSpOF</label>
+                    <label><input type="radio" name="q23" value="b"> b) eWuVSpOF</label>
+                    <label><input type="radio" name="q23" value="c"> c) eWuSVpoF</label>
+                    <label><input type="radio" name="q23" value="d"> d) ewUVSpoF </label>
+                </li>
+                <li>
+                    <p>yXvghpBd</p>
+                    <label><input type="radio" name="q24" value="a"> a) yXvghbPd </label>
+                    <label><input type="radio" name="q24" value="b"> b) vXygHpBd</label>
+                    <label><input type="radio" name="q24" value="c"> c) yXvghpBd</label>
+                    <label><input type="radio" name="q24" value="d"> d) yxVGhpBd</label>
+                </li>
+                <li>
+                    <p>kHMs8092</p>
+                    <label><input type="radio" name="q25" value="a"> a) KhMs8092 </label>
+                    <label><input type="radio" name="q25" value="b"> b) kHMs8092 </label>
+                    <label><input type="radio" name="q25" value="c"> c) Khms8092 </label>
+                    <label><input type="radio" name="q25" value="d"> d) KhMs8092 </label>
+                </li>
+                <li>
+                    <p>reCA0821</p>
+                    <label><input type="radio" name="q26" value="a"> a) reCA0281 </label>
+                    <label><input type="radio" name="q26" value="b"> b) reCA8021 </label>
+                    <label><input type="radio" name="q26" value="c"> c) erCA0821 </label>
+                    <label><input type="radio" name="q26" value="d"> d) reCA0821</label>
+                </li>
+                <li>
+                    <p>hGBz6216</p>
+                    <label><input type="radio" name="q27" value="a"> a) hGBz6216 </label>
+                    <label><input type="radio" name="q27" value="b"> b) hGBz6261 </label>
+                    <label><input type="radio" name="q27" value="c"> c) hGBz6621 </label>
+                    <label><input type="radio" name="q27" value="d"> d) hgBz6216 </label>
+                </li>
+                <li>
+                    <p>jzVw3978</p>
+                    <label><input type="radio" name="q28" value="a"> a) jzvw3978</label>
+                    <label><input type="radio" name="q28" value="b"> b) jZVw3978 </label>
+                    <label><input type="radio" name="q28" value="c"> c) jzVw3978 </label>
+                    <label><input type="radio" name="q28" value="d"> d) JzVw3978 </label>
+                </li>
+                <li>
+                    <p>3037KxRd</p>
+                    <label><input type="radio" name="q29" value="a"> a) 3073KxRd </label>
+                    <label><input type="radio" name="q29" value="b"> b) 3037KxRd </label>
+                    <label><input type="radio" name="q29" value="c"> c) 3037KXRd </label>
+                    <label><input type="radio" name="q29" value="d"> d) 3073KxRD </label>
+                </li>
+                <li>
+                    <p>nViP9797</p>
+                    <label><input type="radio" name="q30" value="a"> a) NviP9797</label>
+                    <label><input type="radio" name="q30" value="b"> b) nViP7979 </label>
+                    <label><input type="radio" name="q30" value="c"> c) nVIP9797 </label>
+                    <label><input type="radio" name="q30" value="d"> d) nViP9797 </label>
+                </li>
+                <li>
+                    <p>88RBbD17 </p>
+                    <label><input type="radio" name="q31" value="a"> a) 88RBBD17 </label>
+                    <label><input type="radio" name="q31" value="b"> b) 88RbBD17 </label>
+                    <label><input type="radio" name="q31" value="c"> c) 88RBbD17 </label>
+                    <label><input type="radio" name="q31" value="d"> d) 88RBbd17 </label>
+                </li>
+                <li>
+                    <p>97JkGs90</p>
+                    <label><input type="radio" name="q32" value="a"> a) 97JkGs90 </label>
+                    <label><input type="radio" name="q32" value="b"> b) 97JKGs90 </label>
+                    <label><input type="radio" name="q32" value="c"> c) 97JkGS90 </label>
+                    <label><input type="radio" name="q32" value="d"> d) 97Jkgs90</label>
+                </li>
+                <li>
+                    <p>51FfEe61</p>
+                    <label><input type="radio" name="q33" value="a"> a) 51fFeE61 </label>
+                    <label><input type="radio" name="q33" value="b"> b) 51FfeE61 </label>
+                    <label><input type="radio" name="q33" value="c"> c) 51FfEe61 </label>
+                    <label><input type="radio" name="q33" value="d"> d) 51eEfF61 </label>
+                </li>
+                <li>
+                    <p>MN3643NN</p>
+                    <label><input type="radio" name="q34" value="a"> a) Mn3643NN </label>
+                    <label><input type="radio" name="q34" value="b"> b) MN3643NN </label>
+                    <label><input type="radio" name="q34" value="c"> c) MN3643nN </label>
+                    <label><input type="radio" name="q34" value="d"> d) MN6343NN </label>
+                </li>
+                <li>
+                    <p>vs6389nU</p>
+                    <label><input type="radio" name="q35" value="a"> a) vs6389NU </label>
+                    <label><input type="radio" name="q35" value="b"> b) vs6398nU </label>
+                    <label><input type="radio" name="q35" value="c"> c) vS6389nU </label>
+                    <label><input type="radio" name="q35" value="d"> d) vs6389nU </label>
+                </li>
+                <li>
+                    <p>VO8073wN</p>
+                    <label><input type="radio" name="q36" value="a"> a) VO8073wN </label>
+                    <label><input type="radio" name="q36" value="b"> b) Vo8073wN</label>
+                    <label><input type="radio" name="q36" value="c"> c) VO8073WN </label>
+                    <label><input type="radio" name="q36" value="d"> d) VO8037wN </label>
+                </li>
+                <li>
+                    <p>435901dB</p>
+                    <label><input type="radio" name="q37" value="a"> a) 345901dB </label>
+                    <label><input type="radio" name="q37" value="b"> b) 435910dB </label>
+                    <label><input type="radio" name="q37" value="c"> c) 435901db </label>
+                    <label><input type="radio" name="q37" value="d"> d) 435901dB </label>
+                </li>
+                <li>
+                    <p>j7004gsJ</p>
+                    <label><input type="radio" name="q38" value="a"> a) j7004gsJ </label>
+                    <label><input type="radio" name="q38" value="b"> b) j7004gSJ </label>
+                    <label><input type="radio" name="q38" value="c"> c) J7004gsJ </label>
+                    <label><input type="radio" name="q38" value="d"> d) j0704gsJ </label>
+                </li>
+                <li>
+                    <p>169429nm</p>
+                    <label><input type="radio" name="q39" value="a"> a) 169249nm </label>
+                    <label><input type="radio" name="q39" value="b"> b) 169429mn</label>
+                    <label><input type="radio" name="q39" value="c"> c) 169429nm</label>
+                    <label><input type="radio" name="q39" value="d"> d) 169249mn</label>
+                </li>
+
+
+                <li>
+                    <p>4825syBp</p>
+                    <label><input type="radio" name="q40" value="a"> a) 4825syBP</label>
+                    <label><input type="radio" name="q40" value="b"> b) 4825syBp</label>
+                    <label><input type="radio" name="q40" value="c"> c) 4852syBp</label>
+                    <label><input type="radio" name="q40" value="d"> d) 8425SyBp</label>
+                </li>
+                
+                <li>
+                    <p>4AV3853Va</p>
+                    <label><input type="radio" name="q41" value="a"> a) Av3853Va</label>
+                    <label><input type="radio" name="q41" value="b"> b) AV3583Va</label>
+                    <label><input type="radio" name="q41" value="c"> c) AV3853Va</label>
+                    <label><input type="radio" name="q41" value="d"> d) AV3853va</label>
+                </li>
+                <li>
+                    <p>UL8013TQ</p>
+                    <label><input type="radio" name="q42" value="a"> a) UL8103TQ</label>
+                    <label><input type="radio" name="q42" value="b"> b) UL8103tQ</label>
+                    <label><input type="radio" name="q42" value="c"> c) UL8013tQ</label>
+                    <label><input type="radio" name="q42" value="d"> d) UL8013TQ</label>
+                </li>
+                <li>
+                    <p>BYfpaoSM</p>
+                    <label><input type="radio" name="q43" value="a"> a) ByFpaOsM</label>
+                    <label><input type="radio" name="q43" value="b"> b) ByfPAosM</label>
+                    <label><input type="radio" name="q43" value="c"> c) BYfpaoSM</label>
+                    <label><input type="radio" name="q43" value="d"> d) BYFpAosM </label>
+                </li>
+                <li>
+                    <p>pdLrcVEc</p>
+                    <label><input type="radio" name="q44" value="a"> a) pDLrcvEC </label>
+                    <label><input type="radio" name="q44" value="b"> b) pdlRCvEC</label>
+                    <label><input type="radio" name="q44" value="c"> c) pdlRCVEc</label>
+                    <label><input type="radio" name="q44" value="d"> d) pdLrcVEc</label>
+                </li>
+                <li>
+                    <p>87249117</p>
+                    <label><input type="radio" name="q45" value="a"> a) 82794117</label>
+                    <label><input type="radio" name="q45" value="b"> b) 87942171 </label>
+                    <label><input type="radio" name="q45" value="c"> c) 87249117 </label>
+                    <label><input type="radio" name="q45" value="d"> d) 89724171 </label>
+                </li>
+                <li>
+                    <p>WuNRReHZ</p>
+                    <label><input type="radio" name="q46" value="a"> a) WUnRREhZ </label>
+                    <label><input type="radio" name="q46" value="b"> b) WuNRrehZ </label>
+                    <label><input type="radio" name="q46" value="c"> c) WUNrreHZ </label>
+                    <label><input type="radio" name="q46" value="d"> d) WuNRReHZ</label>
+                </li>
+                <li>
+                    <p>AXoBDqEG</p>
+                    <label><input type="radio" name="q47" value="a"> a) AxObDQeG </label>
+                    <label><input type="radio" name="q47" value="b"> b) AXoBDqEG </label>
+                    <label><input type="radio" name="q47" value="c"> c) AXobdqEG </label>
+                    <label><input type="radio" name="q47" value="d"> d) AxOBdQeG </label>
+                </li>
+                <li>
+                    <p>TCzhjyGp</p>
+                    <label><input type="radio" name="q48" value="a"> a) TcZHjYGP</label>
+                    <label><input type="radio" name="q48" value="b"> b) TCzhJYgP </label>
+                    <label><input type="radio" name="q48" value="c"> c) TCZhjygP </label>
+                    <label><input type="radio" name="q48" value="d"> d) TCzhjyGp </label>
+                </li>
+                <li>
+                    <p>LJNx9269</p>
+                    <label><input type="radio" name="q49" value="a"> a) LjNX9296</label>
+                    <label><input type="radio" name="q49" value="b"> b) LJNx9269</label>
+                    <label><input type="radio" name="q49" value="c"> c) LJnx2969</label>
+                    <label><input type="radio" name="q49" value="d"> d) LjnX9629 </label>
+                </li>
+                <li>
+                    <p>yFDw7117</p>
+                    <label><input type="radio" name="q50" value="a"> a) yFdW1717</label>
+                    <label><input type="radio" name="q50" value="b"> b) yfDw1177 </label>
+                    <label><input type="radio" name="q50" value="c"> c) yFDw7117 </label>
+                    <label><input type="radio" name="q50" value="d"> d) yfdW1771 </label>
+                </li>
+                <li>
+                    <p>kaCQ5883 </p>
+                    <label><input type="radio" name="q51" value="a"> a) kaCQ5883 </label>
+                    <label><input type="radio" name="q51" value="b"> b) kAcQ5838 </label>
+                    <label><input type="radio" name="q51" value="c"> c) kaCq8583 </label>
+                    <label><input type="radio" name="q51" value="d"> d) kAcQ8853 </label>
+                </li>
+                <li>
+                    <p>4334HzPA</p>
+                    <label><input type="radio" name="q52" value="a"> a) 4343HZpA </label>
+                    <label><input type="radio" name="q52" value="b"> b) 4334hZPA </label>
+                    <label><input type="radio" name="q52" value="c"> c) 4343hzpA </label>
+                    <label><input type="radio" name="q52" value="d"> d) 4334HzPA</label>
+                </li>
+                <li>
+                    <p>mZuA7919</p>
+                    <label><input type="radio" name="q53" value="a"> a) mZUa7199 </label>
+                    <label><input type="radio" name="q53" value="b"> b) mZuA7919 </label>
+                    <label><input type="radio" name="q53" value="c"> c) mzUA7991 </label>
+                    <label><input type="radio" name="q53" value="d"> d) mzua7919 </label>
+                </li>
+                <li>
+                    <p>66TNfS52</p>
+                    <label><input type="radio" name="q54" value="a"> a) 6T6Nfs52 </label>
+                    <label><input type="radio" name="q54" value="b"> b) 66TnFS25 </label>
+                    <label><input type="radio" name="q54" value="c"> c) 66tNFs52 </label>
+                    <label><input type="radio" name="q54" value="d"> d) 66TNfS52 </label>
+                </li>
+                <li>
+                    <p>85GJCx08</p>
+                    <label><input type="radio" name="q55" value="a"> a) 85GjCX08 </label>
+                    <label><input type="radio" name="q55" value="b"> b) 85GJCx08 </label>
+                    <label><input type="radio" name="q55" value="c"> c) 85gjCx08 </label>
+                    <label><input type="radio" name="q55" value="d"> d) 85GJcx80 </label>
+                </li>
+                <li>
+                    <p>XW3883HH</p>
+                    <label><input type="radio" name="q56" value="a"> a) XW3883HH </label>
+                    <label><input type="radio" name="q56" value="b"> b) Xw3838HH</label>
+                    <label><input type="radio" name="q56" value="c"> c) Xw3883hH </label>
+                    <label><input type="radio" name="q56" value="d"> d) XW3838hh </label>
+                </li>
+                <li>
+                    <p>zS5296mI</p>
+                    <label><input type="radio" name="q57" value="a"> a) Zs5269mI </label>
+                    <label><input type="radio" name="q57" value="b"> b) zS5296mI </label>
+                    <label><input type="radio" name="q57" value="c"> c) zS5269MI </label>
+                    <label><input type="radio" name="q57" value="d"> d) ZS2596MI </label>
+                </li>
+                <li>
+                    <p>QW6144bX</p>
+                    <label><input type="radio" name="q58" value="a"> a) QW6414Bx </label>
+                    <label><input type="radio" name="q58" value="b"> b) Qw6441bX </label>
+                    <label><input type="radio" name="q58" value="c"> c) Qw6144BX </label>
+                    <label><input type="radio" name="q58" value="d"> d) QW6144bX </label>
+                </li>
+                <li>
+                    <p>835372EF</p>
+                    <label><input type="radio" name="q59" value="a"> a) 835372EF </label>
+                    <label><input type="radio" name="q59" value="b"> b) 853372eF</label>
+                    <label><input type="radio" name="q59" value="c"> c) 833527EF </label>
+                    <label><input type="radio" name="q59" value="d"> d) 835327eF </label>
+                </li>
+                <li>
+                    <p>qp9057LJ</p>
+                    <label><input type="radio" name="q60" value="a"> a) qP9075LJ </label>
+                    <label><input type="radio" name="q60" value="b"> b) qp0975lJ </label>
+                    <label><input type="radio" name="q60" value="c"> c) qp9057LJ</label>
+                    <label><input type="radio" name="q60" value="d"> d) qP0957lJ</label>
+                </li>
+
+
+            </ol>
+            <button type="button" id="submit"  >Show Result</button>
+            <button type="button" id="done" onclick="sendResults()">Submit</button> 
+            <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+    </div>
+
+    <div id="chart-container">
+        <h2> Results</h2>
+        <canvas id="quizChart" width="400" height="400"></canvas>
+    </div>
+    <div id="timer-container">
+        <h2 id="timer">Time Left: <span id="timer-countdown">10:00</span></h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+        const answers = {
+            q1: "c",
+            q2: "d",
+            q3: "a",
+            q4: "c",
+            q5: "d",
+            q6: "b",
+            q7: "a",
+            q8: "d",
+            q9: "b",
+            q10: "c",
+            q11: "a",
+            q12: "c",
+            q13: "a",
+            q14: "b",
+            q15: "d",
+            q16: "a",
+            q17: "c",
+            q18: "b",
+            q19: "c",
+            q20: "d",
+            q21: "b",
+            q22: "a",
+            q23: "b",
+            q24: "c",
+            q25: "b",
+            q26: "d",
+            q27: "a",
+            q28: "c",
+            q29: "b",
+            q30: "d",
+            q31: "c",
+            q32: "a",
+            q33: "c",
+            q34: "b",
+            q35: "d",
+            q36: "a",
+            q37: "d",
+            q38: "a",
+            q39: "c",
+            q40: "b",
+            q41: "c",
+            q42: "d",
+            q43: "c",
+            q44: "d",
+            q45: "c",
+            q46: "d",
+            q47: "b",
+            q48: "d",
+            q49: "b",
+            q50: "c",
+            q51: "a",
+            q52: "d",
+            q53: "b",
+            q54: "d",
+            q55: "b",
+            q56: "a",
+            q57: "b",
+            q58: "d",
+            q59: "a",
+            q60: "c"
+        };
+
+        function getCorrectAnswer(questionNumber) {
+            return answers['q' + questionNumber];
+        }
+
+        document.getElementById("submit").addEventListener('click', function(e){
+            // Logic to calculate quiz results (count correct, incorrect, unattended)
+            var totalQuestions = 60;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+
+            var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+            var totalAttempts = correctAnswers + incorrectAnswers;
+
+            // Calculate percentages
+            var correctPercentage = (correctAnswers / totalQuestions) * 100;
+            var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+            var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+            // Display pie chart
+            displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+           
+        })
+
+        function displayPieChart(correct, incorrect, unattended) {
+            var ctx = document.getElementById('quizChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattended],
+                        backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                    }],
+                },
+            });
+        }
+        const totalQuizTimeInSeconds = 600; // 10 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timert6`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timert6');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timert6', timer);
+    flag=0;
+}
+    }
+}
+function sendResults(){
+    var totalQuestions = 60;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('PA',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('linkt6',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.onpopstate = function () {
+//         sendResults();
+//    };
+   function home(){
+            window.location.href="{{ url_for('ten') }}";
+
+        }
+
+// Start the timer when the page loads
+startTimer();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voca Visionary Report Card</title>
+  <style>
+    body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  }
+  
+  .report-card1 {
+    width: 800px;
+    height: 100%;
+    margin: 0 auto ;
+    padding: 20px;
+    
+    border-left: 100px solid #142B4F;
+    background-color: white; /* Remove light blue background */
+    /* Remove the left border */
+    padding-left: 10px;/* Darker blue for left border */
+      
+    
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+ 
+  .header {
+    font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+   margin-left: 40px;
+    margin:auto;
+    width: 50%;
+ 
+  padding: 10px;
+   
+   
+  }
+  .institute{
+    margin-left: 40px;
+    margin-top: -110px;
+    font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  
+  font-style: normal;
+  color: #899FBD;
+  }
+  .logo {
+    margin-top: -80px;
+    margin-left: -288.5px;
+    width: 158.36220472px;
+    height: 158.36220472px;
+  }
+  
+  .student-info {
+    line-height: 1.5;
+    margin-bottom: 20px;
+    margin-left: 100px;
+  }
+  
+  .student-info span {
+    font-weight: bold;
+  }
+  
+  .courses {
+
+    margin-left: 100px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .courses tr:nth-child(even) {
+    background-color: #f5f5f5; 
+  }
+ 
+  
+  .courses th,
+  .courses td {
+    border: 0px solid #ddd;
+    padding: 8px;
+  }
+  
+  .courses th {
+    text-align: left;
+    background-color: #899FBD; /* Darker blue for header row */
+    color: #fff;
+  }
+  .grade-scale{
+    margin-left: 100px;
+  }
+  
+  .grade-scale table {
+
+  border-collapse: collapse;
+  width: 80%;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.grade-scale th,
+.grade-scale td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.grade-scale th {
+  font-weight: bold;
+  background-color: #899FBD; 
+  color: #fff;
+}
+
+  .remarks {
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  .myBarChart{
+    margin-left: 100px;
+   
+  }
+  #report-card2 {
+    width: 800px;
+    height: 100%;
+   margin: auto;
+    padding: 20px;
+    
+    border-left: 100px solid #142B4F;
+    background-color: white; /* Remove light blue background */
+    /* Remove the left border */
+    padding-left: 10px;/* Darker blue for left border */
+      
+    
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+  #toggle-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#toggle-btn:hover {
+  background-color: #0069d9;
+}
+#Home {
+  display: inline-block; /* Change display to inline-block */
+  margin: 10px;
+  padding: 5px 20px; /* Decrease padding to adjust width */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: none; /* Remove underline */
+  /* float: right; Align to the right */
+}
+
+#Home:hover {
+  background-color: #0069d9;
+}
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+<script>
+  
+</script>
+</head>
+<body>
+  <a id="Home" href="{{ url_for('chatbotpage') }}">Chatbot</a>
+  <a id="Home" href="{{ url_for('home') }}">Home</a>
+  <div class="report-card1">
+    
+    <div class="header">
+      <h1>REPORT CARD</h1>
+     
+      <img src="{{ url_for('static', filename='img/vvlogo 2.png') }}" alt="Voca Visionary Logo" class="logo">
+      
+      <div class="institute">
+        <h2>Voca Visionary</h2>
+      </div>
+    </div>
+    <div class="student-info">
+      <br>
+      
+      <p>STUDENT NAME: <span id="name"></span></p>
+      <p>AGE: <span id="age"> </span></p>
+      <p>GENDER: <span id="Gender"></span></p>
+      <p>EDUCATION: <span id="education"> </span></p>
+      <p>AY: <span>2023-2024</span></p>     
+    </div>
+    <div class="courses">
+      <table>
+        <thead>
+          <tr>
+			<th>S.I No</th>
+            <th>Test Name</th>
+            <th>Marks</th>
+            <th>Grade-scale</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+			<td>1</td>
+            <td>Abstract Reasoning</td>
+            <td id="AR"></td>
+            <td id="ARs"></td>
+            
+            <td id="g1"></td>
+          </tr>
+          <tr>
+			<td>2</td>
+            <td>Language Aptitude</td>
+            <td id="LA"></td>
+            <td id="LAs"></td>
+           
+            <td id="g2"></td>
+          </tr>
+          <tr>
+			<td>3</td>
+            <td>Mechanical Reasoning</td>
+            <td id="MR"></td>
+            <td id="MRs"></td>
+           
+            <td id="g3"></td>
+          </tr>
+          <tr>
+			<td>4</td>
+            <td>Numerical Aptitude</td>
+            <td id="NA"></td>
+            <td id="NAs"></td>
+           
+            <td id="g4"></td>
+          </tr>
+          <tr>
+			<td>5</td>
+            <td>Perceptual Aptitude</td>
+            <td id="PA"></td>
+            <td id="PAs"></td>
+          
+            <td id="g5"></td>
+          </tr>
+		  <tr>
+			<td>6</td>
+            <td>Spatial Aptitude</td>
+            <td id="SA"></td>
+            <td id="SAs"></td>
+            
+            <td id="g6"></td>
+          </tr>
+		  <tr>
+			<td>7</td>
+            <td>Verbal Reasoning </td>
+            <td id="VR"></td>
+            <td id="VRs"></td>
+           
+            <td id="g7"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grade-scale">
+      
+      <table>
+        <thead>
+          <tr>
+            <th colspan="6">GRADE SCALE</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Excellent</td>
+            <td>Great</td>
+            <td>Good</td>
+            <td>Average</td>
+            <td>Poor</td>
+            
+          </tr>
+          <tr>
+            
+            <td>9-10</td>
+            <td>7-8</td>
+            <td>5-6</td>
+            <td>3-4</td>
+            <td>1-2</td>
+            
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    <button id="toggle-btn">Show Remarks</button>
+    </div>
+    <div id="report-card2">
+	<canvas id="myBarChart" width="400" height="200"></canvas>
+	<div class="remarks">
+	<h4> DETAILED REMARKS</h4>
+	<p id="remarks">You have scored well in the test .Please ensure these points:
+    <ul>
+      <li id="r1">You have scored good marks in NA.</li>
+      <li id="r2">You have scored above Average mark in AR.</li>
+      
+      <li id="r3">You have scored above Average mark in VR.</li>
+     
+      <li id="r4">You have scored above Average mark in SA.</li>
+      <li id="r5">You have scored Excellent marks in MR.</li>
+      <li id="r6">You have scored Excellent marks in PA.</li>
+      <li id="r7">You have scored Average marks in LA.</li>
+      
+     
+      
+    </ul>
+  </p>
+</div>
+  </div>
+</div>
+  
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module">
+       
+    let l1 = 0;
+    let l2 = 0;
+    let l3 = 0;
+    let l4 = 0;
+    let l5 = 0;
+    let l6 = 0;
+    let l7 = 0;
+       // Import the functions you need from the SDKs you need
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+    // Your web app's Firebase configuration
+      // Add your Firebase configuration here
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+        authDomain: "careerchatbot-a0647.firebaseapp.com",
+        projectId: "careerchatbot-a0647",
+        storageBucket: "careerchatbot-a0647.appspot.com",
+        messagingSenderId: "783848410278",
+        appId: "1:783848410278:web:7b7c8481914ffce3357867",
+      };
+      
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    //get ref to database services
+    const db = getDatabase(app);
+    
+
+        const dbRef = ref(db);
+        get(child(dbRef, 'users/' +  localStorage.getItem('user-id'))).then((snapshot) => {
+            if (snapshot.exists()) {
+                document.getElementById("name").textContent = snapshot.val().username,
+                    document.getElementById("age").textContent = snapshot.val().Age,
+                    document.getElementById("Gender").textContent = snapshot.val().Gender,
+                    document.getElementById("education").textContent = snapshot.val().Education,
+                    document.getElementById("AR").textContent = snapshot.val().Marks.AR,
+                    document.getElementById("LA").textContent = snapshot.val().Marks.LA,
+                    document.getElementById("MR").textContent = snapshot.val().Marks.MR,
+                    document.getElementById("NA").textContent = snapshot.val().Marks.NA,
+                    document.getElementById("PA").textContent = snapshot.val().Marks.PA,
+                    document.getElementById("SA").textContent = snapshot.val().Marks.SA,
+                    document.getElementById("VR").textContent = snapshot.val().Marks.VR
+            }
+        })
+       
+        .then ( ()=>{
+
+
+
+              })
+.catch ((error) =>{
+alert("Unsuccessful");
+console. log(error);
+
+})
+
+    window.onload = () => {
+    const toggleBtn = document.getElementById('toggle-btn');
+    const reportCard2 = document.getElementById('report-card2');
+
+    toggleBtn.addEventListener('click', () => {
+      if (reportCard2.style.display === 'none' || !reportCard2.style.display){
+
+       // Remove the result from local storage when hiding the report card
+  
+        reportCard2.style.display = 'block';
+        toggleBtn.textContent = "Hide Remark";
+        const value1 = parseInt(document.getElementById("AR").textContent);
+        const value2 = parseInt(document.getElementById("LA").textContent);
+        const value3 = parseInt(document.getElementById("MR").textContent);
+        const value4 = parseInt(document.getElementById("NA").textContent);
+        const value5 = parseInt(document.getElementById("PA").textContent);
+        const value6 = parseInt(document.getElementById("SA").textContent);
+        const value7 = parseInt(document.getElementById("VR").textContent);
+        l1=parseInt((value1/30)*10);
+        l2=parseInt((value2/30)*10);
+        l3=parseInt((value3/30)*10);
+        l4=parseInt((value4/30)*10);
+        l5=parseInt((value5/60)*10);
+        l6=parseInt((value6/30)*10);
+        l7=parseInt((value7/30)*10);
+        if(value1>0 && l1<=0){
+            l1=1;
+        }
+        if(value2>0 && l2<=0){
+            l2=1;
+        }
+        if(value3>0 && l3<=0){
+            l3=1;
+        }
+        if(value4>0 && l4<=0){
+            l4=1;
+        }
+        if(value5>0 && l5<=0){
+            l5=1;
+        }
+        if(value6>0 && l6<=0){
+            l6=1;
+        }
+        if(value7>0 && l7<=0){
+            l7=1;
+        }
+        document.getElementById("ARs").textContent = l1;
+        document.getElementById("LAs").textContent = l2;
+        document.getElementById("MRs").textContent = l3;
+        document.getElementById("NAs").textContent = l4;
+        document.getElementById("PAs").textContent = l5;
+        document.getElementById("SAs").textContent = l6;
+        document.getElementById("VRs").textContent = l7;
+        if(l1 == 7||l1==8){
+            document.getElementById("r1").textContent="You have scored great  in Abstract Reasoning";
+            document.getElementById("g1").textContent="Great";
+        }
+        else if(l1 == 9|| l1==10){
+            document.getElementById("r1").textContent="You have scored excellent  in Abstract Reasoning";
+            document.getElementById("g1").textContent="Excellent";
+
+        }
+        else if(l1==6 || l1==5){
+            document.getElementById("r1").textContent="You have scored average in Abstract Reasoning";
+            document.getElementById("g1").textContent="Average";
+        }
+        else{
+            document.getElementById("r1").textContent="You have scored less in Abstract Reasoning";
+            document.getElementById("g1").textContent="Poor";
+
+        }
+       
+        if(l2 == 7||l2==8){
+            document.getElementById("r2").textContent="You have scored great  in Language Aptitude";
+            document.getElementById("g2").textContent="Great";
+        }
+        else if(l2 == 9|| l2==10){
+            document.getElementById("r2").textContent="You have scored excellent  in Language Aptitude";
+            document.getElementById("g2").textContent="Excellent";
+
+        }
+        else if(l2==6 || l2==5){
+            document.getElementById("r2").textContent="You have scored average in Language Aptitude";
+            document.getElementById("g2").textContent="Average";
+        }
+        else{
+            document.getElementById("r2").textContent="You have scored less in Language Aptitude";
+            document.getElementById("g2").textContent="Poor";
+
+        }
+        if(l3 == 7||l3==8){
+            document.getElementById("r3").textContent="You have scored great  in Mechanical Reasoning";
+            document.getElementById("g3").textContent="Great";
+        }
+        else if(l3 == 9|| l3==10){
+            document.getElementById("r3").textContent="You have scored excellent  in Mechanical Reasoning";
+            document.getElementById("g3").textContent="Excellent";
+
+        }
+        else if(l3==6 || l3==5){
+            document.getElementById("r3").textContent="You have scored average in Mechanical Reasoning";
+            document.getElementById("g3").textContent="Average";
+        }
+        else{
+            document.getElementById("r3").textContent="You have scored less in Mechanical Reasoning";
+            document.getElementById("g3").textContent="Poor";
+
+        }
+        if(l4 == 7||l4==8){
+            document.getElementById("r4").textContent="You have scored great  in Numerical Aptitude";
+            document.getElementById("g4").textContent="Great";
+        }
+        else if(l4 == 9|| l4==10){
+            document.getElementById("r4").textContent="You have scored excellent  in Numerical Aptitude";
+            document.getElementById("g4").textContent="Excellent";
+
+        }
+        else if(l4==6 || l4==5){
+            document.getElementById("r4").textContent="You have scored average in Numerical Aptitude";
+            document.getElementById("g4").textContent="Average";
+        }
+        else{
+            document.getElementById("r4").textContent="You have scored less in Numerical Aptitude";
+            document.getElementById("g4").textContent="Poor";
+
+        }
+        if(l5 == 7||l5==8){
+            document.getElementById("r5").textContent="You have scored great  in Perceptual Aptitude";
+            document.getElementById("g5").textContent="Great";
+        }
+        else if(l5 == 9|| l5==10){
+            document.getElementById("r5").textContent="You have scored excellent  in Perceptual Aptitude";
+            document.getElementById("g5").textContent="Excellent";
+
+        }
+        else if(l5==6 || l5==5){
+            document.getElementById("r5").textContent="You have scored average in Perceptual Aptitude";
+            document.getElementById("g5").textContent="Average";
+        }
+        else{
+            document.getElementById("r5").textContent="You have scored less in Perceptual Aptitude";
+            document.getElementById("g5").textContent="Poor";
+
+        }
+        if(l6 == 7||l6==8){
+            document.getElementById("r6").textContent="You have scored great  in Spatial Aptitude";
+            document.getElementById("g6").textContent="Great";
+        }
+        else if(l6 == 9|| l6==10){
+            document.getElementById("r6").textContent="You have scored excellent  in Spatial Aptitude";
+            document.getElementById("g6").textContent="Excellent";
+
+        }
+        else if(l6==6 || l6==5){
+            document.getElementById("r6").textContent="You have scored average in Spatial Aptitude";
+            document.getElementById("g6").textContent="Average";
+        }
+        else{
+            document.getElementById("r6").textContent="You have scored less in Spatial Aptitude";
+            document.getElementById("g6").textContent="Poor";
+
+        }
+        if(l7 == 7||l7==8){
+            document.getElementById("r7").textContent="You have scored great  in Verbal Reasoning";
+            document.getElementById("g7").textContent="Great";
+        }
+        else if(l7 == 9|| l7==10){
+            document.getElementById("r7").textContent="You have scored excellent  in Verbal Reasoning";
+            document.getElementById("g7").textContent="Excellent";
+
+        }
+        else if(l7==6 || l7==5){
+            document.getElementById("r7").textContent="You have scored average in Verbal Reasoning";
+            document.getElementById("g7").textContent="Average";
+        }
+        else{
+            document.getElementById("r7").textContent="You have scored less in Verbal Reasoning";
+            document.getElementById("g7").textContent="Poor";
+
+        }
+
+        const resultData = {
+                AR: l1,
+                LA: l2,
+                MR: l3,
+                NA: l4,
+                PA: l5,
+                SA: l6,
+                VR: l7,
+            };
+
+            localStorage.setItem('resultData', JSON.stringify(resultData));
+        var data = {
+            labels: ['AR', 'LA', 'MR', 'NA', 'PA', 'SA', 'VR'],
+            datasets: [{
+                label: 'Bar Graph Example',
+                data: [l1, l2, l3, l4, l5, l6, l7],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(50, 205, 50, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(50, 205, 50, 1)',
+                ],
+                borderWidth: 1
+            }]
+        };
+		var ctx = document.getElementById('myBarChart').getContext('2d');
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        });
+      
+      }
+      // else {
+      //       // ... (your existing code for hiding the report card)
+      //       localStorage.removeItem('resultData'); }
+    });
+}
+	
+</script>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Guidance Booking Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css')}}"
+    />
+    <script
+      src="{{ url_for('static', filename='js/dashboard.js')}}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#" id="addCounselorBtn">Add Counselor</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <header>
+          <h1>Admin Dashboard</h1>
+        </header>
+        <main>
+          <h2>Career Guidance Booking Dashboard</h2>
+          <section class="user-list">
+            <table id="appointment-table">
+              <thead>
+                <tr>
+                  <th>User Name</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Uploaded PDF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Static table rows -->
+                <!-- End of static table rows -->
+              </tbody>
+            </table>
+          </section>
+        </main>
+      </div>
+      <form id="counselor-form" enctype="multipart/form-data">
+        <!-- Counselor form fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br />
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required /><br />
+        <label for="about">About:</label>
+        <textarea id="about" name="about" rows="4" cols="50" required></textarea
+        ><br />
+        <label for="education">Education Qualification:</label>
+        <input type="text" id="education" name="education" required /><br />
+        <label for="experience">Experience:</label>
+        <input type="text" id="experience" name="experience" required /><br />
+        <!-- Photo upload section -->
+        <div class="photo-upload-section">
+          <label for="photo">Upload Photo:</label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="photo" name="photo" required />
+            <img id="photo-preview" src="#" alt="Photo preview" />
+          </div>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <footer>
+      <p>&copy; 2024 Career Guidance Booking System</p>
+    </footer>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+      import {
+        getStorage,
+        ref,
+        getDownloadURL,
+        uploadBytes,
+      } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-storage.js";
+
+      // Add your Firebase configuration here
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwQILsbePvghGoTFBLSLC7QmuZdvPU0CY",
+        authDomain: "careerchatbot-a0647.firebaseapp.com",
+        projectId: "careerchatbot-a0647",
+        storageBucket: "careerchatbot-a0647.appspot.com",
+        messagingSenderId: "783848410278",
+        appId: "1:783848410278:web:7b7c8481914ffce3357867",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+
+      async function fetchAndDisplayAppointments() {
+        try {
+          const querySnapshot = await getDocs(collection(db, "appointments"));
+          const tableBody = document.querySelector("#appointment-table tbody");
+
+          querySnapshot.forEach(async (doc) => {
+            const data = doc.data();
+            const row = document.createElement("tr");
+
+            // Create table cells for each field
+            const nameCell = document.createElement("td");
+            nameCell.textContent = `${data.Firstname} ${data.Lastname}`;
+            row.appendChild(nameCell);
+
+            const phoneNumberCell = document.createElement("td");
+            phoneNumberCell.textContent = data.mob;
+            row.appendChild(phoneNumberCell);
+
+            const emailCell = document.createElement("td");
+            emailCell.textContent = data.email;
+            row.appendChild(emailCell);
+
+            const pdfCell = document.createElement("td");
+            const pdfLink = document.createElement("a");
+            try {
+              const url = await getDownloadURL(
+                ref(storage, "aptitude/" + data.pdfFileName)
+              );
+              pdfLink.href = url;
+              pdfLink.textContent = "View PDF";
+              pdfLink.target = "_blank";
+              pdfCell.appendChild(pdfLink);
+            } catch (error) {
+              console.error("Error fetching PDF URL: ", error);
+              pdfCell.textContent = "Error loading PDF";
+            }
+            row.appendChild(pdfCell);
+
+            // Append the row to the table body
+            tableBody.appendChild(row);
+          });
+        } catch (error) {
+          console.error("Error fetching appointments: ", error);
+        }
+      }
+
+      document
+        .getElementById("addCounselorBtn")
+        .addEventListener("click", () => {
+          document.getElementById("counselor-form").style.display = "block";
+        });
+
+      document
+        .getElementById("counselor-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const about = document.getElementById("about").value;
+          const education = document.getElementById("education").value;
+          const experience = document.getElementById("experience").value;
+          const photoFile = document.getElementById("photo").files[0];
+
+          try {
+            const photoRef = ref(storage, "counselors/" + photoFile.name);
+            await uploadBytes(photoRef, photoFile);
+            const photoURL = await getDownloadURL(photoRef);
+
+            await addDoc(collection(db, "counselors"), {
+              name,
+              email,
+              about,
+              education,
+              experience,
+              photoURL,
+            });
+
+            alert("Counselor added successfully");
+
+            // Clear the form
+            document.getElementById("counselor-form").reset();
+            document.getElementById("photo-preview").src = "#";
+            document.getElementById("counselor-form").style.display = "none";
+          } catch (error) {
+            console.error("Error adding counselor: ", error);
+            alert("Error adding counselor");
+          }
+        });
+
+      // Display selected photo preview
+      document.getElementById("photo").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+          document.getElementById("photo-preview").src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Fetch and display appointments when the page loads
+      document.addEventListener(
+        "DOMContentLoaded",
+        fetchAndDisplayAppointments
+      );
+    </script>
+  </body>
+</html>

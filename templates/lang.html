@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Reasoning Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #chart-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #timer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background-color: #f0f0f0;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div id="quiz-container">
+    <h1>Language Reasoning Test</h1>
+    <form id="quiz-form">
+        <!-- Questions and Options -->
+        <ol>
+            <li>
+                <p>Which of the following is a synonym for “Hilarious”?</p>
+                <label><input type="radio" name="q1" value="a"> a) Boring</label>
+                <label><input type="radio" name="q1" value="b"> b) Amusing</label>
+                <label><input type="radio" name="q1" value="c"> c) Serious</label>
+                <label><input type="radio" name="q1" value="d"> d) Grim</label>
+            </li>
+            <li>
+                <p>Which of the following is an antonym of “beginning”?.</p>
+                
+                <label><input type="radio" name="q2" value="a"> a) Start</label>
+                <label><input type="radio" name="q2" value="b"> b) End</label>
+                <label><input type="radio" name="q2" value="c"> c) Middle</label>
+                <label><input type="radio" name="q2" value="d"> d) Initiation</label>
+            </li>
+            <li>
+                <p>What is the antonym of “big”?</p>
+                <label><input type="radio" name="q3" value="a"> a) Tiny</label>
+                <label><input type="radio" name="q3" value="b"> b) Large</label>
+                <label><input type="radio" name="q3" value="c"> c) Enormous</label>
+                <label><input type="radio" name="q3" value="d"> d) Huge </label>
+            </li>
+            <li>
+                <p> Which of the following is an antonym of “love”?</p>
+                <label><input type="radio" name="q4" value="a"> a) Like </label>
+                <label><input type="radio" name="q4" value="b"> b) Adore</label>
+                <label><input type="radio" name="q4" value="c"> c) Hate</label>
+                <label><input type="radio" name="q4" value="d"> d) Cherish</label>
+            </li>
+            <li>
+                <p> I ___________ my homework before I went out to play. </p>
+                <label><input type="radio" name="q5" value="a"> a) Finish</label>
+                <label><input type="radio" name="q5" value="b"> b) Finishes </label>
+                <label><input type="radio" name="q5" value="c"> c) Will finish </label>
+                <label><input type="radio" name="q5" value="d"> d) Finished </label>
+            </li>
+            <li>
+                <p> He ___________ the movie twice this week.</p>
+                <label><input type="radio" name="q6" value="a"> a) Watch</label>
+                <label><input type="radio" name="q6" value="b"> b) Watches </label>
+                <label><input type="radio" name="q6" value="c"> c) Watched </label>
+                <label><input type="radio" name="q6" value="d"> d) Will watch</label>
+            </li>
+            <li>
+                <p> By this time next week, I ___________ in Paris.</p>
+                <label><input type="radio" name="q7" value="a"> a) Am </label>
+                <label><input type="radio" name="q7" value="b"> b) Will be </label>
+                <label><input type="radio" name="q7" value="c"> c) Was </label>
+                <label><input type="radio" name="q7" value="d"> d) Would be </label>
+            </li>
+            <li>
+                <p> She ___________ her book on the table and went to bed.</p>
+                <label><input type="radio" name="q8" value="a"> a) Put </label>
+                <label><input type="radio" name="q8" value="b"> b) Puts </label>
+                <label><input type="radio" name="q8" value="c"> c) Will put </label>
+                <label><input type="radio" name="q8" value="d"> d) Had put </label>
+            </li>
+            <li>
+                <p> Choose the correct adjective to complete the sentence: The ________ puppy wagged its tail happily.</p>
+                <label><input type="radio" name="q9" value="a"> a) shy </label>
+                <label><input type="radio" name="q9" value="b"> b) sad </label>
+                <label><input type="radio" name="q9" value="c"> c) excited </label>
+                <label><input type="radio" name="q9" value="d"> d) angry</label>
+            </li>
+            <li>
+                <p>Choose the correct adjective to complete the sentence: The ________ mountain peak was covered in snow.</p>
+                <label><input type="radio" name="q10" value="a"> a) rocky</label>
+                <label><input type="radio" name="q10" value="b"> b) steep </label>
+                <label><input type="radio" name="q10" value="c"> c) snowy </label>
+                <label><input type="radio" name="q10" value="d"> d) lush </label>
+            </li>
+            <li>
+                <p> Choose the correct adjective to complete the sentence: The ________ kitten was playful and curious.</p>
+                <label><input type="radio" name="q11" value="a"> a) sleepy </label>
+                <label><input type="radio" name="q11" value="b"> b) lethargic </label>
+                <label><input type="radio" name="q11" value="c"> c) active </label>
+                <label><input type="radio" name="q11" value="d"> d) uninterested </label>
+            </li>
+            <li>
+                <p>Can you pass me _____ salt, please?</p>
+                <label><input type="radio" name="q12" value="a"> a) the </label>
+                <label><input type="radio" name="q12" value="b"> b) a </label>
+                <label><input type="radio" name="q12" value="c"> c) an </label>
+                <label><input type="radio" name="q12" value="d"> d) no article needed</label>
+            </li>
+            <li>
+                <p>I need to buy _____ new phone.</p>
+                <label><input type="radio" name="q13" value="a"> a) the </label>
+                <label><input type="radio" name="q13" value="b"> b) a </label>
+                <label><input type="radio" name="q13" value="c"> c) an </label>
+                <label><input type="radio" name="q13" value="d"> d) no article needed </label>
+            </li>
+            <li>
+                <p>
+                    My neighbor has _____ adorable dog.</p>
+                <label><input type="radio" name="q14" value="a"> a) the</label>
+                <label><input type="radio" name="q14" value="b"> b) a </label>
+                <label><input type="radio" name="q14" value="c"> c) an </label>
+                <label><input type="radio" name="q14" value="d"> d) no article needed </label>
+            </li>
+            <li>
+                <p>_____ moon is visible in the sky tonight.</p>
+                <label><input type="radio" name="q15" value="a"> a) The </label>
+                <label><input type="radio" name="q15" value="b"> b) A </label>
+                <label><input type="radio" name="q15" value="c"> c) An </label>
+                <label><input type="radio" name="q15" value="d"> d) No article needed </label>
+            </li>
+            <li>
+                <p>What is the plural of the word “child”?</p>
+                <label><input type="radio" name="q16" value="a"> a) childs</label>
+                <label><input type="radio" name="q16" value="b"> b) childen </label>
+                <label><input type="radio" name="q16" value="c"> c) children </label>
+                <label><input type="radio" name="q16" value="d"> d) childer </label>
+            </li>
+            <li>
+                <p>What is the plural of the word “tooth”?</p>
+                <label><input type="radio" name="q17" value="a"> a) tooths </label>
+                <label><input type="radio" name="q17" value="b"> b) teeths </label>
+                <label><input type="radio" name="q17" value="c"> c) toothen </label>
+                <label><input type="radio" name="q17" value="d"> d) teeth </label>
+            </li>
+            <li>
+                <p> What is the plural of the word “deer”?</p>
+                <label><input type="radio" name="q18" value="a"> a) deers </label>
+                <label><input type="radio" name="q18" value="b"> b) deer </label>
+                <label><input type="radio" name="q18" value="c"> c) deerling </label>
+                <label><input type="radio" name="q18" value="d"> d) deerlet </label>
+            </li>
+            <li>
+                <p>What is the plural of the word “fish”?</p>
+                <label><input type="radio" name="q19" value="a"> a) fish </label>
+                <label><input type="radio" name="q19" value="b"> b) fishes</label>
+                <label><input type="radio" name="q19" value="c"> c) fishies </label>
+                <label><input type="radio" name="q19" value="d"> d) fishen </label>
+            </li>
+
+
+            <li>
+                <p>What is the plural of the word “goose”?</p>
+                <label><input type="radio" name="q20" value="a"> a) gooses</label>
+                <label><input type="radio" name="q20" value="b"> b) geese</label>
+                <label><input type="radio" name="q20" value="c"> c) gooselet</label>
+                <label><input type="radio" name="q20" value="d"> d) goslings</label>
+            </li>
+            <li>
+                <p>The pen is ________ the table.</p>
+                <label><input type="radio" name="q21" value="a"> a) under</label>
+                <label><input type="radio" name="q21" value="b"> b) beside</label>
+                <label><input type="radio" name="q21" value="c"> c) in</label>
+                <label><input type="radio" name="q21" value="d"> d) on</label>
+            </li>
+            <li>
+                <p>The painting is hanging ________ the wall.</p>
+                <label><input type="radio" name="q22" value="a"> a) on</label>
+                <label><input type="radio" name="q22" value="b"> b) under</label>
+                <label><input type="radio" name="q22" value="c"> c) beside</label>
+                <label><input type="radio" name="q22" value="d"> d) in</label>
+            </li>
+            <li>
+                <p>The cat is hiding ________ the bed. </p>
+                <label><input type="radio" name="q23" value="a"> a) on</label>
+                <label><input type="radio" name="q23" value="b"> b) under</label>
+                <label><input type="radio" name="q23" value="c"> c) beside</label>
+                <label><input type="radio" name="q23" value="d"> d) in </label>
+            </li>
+            <li>
+                <p>The spider is crawling ________ the wall.</p>
+                <label><input type="radio" name="q24" value="a"> a) on </label>
+                <label><input type="radio" name="q24" value="b"> b) under</label>
+                <label><input type="radio" name="q24" value="c"> c) beside</label>
+                <label><input type="radio" name="q24" value="d"> d) in</label>
+            </li>
+            <li>
+                <p>The book is ________ the shelf.</p>
+                <label><input type="radio" name="q25" value="a"> a) on </label>
+                <label><input type="radio" name="q25" value="b"> b) under </label>
+                <label><input type="radio" name="q25" value="c"> c) beside </label>
+                <label><input type="radio" name="q25" value="d"> d) in </label>
+            </li>
+            <li>
+                <p>Active Voice: The dog chased the cat.What is its Passive Voice?</p>
+                <label><input type="radio" name="q26" value="a"> a) The cat was chased by the dog </label>
+                <label><input type="radio" name="q26" value="b"> b) The cat was being chased by the dog. </label>
+                <label><input type="radio" name="q26" value="c"> c) The cat was chased by the dog. </label>
+                <label><input type="radio" name="q26" value="d"> d) The cat had been chased by the dog.</label>
+            </li>
+            <li>
+                <p>Passive Voice: The cake was baked by Sarah.What is its Active Voice?</p>
+                <label><input type="radio" name="q27" value="a"> a) Sarah baked the cake. </label>
+                <label><input type="radio" name="q27" value="b"> b) Sarah is baking the cake. </label>
+                <label><input type="radio" name="q27" value="c"> c) Sarah had baked the cake. </label>
+                <label><input type="radio" name="q27" value="d"> d) Sarah will bake the cake. </label>
+            </li>
+            <li>
+                <p>Active Voice: The teacher graded the exams.What is its Passive Voice?</p>
+
+                <label><input type="radio" name="q28" value="a"> a) The exams were graded by the teacher.</label>
+                <label><input type="radio" name="q28" value="b"> b) The exams are being graded by the teacher. </label>
+                <label><input type="radio" name="q28" value="c"> c) The exams have been graded by the teacher. </label>
+                <label><input type="radio" name="q28" value="d"> d) The exams will be graded by the teacher. </label>
+            </li>
+            <li>
+                <p>The weather is warm, _____________ people are still wearing winter coats.</p>
+                <label><input type="radio" name="q29" value="a"> a) because </label>
+                <label><input type="radio" name="q29" value="b"> b) yet </label>
+                <label><input type="radio" name="q29" value="c"> c) and </label>
+                <label><input type="radio" name="q29" value="d"> d) so </label>
+            </li>
+            <li>
+                <p> She ___________ a book while waiting for the train.</p>
+                <label><input type="radio" name="q30" value="a"> a) reads</label>
+                <label><input type="radio" name="q30" value="b"> b) read </label>
+                <label><input type="radio" name="q30" value="c"> c) was reading </label>
+                <label><input type="radio" name="q30" value="d"> d) has been reading </label>
+            </li>
+        </ol>
+
+
+
+
+        <button type="button" id="submit"  >Show Result</button>
+        <button type="button" id="done" onclick="sendResults()">Submit</button> 
+        <button type="button"  id="go" onclick="home()">Return to HomePage</button>
+        </form>
+        </div>
+        <div id="chart-container">
+            <h2> Results</h2>
+            <canvas id="quizChart" width="400" height="400"></canvas>
+        </div>
+        <div id="timer-container">
+            <h2 id="timer">Time Left: <span id="timer-countdown">20:00</span></h2>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            var clickedLink7 = document.getElementById('submit');
+  clickedLink7.disabled = true;
+  clickedLink7.style.display = 'none';
+  var Link = document.getElementById('go');
+  Link.disabled = true;
+  Link.style.display = 'none';
+
+            const answers = {
+                q1: "b",
+                q2: "b",
+                q3: "a",
+                q4: "c",
+                q5: "d",
+                q6: "c",
+                q7: "b",
+                q8: "a",
+                q9: "c",
+                q10: "c",
+                q11: "c",
+                q12: "a",
+                q13: "b",
+                q14: "c",
+                q15: "a",
+                q16: "c",
+                q17: "d",
+                q18: "b",
+                q19: "a",
+                q20: "b",
+                q21: "d",
+                q22: "a",
+                q23: "b",
+                q24: "a",
+                q25: "d",
+                q26: "c",
+                q27: "a",
+                q28: "d",
+                q29: "b",
+                q30: "c"
+
+            };
+
+            function getCorrectAnswer(questionNumber) {
+                return answers['q' + questionNumber];
+            }
+
+            document.getElementById("submit").addEventListener('click', function(e){
+                // Logic to calculate quiz results (count correct, incorrect, unattended)
+                var totalQuestions = 30;
+                var correctAnswers = 0;
+                var unattendedQuestions = 0;
+
+                for (var i = 1; i <= totalQuestions; i++) {
+                    var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                    if (selectedOption) {
+                        var userAnswer = selectedOption.value;
+                        var correctAnswer = getCorrectAnswer(i);
+
+                        // Compare user's answer with correct answer
+                        if (userAnswer === correctAnswer) {
+                            correctAnswers++;
+                        }
+                    } else {
+                        // If no option is selected, question is unattended
+                        unattendedQuestions++;
+                    }
+                }
+
+                var incorrectAnswers = totalQuestions - correctAnswers - unattendedQuestions;
+                var totalAttempts = correctAnswers + incorrectAnswers;
+
+                // Calculate percentages
+                var correctPercentage = (correctAnswers / totalQuestions) * 100;
+                var incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+                var unattendedPercentage = (unattendedQuestions / totalQuestions) * 100;
+
+                // Display pie chart
+                displayPieChart(correctPercentage, incorrectPercentage, unattendedPercentage);
+           
+            })
+
+            function displayPieChart(correct, incorrect, unattended) {
+                var ctx = document.getElementById('quizChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Correct (' + correct.toFixed(2) + '%)', 'Incorrect (' + incorrect.toFixed(2) + '%)', 'Unattended (' + unattended.toFixed(2) + '%)'],
+                        datasets: [{
+                            data: [correct, incorrect, unattended],
+                            backgroundColor: ['#4CAF50', '#FF5252', '#FFC107'],
+                        }],
+                    },
+                });
+            }
+            const totalQuizTimeInSeconds = 1200; // 20 minutes
+
+let timer = totalQuizTimeInSeconds;
+let timerInterval;
+let flag=0;
+const remainingTime = localStorage.getItem(`timer7`);
+        if (remainingTime) {
+            timer=parseInt(remainingTime, 10);}
+
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    document.getElementById('timer-countdown').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timer <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timer7');
+        sendResults();
+    } else {
+        timer--;
+        flag++;
+        if(flag==10){
+        localStorage.setItem('timer7', timer);
+    flag=0;
+}
+    }
+}
+function home(){
+            window.location.href="{{ url_for('high') }}";
+
+        }
+function sendResults(){
+    var totalQuestions = 30;
+            var correctAnswers = 0;
+            var unattendedQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    var correctAnswer = getCorrectAnswer(i);
+
+                    // Compare user's answer with correct answer
+                    if (userAnswer === correctAnswer) {
+                        correctAnswers++;
+                    }
+                } else {
+                    // If no option is selected, question is unattended
+                    unattendedQuestions++;
+                }
+            }
+            localStorage.setItem('LA',correctAnswers);
+        console.log(localStorage);
+        localStorage.setItem('link7',true);
+        var clickedLink = document.getElementById('submit');
+  clickedLink.disabled = false;
+  clickedLink.style.display = 'block';
+  var Link = document.getElementById('go');
+  Link.disabled = false;
+  Link.style.display = 'block';
+  var clickedLink1 = document.getElementById('done');
+  clickedLink1.disabled = true;
+  clickedLink1.style.display = 'none';
+  timer = 0;
+        updateTimer();
+
+}
+// window.onbeforeunload = function () {
+//         return 'Your progress will be lost';
+//     };
+
+//     // Handle the case when the user chooses to leave the page
+//     window.addEventListener('unload', function () {
+//         // Call sendResults() function when user leaves the page
+//         sendResults();
+//     });
+// Start the timer when the page loads
+startTimer();
+        </script>
+</body>
+
+</html>
