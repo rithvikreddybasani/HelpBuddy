@@ -7,25 +7,25 @@ This career guidance chatbot, built using the Gemini API, utilizes Firebase as t
 ![Home Interface](https://github.com/user-attachments/assets/17d7bf22-e0f3-46ff-91be-6024bf7ed2a7)
 
 
-![Login Page](![image](https://github.com/user-attachments/assets/93a34a39-759a-402d-9544-c20214c56f3b)
-)
+![Login Page](https://github.com/user-attachments/assets/93a34a39-759a-402d-9544-c20214c56f3b)
 
-![Chat Interface](![image](https://github.com/user-attachments/assets/90d701db-b0df-4c87-b0a5-efa0d703adb5)
-)
 
-![Chat Interface](![image](https://github.com/user-attachments/assets/9dc5475e-7304-4e38-8b40-3f59b301e743)
-)
+![Chat Interface](https://github.com/user-attachments/assets/90d701db-b0df-4c87-b0a5-efa0d703adb5)
 
-![Chat Interface](![image](https://github.com/user-attachments/assets/205ddf7e-5533-4e8b-b1d8-b49ca22513fb)
-)
 
-![Appointment Interface](![image](https://github.com/user-attachments/assets/479c6f62-addb-4c1c-9786-1101bf2e705f)
-)
+![Chat Interface](https://github.com/user-attachments/assets/9dc5475e-7304-4e38-8b40-3f59b301e743)
 
-![Test Interface](![image](https://github.com/user-attachments/assets/ec85688a-e20f-4dcf-9ecc-c11d150fd1b8)
-)
 
-![Report Interface](Report.png)
+![Chat Interface](https://github.com/user-attachments/assets/205ddf7e-5533-4e8b-b1d8-b49ca22513fb)
+
+
+![Appointment Interface](https://github.com/user-attachments/assets/479c6f62-addb-4c1c-9786-1101bf2e705f)
+
+
+![Test Interface](https://github.com/user-attachments/assets/ec85688a-e20f-4dcf-9ecc-c11d150fd1b8)
+
+
+
 
 ### Features:
 - **Personalized Career Insights:** Tailored recommendations based on user input and assessments.
