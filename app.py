@@ -1,27 +1,8 @@
-from flask import Flask, render_template, request, jsonify
-import google.generativeai as gen_ai
-import os
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-<<<<<<< HEAD
-# Initialize Flask app
-app = Flask(__name__)
-=======
-$ pip install google-generativeai
-"""
 from flask import Flask, render_template, request, jsonify, url_for, redirect, session, flash a
 import google.generativeai as genai
 app = Flask(__name__)
 # Add Your API Key from http://makersuite.google.com the this website (random text removing)
 genai.configure(api_key="AIzaSyD_5oPOrWDWIuseBgeFZbVYDt8Aj7jGn_U")
->>>>>>> 0624f3a948eb3485991471af175168500c3d995d
-
-# Add Your API Key from http://makersuite.google.com
-GOOGLE_API_KEY   = "AIzaSyD_5oPOrWDWIuseBgeFZbVYDt8Aj7jGn_U"
-gen_ai.configure(api_key=GOOGLE_API_KEY)
 
 # Set up the models
 career_generation_config = {
