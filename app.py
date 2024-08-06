@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, url_for, redirect, session, flash a
+from flask import Flask, render_template, request, jsonify, url_for, redirect, session
 import google.generativeai as genai
 app = Flask(__name__)
 # Add Your API Key from http://makersuite.google.com the this website (random text removing)
